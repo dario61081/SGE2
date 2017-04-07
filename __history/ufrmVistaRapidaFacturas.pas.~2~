@@ -1,0 +1,33 @@
+unit ufrmVistaRapidaFacturas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmmensaje, Vcl.StdCtrls,
+  DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
+  IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh;
+
+type
+  TfrmVistaFacturas = class(TfrmMensaje)
+    grid1: TDBGridEh;
+    qryVenta: TIBQuery;
+    dsVenta: TDataSource;
+    lbl9: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmVistaFacturas: TfrmVistaFacturas;
+
+implementation
+
+uses
+  datos;
+
+{$R *.dfm}
+
+end.

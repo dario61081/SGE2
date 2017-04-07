@@ -1,0 +1,36 @@
+unit ufrmVentasDia;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.ExtCtrls, Vcl.StdCtrls,
+  DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
+  IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh;
+
+type
+  TfrmVentasDia = class(TfrmDatos)
+    lbl1: TLabel;
+    bvl1: TBevel;
+    grid1: TDBGridEh;
+    qryResumen: TIBQuery;
+    dsResumen: TDataSource;
+    qryResumenCONDICION: TIBStringField;
+    qryResumenTOTAL: TFloatField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmVentasDia: TfrmVentasDia;
+
+implementation
+
+uses
+  datos;
+
+{$R *.dfm}
+
+end.

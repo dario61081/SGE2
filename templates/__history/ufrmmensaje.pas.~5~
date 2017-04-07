@@ -1,0 +1,39 @@
+unit ufrmmensaje;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TfrmMensaje = class(TForm)
+    btnAceptar: TButton;
+    procedure btnAceptarClick(Sender: TObject);
+  private
+    Fusuario: string;
+    procedure Setusuario(const Value: string);
+    { Private declarations }
+  public
+    { Public declarations }
+    property usuario: string read Fusuario write Setusuario;
+  end;
+
+var
+  frmMensaje: TfrmMensaje;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmMensaje.btnAceptarClick(Sender: TObject);
+begin
+  modalresult := mrok;
+end;
+
+procedure TfrmMensaje.Setusuario(const Value: string);
+begin
+  Fusuario := Value;
+end;
+
+end.

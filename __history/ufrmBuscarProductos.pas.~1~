@@ -1,0 +1,30 @@
+unit ufrmBuscarProductos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmmensaje, DBGridEhGrouping,
+  ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
+  DBGridEh, Vcl.StdCtrls;
+
+type
+  TfrmBuscarProductos = class(TfrmMensaje)
+    lbl1: TLabel;
+    edtDato: TEdit;
+    btnBuscar: TButton;
+    grid1: TDBGridEh;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmBuscarProductos: TfrmBuscarProductos;
+
+implementation
+
+{$R *.dfm}
+
+end.

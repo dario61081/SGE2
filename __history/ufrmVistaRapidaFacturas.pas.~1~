@@ -1,0 +1,24 @@
+unit ufrmVistaRapidaFacturas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmmensaje, Vcl.StdCtrls;
+
+type
+  TfrmVistaFacturas = class(TfrmMensaje)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmVistaFacturas: TfrmVistaFacturas;
+
+implementation
+
+{$R *.dfm}
+
+end.

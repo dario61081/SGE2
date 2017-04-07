@@ -1,0 +1,188 @@
+﻿unit Num2Let;
+
+interface
+
+uses sysutils;
+
+Function CantidadEnLetra(curCantidad: Currency; MonNal: integer): String;
+
+implementation
+
+Function CantidadEnLetra(curCantidad: Currency; MonNal: integer): String;
+var
+  i: integer;
+  //MonNal: integer;
+  Cantidad: Currency;
+  Centavos: Currency;
+  BloqueCero: Byte;
+  NumeroBloques: Byte;
+  Digito: Byte;
+  PrimerDigito, SegundoDigito, TercerDigito: Byte;
+  Resultado, Temp, strCentavos, Bloque: String;
+  Unidades: Array [0 .. 28] of String;
+  Decenas: Array [0 .. 8] of String;
+  Centenas: Array [0 .. 8] of String;
+begin
+  Unidades[0] := 'UN';
+  Unidades[1] := 'DOS';
+  Unidades[2] := 'TRES';
+  Unidades[3] := 'CUATRO';
+  Unidades[4] := 'CINCO';
+  Unidades[5] := 'SEIS';
+  Unidades[6] := 'SIETE';
+  Unidades[7] := 'OCHO';
+  Unidades[8] := 'NUEVE';
+  Unidades[9] := 'DIEZ';
+  Unidades[10] := 'ONCE';
+  Unidades[11] := 'DOCE';
+  Unidades[12] := 'TRECE';
+  Unidades[13] := 'CATORCE';
+  Unidades[14] := 'QUINCE';
+  Unidades[15] := 'DIESISEIS';
+  Unidades[16] := 'DIESISIETE';
+  Unidades[17] := 'DIESIOCHO';
+  Unidades[18] := 'DIESINUEVE';
+  Unidades[19] := 'VEINTE';
+  Unidades[20] := 'VEINTIUNO';
+  Unidades[21] := 'VEINTIDOS';
+  Unidades[22] := 'VEINTITRES';
+  Unidades[23] := 'VEINTICUATRO';
+  Unidades[24] := 'VEINTICINCO';
+  Unidades[25] := 'VEINTISEIS';
+  Unidades[26] := 'VEINTISIETE';
+  Unidades[27] := 'VEINTIOCHO';
+  Unidades[28] := 'VEINTINUEVE';
+  Decenas[0] := 'DIEZ';
+  Decenas[1] := 'VEINTE';
+  Decenas[2] := 'TREINTA';
+  Decenas[3] := 'CUARENTA';
+  Decenas[4] := 'CINCUENTA';
+  Decenas[5] := 'SESENTA';
+  Decenas[6] := 'SETENTA';
+  Decenas[7] := 'OCHENTA';
+  Decenas[8] := 'NOVENTA';
+  Centenas[0] := 'CIENTO';
+  Centenas[1] := 'DOSCIENTOS';
+  Centenas[2] := 'TRESCIENTOS';
+  Centenas[3] := 'CUATROCIENTOS';
+  Centenas[4] := 'QUINIENTOS';
+  Centenas[5] := 'SEISCIENTOS';
+  Centenas[6] := 'SETECIENTOS';
+  Centenas[7] := 'OCHOCIENTOS';
+  Centenas[8] := 'NOVECIENTOS';
+  Cantidad := Trunc(curCantidad);
+  Centavos := (curCantidad - Cantidad) * 100;
+  NumeroBloques := 1;
+  Repeat
+    PrimerDigito := 0;
+    SegundoDigito := 0;
+    TercerDigito := 0;
+    Bloque := '';
+    BloqueCero := 0;
+    For i := 1 To 3 do
+    begin
+      Digito := Round(Cantidad) Mod 10;
+      If Digito <> 0 Then
+      begin
+        Case i of
+          1:
+            begin
+              Bloque := ' ' + Unidades[Digito - 1];
+              PrimerDigito := Digito;
+            end;
+          2:
+            begin
+              If Digito <= 2 Then
+              begin
+                Bloque := ' ' + Unidades[(Digito * 10 + PrimerDigito - 1)];
+              end
+              Else
+              begin
+                If PrimerDigito <> 0 then
+                  Temp := ' Y'
+                else
+                  Temp := '';
+                Bloque := ' ' + Decenas[Digito - 1] + Temp + Bloque;
+              End;
+              SegundoDigito := Digito;
+            end;
+          3:
+            begin
+              If (Digito = 1) and (PrimerDigito = 0) and (SegundoDigito = 0)
+              then
+                Temp := 'CIEN'
+              else
+                Temp := Centenas[Digito - 1];
+              Bloque := ' ' + Temp + Bloque;
+              TercerDigito := Digito;
+            end;
+        End;
+      end
+      Else
+      begin
+        BloqueCero := BloqueCero + 1;
+      End;
+      Cantidad := Int(Cantidad / 10);
+      If Cantidad = 0 Then
+      begin
+        Break;
+      End;
+    end;
+    Case NumeroBloques of
+      1:
+        Resultado := Bloque;
+      2:
+        begin
+          if BloqueCero = 3 then
+            Temp := ''
+          else
+            Temp := ' MIL';
+          Resultado := Bloque + Temp + Resultado;
+        end;
+      3:
+        begin
+          If (PrimerDigito = 1) and (SegundoDigito = 0) and (TercerDigito = 0)
+          then
+            Temp := ' MILLON'
+          else
+            Temp := ' MILLONES';
+          Resultado := Bloque + Temp + Resultado;
+        end;
+    End;
+    NumeroBloques := NumeroBloques + 1;
+  Until Cantidad = 0;
+  case MonNal of
+    0:
+      begin
+        If curCantidad > 1 then
+          Temp := ' CENTAVOS '
+        else
+          Temp := ' CENTAVO ';
+        CantidadEnLetra := Resultado + Temp;
+      end;
+    1:
+      begin
+        If curCantidad > 1 then
+          Temp := ' PESOS '
+        else
+          Temp := ' PESO ';
+        if Centavos = 0 then
+          strCentavos := ''
+        else
+          strCentavos := 'CON ' + CantidadEnLetra(Centavos, 0);
+        CantidadEnLetra := Resultado + Temp + strCentavos;
+      end;
+    2:
+      begin
+        If curCantidad > 1 then
+          Temp := ' DLLS '
+        else
+          Temp := ' DOLAR ';
+        if Centavos = 0 then
+          strCentavos := ''
+        else
+          strCentavos := 'CON ' + CantidadEnLetra(Centavos, 0);
+        CantidadEnLetra := Resultado + Temp + strCentavos;
+      end;
+         end;
+end.

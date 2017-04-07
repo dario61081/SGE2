@@ -1,0 +1,25 @@
+unit ufrmProductos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.StdCtrls;
+
+type
+  TfrmProductos = class(TfrmDatos)
+    lbl9: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProductos: TfrmProductos;
+
+implementation
+
+{$R *.dfm}
+
+end.
