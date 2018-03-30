@@ -9,7 +9,7 @@ uses
   Vcl.Menus, JvBackgrounds, System.Actions, Vcl.ActnList,
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ImgList, JvCoolBar,
   Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager,
-  JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO;
+  JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO, JvAppInst;
 
 type
   TfrmMain = class(TForm)
@@ -58,6 +58,7 @@ type
     actGestionPrecios: TAction;
     spl1: TSplitter;
     actGestionPrecioProductos: TAction;
+    JvAppInstances1: TJvAppInstances;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);

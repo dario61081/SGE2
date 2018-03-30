@@ -19,6 +19,14 @@ object frmMain: TfrmMain
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object spl1: TSplitter
+    Left = 191
+    Top = 30
+    Height = 346
+    ExplicitLeft = 205
+    ExplicitTop = 115
+    ExplicitHeight = 100
+  end
   object status1: TJvStatusBar
     Left = 0
     Top = 376
@@ -79,30 +87,16 @@ object frmMain: TfrmMain
             OnClick = actFacturacionVentasExecute
           end
           item
-            Action = actGestionVentas
-            Caption = 'Gestion de Ventas'
+            Action = actGestionPrecioProductos
+            Caption = 'Productos y precios'
             ImageIndex = 6
             Tag = 0
             AutoToggle = False
-            OnClick = actGestionVentasExecute
-          end
-          item
-            Action = actGestionDepositos
-            Caption = 'Gesti'#243'n de depositos...'
-            ImageIndex = 6
-            Tag = 0
-            AutoToggle = False
-          end
-          item
-            Action = actGestionPrecios
-            Caption = 'Gestion de Precios...'
-            ImageIndex = 6
-            Tag = 0
-            AutoToggle = False
+            OnClick = actGestionPrecioProductosExecute
           end>
         ButtonSize = olbsSmall
         Caption = 'M'#243'dulos'
-        Color = 12352259
+        Color = clGray
         DownFont.Charset = DEFAULT_CHARSET
         DownFont.Color = clWindowText
         DownFont.Height = -11
@@ -113,15 +107,15 @@ object frmMain: TfrmMain
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
-        ParentColor = True
+        ParentColor = False
         TopButtonIndex = 0
       end>
     SmallImages = ilsmall
     ButtonSize = olbsSmall
     ThemedBackground = False
     BorderStyle = bsNone
-    Color = 12352259
-    TabOrder = 2
+    Color = clScrollBar
+    TabOrder = 1
   end
   object mm1: TMainMenu
     Left = 290
@@ -319,6 +313,11 @@ object frmMain: TfrmMain
     object actGestionPrecios: TAction
       Caption = 'Gestion de Precios...'
       ImageIndex = 6
+    end
+    object actGestionPrecioProductos: TAction
+      Caption = 'Productos y precios'
+      ImageIndex = 6
+      OnExecute = actGestionPrecioProductosExecute
     end
   end
   object ilsmall: TImageList

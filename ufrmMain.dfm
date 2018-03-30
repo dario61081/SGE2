@@ -603,4 +603,8 @@ object frmMain: TfrmMain
     Left = 425
     Top = 280
   end
+  object JvAppInstances1: TJvAppInstances
+    Left = 560
+    Top = 220
+  end
 end
