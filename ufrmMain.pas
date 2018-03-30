@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, JvExComCtrls, JvStatusBar,
   Vcl.Menus, JvBackgrounds, System.Actions, Vcl.ActnList,
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ImgList, JvCoolBar,
-  Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager;
+  Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager,
+  JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO;
 
 type
   TfrmMain = class(TForm)
@@ -53,6 +54,10 @@ type
     N3: TMenuItem;
     Resumendeventas1: TMenuItem;
     plugin1: TJvPluginManager;
+    outlook1: TJvOutlookBar;
+    actGestionPrecios: TAction;
+    spl1: TSplitter;
+    actGestionPrecioProductos: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -61,6 +66,8 @@ type
     procedure actGestionVentasExecute(Sender: TObject);
     procedure actRendiciondeVentasExecute(Sender: TObject);
     procedure actResumenVentasExecute(Sender: TObject);
+    procedure actProductosExecute(Sender: TObject);
+    procedure actGestionPrecioProductosExecute(Sender: TObject);
   private
   protected
     procedure ClientWndProc(var Message: TMessage); override;
@@ -76,26 +83,32 @@ var
 implementation
 
 uses
-  ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas, ufrmRendicionVentas, ufrmVentasDia;
+  ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
+  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos;
 
 {$R *.dfm}
 
 procedure TfrmMain.actFacturacionVentasExecute(Sender: TObject);
 begin
 
-
   frmVentas := TfrmVentas.Create(Application);
   frmVentas.Show;
 
 end;
 
+procedure TfrmMain.actGestionPrecioProductosExecute(Sender: TObject);
+begin
+  // gestion de productos y precios
+  frmMantenerProductos := TfrmMantenerProductos.Create(Application);
+  frmMantenerProductos.Show;
+end;
+
 procedure TfrmMain.actGestionVentasExecute(Sender: TObject);
 begin
 
-  //abrir gestion de ventas
-  frmabmVentas := TfrmabmVentas.Create(application);
+  // abrir gestion de ventas
+  frmabmVentas := TfrmabmVentas.Create(Application);
   frmabmVentas.Show;
-
 
 end;
 
@@ -106,20 +119,28 @@ begin
   FreeAndNil(frmImprimirProductos);
 end;
 
+procedure TfrmMain.actProductosExecute(Sender: TObject);
+begin
+
+  frmMantenerProductos := TfrmMantenerProductos.Create(Application);
+  frmMantenerProductos.Show;
+
+end;
+
 procedure TfrmMain.actRendiciondeVentasExecute(Sender: TObject);
 begin
 
-    frmRendicionVentas := TfrmRendicionVentas.Create(Application);
-    frmRendicionVentas.Show;
+  frmRendicionVentas := TfrmRendicionVentas.Create(Application);
+  frmRendicionVentas.Show;
 
 end;
 
 procedure TfrmMain.actResumenVentasExecute(Sender: TObject);
 begin
-   ///mostrar
-   ///
-   frmVentasDia := tfrmVentasDia.Create(self);
-   frmVentasDia.Show;
+  /// mostrar
+  ///
+  frmVentasDia := tfrmVentasDia.Create(self);
+  frmVentasDia.Show;
 
 end;
 
@@ -158,11 +179,10 @@ begin
   ForceDirectories('.\sys');
   ForceDirectories('.\var');
 
-  with plugin1 do begin
+  with plugin1 do
+  begin
     PluginFolder := '.\etc';
     LoadPlugins;
-
-
 
   end;
 

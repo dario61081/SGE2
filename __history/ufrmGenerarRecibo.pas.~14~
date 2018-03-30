@@ -1,0 +1,128 @@
+unit ufrmGenerarRecibo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.Mask, JvExMask,
+  JvToolEdit, JvDBControls, Vcl.StdCtrls, dr2gcomponentes, ppComm, ppRelatv,
+  ppProd, ppClass, ppReport, ppDesignLayer, ppParameter, ppBands, ppCtrls,
+  ppPrnabl, ppVar, ppCache, raCodMod, ppModule, num2let;
+
+type
+  TfrmGenerarRecibo = class(tform)
+    edtMonto: TEdit;
+    btnOk: TButton;
+    lblMonto: TLabel;
+    lblFecha: TLabel;
+    Label2: TLabel;
+    edtConcepto: TEdit;
+    btnCancelar: TButton;
+    header1: TDxHeader;
+    report1: TppReport;
+    edtfecha: TEdit;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppSystemVariable1: TppSystemVariable;
+    plbl2: TppLabel;
+    ppLabel1: TppLabel;
+    ppLabel2: TppLabel;
+    ppLabel3: TppLabel;
+    plbl3: TppLabel;
+    pln1: TppLine;
+    pln2: TppLine;
+    plbl4: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppDBText4: TppDBText;
+    ppLabel4: TppLabel;
+    ppLabel5: TppLabel;
+    ppLabel6: TppLabel;
+    ppLabel7: TppLabel;
+    ppDBText5: TppDBText;
+    ppDBText6: TppDBText;
+    ppLabel8: TppLabel;
+    ppLabel9: TppLabel;
+    ppLine1: TppLine;
+    ppDBText7: TppDBText;
+    ppLine2: TppLine;
+    ppLabel10: TppLabel;
+    ppSystemVariable3: TppSystemVariable;
+    ppDBText8: TppDBText;
+    ppLabel11: TppLabel;
+    ppLabel12: TppLabel;
+    ppLabel13: TppLabel;
+    ppLabel14: TppLabel;
+    ppDBText9: TppDBText;
+    ppDBText10: TppDBText;
+    ppLabel15: TppLabel;
+    ppLabel16: TppLabel;
+    ppLine3: TppLine;
+    ppDBText11: TppDBText;
+    ppLine4: TppLine;
+    ppLabel17: TppLabel;
+    plbl5: TppLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    plblCliente: TppLabel;
+    plblRuc: TppLabel;
+    plblCantidad: TppLabel;
+    plblCantidadNumero: TppLabel;
+    plblConcepto: TppLabel;
+    ppFooterBand1: TppFooterBand;
+    raCodeModule1: TraCodeModule;
+    raProgramInfo1: TraProgramInfo;
+    raProgramInfo2: TraProgramInfo;
+    raProgramInfo3: TraProgramInfo;
+    raProgramInfo4: TraProgramInfo;
+    ppDesignLayers1: TppDesignLayers;
+    ppDesignLayer1: TppDesignLayer;
+    ppParameterList1: TppParameterList;
+    prCantidad: TppParameter;
+    prConcepto: TppParameter;
+    prCliente: TppParameter;
+    prruc: TppParameter;
+    prletras: TppParameter;
+    Label1: TLabel;
+    Label3: TLabel;
+    edtRuc: TEdit;
+    edtCliente: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGenerarRecibo: TfrmGenerarRecibo;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmGenerarRecibo.btnCancelarClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TfrmGenerarRecibo.btnOkClick(Sender: TObject);
+begin
+
+
+  report1.Parameters.Values['prruc'] := edtRuc.Text;
+  report1.Parameters.Values['prcliente'] := edtCliente.Text;
+  report1.Parameters.Values['prconcepto'] := edtConcepto.Text;
+  report1.Parameters.Values['prcantidad'] := edtMonto.Text;
+  report1.Parameters.Values['prcantidadnumero'] :=  Num2let.NumLetra(StrToFloat(edtMonto),1,1);
+
+  report1.PrintReport;
+end;
+
+procedure TfrmGenerarRecibo.FormCreate(Sender: TObject);
+begin
+     edtfecha.Text := DateToStr(Date);
+end;
+
+end.

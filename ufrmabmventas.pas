@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
   DBGridEh, Data.DB, IBCustomDataSet, IBQuery,
-  Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ActnMan;
+  Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ActnMan,
+  dr2gcomponentes;
 
 type
   TfrmabmVentas = class(TfrmDatos)
@@ -27,6 +28,7 @@ type
     qryVentasESTADO: TIBStringField;
     qryVentasNUMERO: TIBStringField;
     actmgr1: TActionManager;
+    header1: TDxHeader;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

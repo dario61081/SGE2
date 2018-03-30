@@ -3,12 +3,13 @@ unit datos;
 interface
 
 uses
-  System.SysUtils, System.Classes, IBDatabase, Data.DB;
+  System.SysUtils, System.Classes, IBDatabase, Data.DB, IBCustomDataSet, IBTable;
 
 type
   Tdm1 = class(TDataModule)
     db1: TIBDatabase;
     tra1: TIBTransaction;
+    tblClientes: TIBTable;
   private
     { Private declarations }
   public

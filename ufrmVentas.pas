@@ -15,7 +15,8 @@ uses
   ppDBPipe,
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
-  Vcl.Controls, ppVar;
+  Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
+  JvLED, JvLabel;
 
 type
 
@@ -39,10 +40,8 @@ type
     dbedtNOTA_REMISION: TDBEdit;
     lbl8: TLabel;
     dbedtOBSERVACION: TDBEdit;
-    lbl9: TLabel;
     nav1: TJvDBNavigator;
     status1: TJvStatusBar;
-    edtFecha: TJvDBDateEdit;
     actlst1: TActionList;
     actBuscarRuc: TAction;
     actBuscarProducto: TAction;
@@ -91,12 +90,48 @@ type
     bvl1: TBevel;
     actVistaFacturaDia: TAction;
     Bevel1: TBevel;
+    pnl1: TPanel;
+    gridClientes: TDBGridEh;
+    qryClientes: TIBQuery;
+    dsClientes: TDataSource;
+    btnCerrar: TButton;
+    comm1: TnrComm;
+    ledBalanza: TnrSemaphore;
+    chkTimer: TCheckBox;
+    tmr1: TTimer;
+    actGenerarReciboDinero: TAction;
+    btnGenerarReciboDinero: TButton;
+    tblVentasRUC: TIBStringField;
+    tblVentasRAZON_SOCIAL: TIBStringField;
+    tblVentasCONDICION: TIBStringField;
+    tblVentasDIRECCION: TIBStringField;
+    tblVentasTELEFONO: TIBStringField;
+    tblVentasNOTA_REMISION: TIBStringField;
+    tblVentasOBSERVACION: TIBStringField;
+    tblVentasESTADO: TIBStringField;
+    tblVentasNUMERO: TIBStringField;
+    tblDetallesPRODUCTOS_CODIGO: TIBStringField;
+    tblDetallesPRODUCTOS_DESCRIPCION: TIBStringField;
+    tblDetallesOBSERVACION: TIBStringField;
+    qryClientesRUC: TIBStringField;
+    qryClientesRAZON_SOCIAL: TIBStringField;
+    qryListadoCODIGO: TIBStringField;
+    qryListadoORIGEN: TIBStringField;
+    qryListadoDESCRIPCION: TIBStringField;
+    qryListadoIMPUESTO: TIBStringField;
+    edtFECHA: TJvDBDateEdit;
+    header1: TDxHeader;
+    ledCero: TJvLED;
+    lblstatus1: TJvDBStatusLabel;
+    lblstatus2: TJvDBStatusLabel;
     ppHeaderBand1: TppHeaderBand;
     chkContado: TmyCheckBox;
     chkCredito: TmyCheckBox;
     ppDBText1: TppDBText;
     ppDBText2: TppDBText;
     ppDBText3: TppDBText;
+    ppDireccion: TppDBText;
+    ppTelefono: TppDBText;
     ppDetailBand1: TppDetailBand;
     psbrprt1: TppSubReport;
     pchldrprt1: TppChildReport;
@@ -140,101 +175,25 @@ type
     raProgramInfo16: TraProgramInfo;
     raProgramInfo17: TraProgramInfo;
     raProgramInfo18: TraProgramInfo;
+    raProgramInfo19: TraProgramInfo;
     ppDesignLayers1: TppDesignLayers;
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    pnl1: TPanel;
-    gridClientes: TDBGridEh;
-    qryClientes: TIBQuery;
-    dsClientes: TDataSource;
-    btnCerrar: TButton;
-    comm1: TnrComm;
-    ledBalanza: TnrSemaphore;
-    chkTimer: TCheckBox;
-    tmr1: TTimer;
-    actGenerarReciboDinero: TAction;
-    btnGenerarReciboDinero: TButton;
-    tblVentasRUC: TIBStringField;
-    tblVentasRAZON_SOCIAL: TIBStringField;
-    tblVentasCONDICION: TIBStringField;
-    tblVentasDIRECCION: TIBStringField;
-    tblVentasTELEFONO: TIBStringField;
-    tblVentasNOTA_REMISION: TIBStringField;
-    tblVentasOBSERVACION: TIBStringField;
-    tblVentasESTADO: TIBStringField;
-    tblVentasNUMERO: TIBStringField;
-    tblDetallesPRODUCTOS_CODIGO: TIBStringField;
-    tblDetallesPRODUCTOS_DESCRIPCION: TIBStringField;
-    tblDetallesOBSERVACION: TIBStringField;
-    qryClientesRUC: TIBStringField;
-    qryClientesRAZON_SOCIAL: TIBStringField;
-    qryListadoCODIGO: TIBStringField;
-    qryListadoORIGEN: TIBStringField;
-    qryListadoDESCRIPCION: TIBStringField;
-    qryListadoIMPUESTO: TIBStringField;
-    reportRecibo: TppReport;
-    ppParameterList2: TppParameterList;
-    ppHeaderBand2: TppHeaderBand;
-    ppDetailBand3: TppDetailBand;
-    ppSystemVariable1: TppSystemVariable;
-    ppDBText10: TppDBText;
-    plbl2: TppLabel;
-    ppLabel1: TppLabel;
-    plbl1: TppLabel;
-    ppLabel2: TppLabel;
-    ppDBText11: TppDBText;
-    pdbtxt1: TppDBText;
-    ppLabel3: TppLabel;
-    plbl3: TppLabel;
-    pln1: TppLine;
-    ppDBText12: TppDBText;
-    pln2: TppLine;
-    plbl4: TppLabel;
-    ppSystemVariable2: TppSystemVariable;
-    ppDBText13: TppDBText;
-    ppLabel4: TppLabel;
-    ppLabel5: TppLabel;
-    ppLabel6: TppLabel;
-    ppLabel7: TppLabel;
-    ppDBText14: TppDBText;
-    ppDBText15: TppDBText;
-    ppLabel8: TppLabel;
-    ppLabel9: TppLabel;
-    ppLine1: TppLine;
-    ppDBText16: TppDBText;
-    ppLine2: TppLine;
-    ppLabel10: TppLabel;
-    ppSystemVariable3: TppSystemVariable;
-    ppDBText17: TppDBText;
-    ppLabel11: TppLabel;
-    ppLabel12: TppLabel;
-    ppLabel13: TppLabel;
-    ppLabel14: TppLabel;
-    ppDBText18: TppDBText;
-    ppDBText19: TppDBText;
-    ppLabel15: TppLabel;
-    ppLabel16: TppLabel;
-    ppLine3: TppLine;
-    ppDBText20: TppDBText;
-    ppLine4: TppLine;
-    ppLabel17: TppLabel;
-    plbl5: TppLabel;
-    ppLabel18: TppLabel;
-    ppLabel19: TppLabel;
-    ppFooterBand2: TppFooterBand;
-    ppDesignLayers3: TppDesignLayers;
-    ppDesignLayer3: TppDesignLayer;
+    actCapturarBalanza: TAction;
+    qryListadoPRECIO_DISTRIBUIDORA: TFloatField;
+    qryListadoPRECIO_OTROS: TFloatField;
+    dbcbbPRECIO_MAYORISTA: TDBComboBox;
+    actBuscarClientes: TAction;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
     procedure actBuscarProductoExecute(Sender: TObject);
-    procedure btnCapturarClick(Sender: TObject);
+
     procedure tblDetallesAfterRefresh(DataSet: TDataSet);
     procedure btnImprimirClick(Sender: TObject);
     procedure tblDetallesNewRecord(DataSet: TDataSet);
     procedure tblVentasAfterPost(DataSet: TDataSet);
-    procedure dsDetallesRecordChanged(Sender: TObject);
     procedure dsVentasRecordChanged(Sender: TObject);
     procedure tblVentasNewRecord(DataSet: TDataSet);
     procedure dsVentasEditingChanged(Sender: TObject);
@@ -254,8 +213,18 @@ type
     procedure tmr1Timer(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure actGenerarReciboDineroExecute(Sender: TObject);
+    procedure btnCapturarClick(Sender: TObject);
+    procedure actCapturarBalanzaExecute(Sender: TObject);
+    procedure tblVentasPRECIO_MAYORISTAGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure tblVentasPRECIO_MAYORISTASetText(Sender: TField;
+      const Text: string);
+    procedure grid1Columns3UpdateData(Sender: TObject; var Text: string;
+      var Value: Variant; var UseText, Handled: Boolean);
+    procedure actBuscarClientesExecute(Sender: TObject);
   private
     { Private declarations }
+    gbuffer: string;
     procedure Refresh(aTable: TIBTable);
   public
     constructor Create(AOwner: TComponent); override;
@@ -270,7 +239,7 @@ implementation
 
 uses
   datos, ufrmBuscarEquivalencia, ufrmBuscarProductos, Num2Let, Controles,
-  ufrmVistaRapidaFacturas, ufrmGenerarRecibo;
+  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes;
 
 {$R *.dfm}
 
@@ -304,6 +273,28 @@ begin
 
 end;
 
+procedure TfrmVentas.actBuscarClientesExecute(Sender: TObject);
+begin
+  inherited;
+  //buscar clientes registrados de operaciones anteriores.
+  frmClientes := TfrmClientes.Create(Application);
+  if frmClientes.ShowModal = mrOk then
+  begin
+      if tblVentas.State = dsBrowse then
+      begin
+        tblventas.Edit;
+      end;
+        //registrar la seleccion
+        dbedtRUC.Text := frmClientes.ruc;
+        dbedtRAZON_SOCIAL.Text := frmClientes.razon_social;
+        dbedtDIRECCION.Text := frmClientes.direccion;
+  end;
+  frmClientes.Free;
+
+
+
+end;
+
 procedure TfrmVentas.actBuscarProductoExecute(Sender: TObject);
 begin
   inherited;
@@ -311,12 +302,20 @@ begin
   frmBuscarProductos := TfrmBuscarProductos.Create(self);
   if frmBuscarProductos.ShowModal = mrok then
   begin
+    // si la tabla esta en browser
+    if tblDetalles.State = dsBrowse then
+    begin
+      tblDetalles.Append;
+      tblDetallesCANTIDAD.Value := 1;
 
-    tblDetallesPRODUCTOS_ID.Value := frmBuscarProductos.tblProductosID.Value;
+    end;
+
+    // registrar los datos
+    tblDetallesPRODUCTOS_ID.Value := frmBuscarProductos.codigo_producto;
     tblDetallesPRODUCTOS_DESCRIPCION.Value :=
       frmBuscarProductos.tblProductosDESCRIPCION.Value;
     tblDetalles.post;
-    tblDetalles.Refresh;
+    Refresh(tblDetalles);
 
   end;
   FreeAndNil(frmBuscarProductos);
@@ -341,12 +340,29 @@ begin
 
 end;
 
+procedure TfrmVentas.actCapturarBalanzaExecute(Sender: TObject);
+begin
+  inherited;
+  // capturar el peso de la balanza y tirar en cantidad
+  if (tblDetalles.State in dsWriteModes) then
+  begin
+    tblDetallesCANTIDAD.Text := edtBALANZA.Text;
+
+  end
+  else
+  begin
+    showmessage('No hay registro activo para insertar el valor de la balanza');
+
+  end;
+
+end;
+
 procedure TfrmVentas.actGenerarReciboDineroExecute(Sender: TObject);
 begin
   inherited;
 
   frmGenerarRecibo := TfrmGenerarRecibo.Create(self);
-  frmGenerarRecibo.edtMonto.Text := grid1.Columns[9].Footers[1].value;
+  frmGenerarRecibo.edtMonto.Text := grid1.Columns[9].Footers[1].Value;
   if frmGenerarRecibo.ShowModal = mrok then
   begin
 
@@ -473,64 +489,47 @@ procedure TfrmVentas.comm1AfterReceive(Com: TObject; Buffer: Pointer;
   Received: Cardinal);
 var
   s: string;
-  i: integer;
-  k: AnsiString;
+  i, l, p, p1: integer;
   ch: pansichar;
   datapacket: string;
+const
+  enq: Char = #5;
+  ack: Char = #6;
+  stx: Char = #2;
+  etx: Char = #3;
+  wack: Char = #11; // wakeup
+  nack: Char = #15;
+
 begin
   inherited;
-  // for i := 0 to Received - 1 do begin
-  // ch := PAnsiChar(Buffer)[I];
-  // if ch = #3 then begin
-  // edtBALANZA.Text := datapacket;
-  //
-  // end else if (ch = #2 begin
-  //
-  // DataPacket := DataPacket + ch;
-  // end;
-  // end;
 
-  // for i := 0 to Received-1 do
-  // begin
-  // s := s + PAnsiChar(buffer)[i];
-  //
-  // end;
+  if pansichar(Buffer)[0] = #2 then
+  begin
+    gbuffer := '';
+  end
+  else if pansichar(Buffer)[0] = #3 then
+  begin
+    edtBALANZA.Text := FormatFloat(',.000', strtofloat(gbuffer) / 1000);
+    gbuffer := '';
+    // comm1.SendChar(#6);
+  end
+  else
+  begin
+
+    gbuffer := gbuffer + pansichar(Buffer);
+
+  end;
 
 end;
 
 procedure TfrmVentas.btnCapturarClick(Sender: TObject);
-var
-  puerto: integer;
-  n: integer;
-  num: byte;
-  cad: string;
-  Mode: DCB;
-
 begin
   inherited;
-  //
-  // puerto := FileOpen('COM5', fmOpenRead); // Abre el puerto
-  // Mode.BaudRate := 9600;
-  // Mode.ByteSize := 8;
-  // Mode.Parity := NOPARITY;
-  // Mode.StopBits := ONESTOPBIT;
-  // SetCommState(puerto, Mode);
-  // // Ajusta los parámetros
-  // // Los datos se repiten y terminan con #13(CR)
-  // repeat
-  // repeat
-  // until FileRead(puerto, num, 1) = 1;
-  // until num = 13;
-  // // Final de cadena anterior
-  // cad := '';
-  // for n := 1 to 8 do
-  // begin
-  // repeat
-  // until FileRead(puerto, num, 1) = 1; // lee un byte
-  // cad := cad + chr(num);
-  // end;
-  // edtBALANZA.Text := cad; // Muestra la lectura
-  // Sleep(1000); // Espera para poder ver el resultado
+  // ACTIVAR EL PUERTO DE LA BALANZA
+  if comm1.Active = false then
+    comm1.Active := true;
+  // ENVIAR EL COMANDO A LA BALANZA
+  comm1.SendChar(#5);
 
 end;
 
@@ -543,7 +542,7 @@ end;
 constructor TfrmVentas.Create(AOwner: TComponent);
 begin
   inherited;
-
+  gbuffer := '';
 end;
 
 procedure TfrmVentas.dbedtRUCKeyUp(Sender: TObject; var Key: Word;
@@ -571,15 +570,11 @@ begin
 
 end;
 
-procedure TfrmVentas.dsDetallesRecordChanged(Sender: TObject);
-begin
-  inherited;
-  // grid1.SumList.RecalcAll;
-end;
-
 procedure TfrmVentas.dsDetallesStateChange(Sender: TObject);
 begin
   inherited;
+  // actualizar despues de una edicion
+
   if tblDetalles.State = dsBrowse then
   BEGIN
     grid1.SumList.RecalcAll;
@@ -610,20 +605,35 @@ end;
 procedure TfrmVentas.FormCreate(Sender: TObject);
 begin
   inherited;
+  // abrir tablas
   tblVentas.open;
   tblDetalles.open;
   qryListado.open;
-  comm1.Active := true;
+
+  // comm1.Active := true;
   // grid1.SumList.RecalcAll;
+
+  tblVentas.Last;
+  // apuntar al siguietne
+end;
+
+procedure TfrmVentas.grid1Columns3UpdateData(Sender: TObject; var Text: string;
+  var Value: Variant; var UseText, Handled: Boolean);
+begin
+  inherited;
+  // actualizar datos del producto
+  tblDetallesPRODUCTOS_DESCRIPCION.Value := qryListadoDESCRIPCION.Text;
+  tblDetallesPRODUCTOS_CODIGO.Value := qryListadoCODIGO.Value;
+
 end;
 
 procedure TfrmVentas.grid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
-  if ((Key = VK_RETURN) or (Key = VK_TAB)) then
-
-    Refresh(tblDetalles);
+  // if ((Key = VK_RETURN) or (Key = VK_TAB)) then
+  //
+  // Refresh(tblDetalles);
 end;
 
 procedure TfrmVentas.grid1SumListAfterRecalcAll(Sender: TObject);
@@ -634,7 +644,7 @@ begin
   // sumar laos campos.
   valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
     .SumValue + grid1.Columns[9].Footers[0].SumValue;
-  grid1.Columns[9].Footers[1].Value := formatfloat('0,.', valor);
+  grid1.Columns[9].Footers[1].Value := FormatFloat('0,.', valor);
 end;
 
 procedure TfrmVentas.nav1Click(Sender: TObject; Button: TNavigateBtn);
@@ -649,10 +659,14 @@ begin
       end;
     nbRefresh:
       begin
+        tblVentas.Refresh;
+
+      end;
+    nbPost:
+      begin
         if tblVentas.Transaction.InTransaction then
           tblVentas.Transaction.CommitRetaining;
         tblVentas.Refresh;
-
       end;
 
   end;
@@ -669,15 +683,33 @@ begin
     // nbLast: ;
     nbInsert:
       tblDetalles.Append;
-    // nbDelete: ;
+
+    // nbDelete:
+    // BEGIN
+    // tblDetalles.Delete;
+    // actualizarTabla(tblDetalles);
+    //
+    // END;
     // nbEdit: ;
-    // nbPost: ;
-    // nbCancel: ;
+    nbPost:
+      BEGIN
+        // ACTUALIZAR AL GRABAR
+        IF tblDetalles.State IN dsWriteModes THEN
+          tblDetalles.post;
+        actualizarTabla(tblDetalles);
+      END;
+    nbCancel:
+      begin
+        IF tblDetalles.State IN dsWriteModes THEN
+          tblDetalles.Cancel;
+        actualizarTabla(tblDetalles);
+
+      END;
     nbRefresh:
       begin
         if tblDetalles.Transaction.InTransaction then
           tblDetalles.Transaction.CommitRetaining;
-        tblDetalles.Refresh;
+        actualizarTabla(tblDetalles);
 
       end;
     // nbApplyUpdates: ;
@@ -693,12 +725,14 @@ begin
   // actualizar la tabla
   with aTable do
   begin
+    DisableControls;
     i := GetBookmark;
     Refresh;
     if BookmarkValid(i) then
       Bookmark := i;
 
     FreeBookmark(i);
+    EnableControls;
   end;
 
 end;
@@ -724,7 +758,7 @@ begin
   if tblDetalles.RecordCount > 10 then
   begin
     showmessage('Limite de filas para esta factura');
-    Exit;
+    exit;
 
   end;
 
@@ -760,20 +794,49 @@ begin
   tblVentasCONDICION.Value := 'CONT';
   tblVentasESTADO.Value := 'GENE';
   tblVentasPRECIO_MAYORISTA.Value := 1; // mayorista por defecto
+
   // end;
+end;
+
+procedure TfrmVentas.tblVentasPRECIO_MAYORISTAGetText(Sender: TField;
+  var Text: string; DisplayText: Boolean);
+begin
+  inherited;
+  // convertir texto en numero.
+  case Sender.AsInteger of
+    1:
+      Text := 'MAYORISTA';
+    2:
+      Text := 'DISTRIBUIDORA';
+    3:
+      Text := 'OTROS';
+    0:
+      Text := 'MINORISTA';
+  end;
+  // text = inttostr(sender.AsInteger);
+
+end;
+
+procedure TfrmVentas.tblVentasPRECIO_MAYORISTASetText(Sender: TField;
+  const Text: string);
+begin
+  inherited;
+  IF (Text.Equals('MINORISTA')) then
+    Sender.AsInteger := 0;
+  IF (Text.Equals('MAYORISTA')) THEN
+    Sender.AsInteger := 1;
+  if (Text.Equals('DISTRIBUIDORA')) THEN
+    Sender.AsInteger := 2;
+  IF (Text.Equals('OTROS')) THEN
+    Sender.AsInteger := 3;
+  // Sender.Value := StrToInt(Text);
 end;
 
 procedure TfrmVentas.tmr1Timer(Sender: TObject);
 begin
   inherited;
 
-  if self.chkTimer.Checked then
-  begin
-
-    if comm1.Active then
-      comm1.SendChar(#5);
-
-  end;
+  btnCapturar.Click;
 
 end;
 
