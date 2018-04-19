@@ -70,12 +70,14 @@ type
     procedure actProductosExecute(Sender: TObject);
     procedure actGestionPrecioProductosExecute(Sender: TObject);
   private
+    Fterminal: string;
+    procedure Setterminal(const Value: string);
   protected
     procedure ClientWndProc(var Message: TMessage); override;
     { Private declarations }
   public
     { Public declarations }
-
+     property terminal: string read Fterminal write Setterminal;
   end;
 
 var
@@ -85,7 +87,7 @@ implementation
 
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
-  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos;
+  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo;
 
 {$R *.dfm}
 
@@ -187,11 +189,19 @@ begin
 
   end;
 
+  Setterminal(GetLocalComputerName.ToUpper);
+
 end;
 
 procedure TfrmMain.Salir1Click(Sender: TObject);
 begin
   close;
+end;
+
+procedure TfrmMain.Setterminal(const Value: string);
+begin
+  Fterminal := Value;
+  status1.Panels[1].Text := value;
 end;
 
 end.

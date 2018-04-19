@@ -16,7 +16,7 @@ uses
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
   Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
-  JvLED, JvLabel;
+  JvLED, JvLabel, JclSysInfo;
 
 type
 
@@ -185,8 +185,6 @@ type
     dbcbbPRECIO_MAYORISTA: TDBComboBox;
     actBuscarClientes: TAction;
     tblVentasTIMBRADO_NUMERO: TIBStringField;
-    tblVentasFECHA_CREADO: TDateTimeField;
-    tblVentasFECHA_MODIF: TDateTimeField;
     grp2: TGroupBox;
     lbl9: TLabel;
     dbedtNUMERO: TDBEdit;
@@ -194,6 +192,11 @@ type
     dbedtTIMBRADO_NUMERO: TDBEdit;
     lbl13: TLabel;
     edtSiguienteFactura: TEdit;
+    spFacturaNumero: TIBStoredProc;
+    spFacturaNumeroFACTURA_NUMERO: TIBStringField;
+    spFacturaNumeroFACTURA_TIMBRADO: TIBStringField;
+    spFacturaSiguiente: TIBStoredProc;
+    spFacturaSiguienteVALOR: TLargeintField;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -235,10 +238,13 @@ type
     { Private declarations }
     gbuffer: string;
     procedure Refresh(aTable: TIBTable);
+    function getTerminal_nombre: string;
+    procedure actualizarNumeroFacturaSiguiente;
+    procedure actualizarTablaVentas;
   public
     constructor Create(AOwner: TComponent); override;
     { Public declarations }
-
+    property terminal_nombre: string read getTerminal_nombre;
   end;
 
 var
@@ -476,10 +482,29 @@ begin
     begin
       Edit;
       tblVentasESTADO.Text := 'IMPR';
+      //REGISTRAR EL NUMERO DE FACTURA Y TIMBRADO
+      tblVentasNUMERO.Text := spFacturaNumero.ParamByName('FACTURA_NUMERO').Text;
+      tblVentasTIMBRADO_NUMERO.Text := spFacturaNumero.ParamByName('FACTURA_TIMBRADO').Text;
+
       post;
       Transaction.CommitRetaining;
 
+
+
     end;
+
+    //REGISTRAR SIGUIENTE NUMERO DE FACTURA
+    WITH spFacturaSiguiente DO
+    BEGIN
+      ParamByName('TERMINAL_NOMBRE').Text := terminal_nombre;
+      ExecProc;
+      if Transaction.InTransaction then
+      Transaction.CommitRetaining;
+
+    END;
+
+    //ACTUALIZAR SIGUIENTE FACTURA
+    actualizarNumeroFacturaSiguiente;
     // sumar los valores de las columnas.
     valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
       .SumValue + grid1.Columns[9].Footers[0].SumValue;
@@ -487,10 +512,12 @@ begin
     report1.Parameters['prletras'].Value := NumLetra(valor, 1, 1);
 
     report1.PrintReport;
-
+    //actualizar listado
+    actualizarTablaVentas;
   end;
 
   grid1.SumList.RecalcAll;
+
 
 end;
 
@@ -552,6 +579,21 @@ constructor TfrmVentas.Create(AOwner: TComponent);
 begin
   inherited;
   gbuffer := '';
+end;
+
+procedure TfrmVentas.actualizarTablaVentas;
+begin
+  TBLVENTAS.Close;
+  tblVentas.Filtered := false;
+  TBLVENTAS.Open;
+  TBLVENTAS.Last;
+end;
+
+procedure TfrmVentas.actualizarNumeroFacturaSiguiente;
+begin
+  spFacturaNumero.ParamByName('TERMINAL_NOMBRE').text := terminal_nombre;
+  spFacturaNumero.ExecProc;
+  edtSiguienteFactura.Text := spFacturaNumero.ParamByName('FACTURA_NUMERO').Text;
 end;
 
 procedure TfrmVentas.dbedtRUCKeyUp(Sender: TObject; var Key: Word;
@@ -623,7 +665,14 @@ begin
   // grid1.SumList.RecalcAll;
 
   tblVentas.Last;
-  // apuntar al siguietne
+  actualizarNumeroFacturaSiguiente;
+
+  // apuntar al siguiente
+end;
+
+function TfrmVentas.getTerminal_nombre: string;
+begin
+  result := GetLocalComputerName.ToUpper;
 end;
 
 procedure TfrmVentas.grid1Columns3UpdateData(Sender: TObject; var Text: string;

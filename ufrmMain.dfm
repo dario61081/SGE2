@@ -32,7 +32,18 @@ object frmMain: TfrmMain
     Top = 376
     Width = 750
     Height = 22
-    Panels = <>
+    Panels = <
+      item
+        Alignment = taCenter
+        Text = 'Terminal'
+        Width = 80
+      end
+      item
+        Width = 150
+      end
+      item
+        Width = 50
+      end>
   end
   object JvCoolBar1: TJvCoolBar
     Left = 0
