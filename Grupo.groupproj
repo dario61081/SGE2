@@ -3,7 +3,7 @@
         <ProjectGuid>{564CA369-3B0F-44FA-B546-7D8B0AAACF34}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="SGE04.dproj">
+        <Projects Include="SGE05.dproj">
             <Dependencies>C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj</Dependencies>
         </Projects>
         <Projects Include="C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj">
@@ -20,14 +20,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="SGE04" DependsOnTargets="Componentes">
-        <MSBuild Projects="SGE04.dproj"/>
+    <Target Name="SGE05" DependsOnTargets="Componentes">
+        <MSBuild Projects="SGE05.dproj"/>
     </Target>
-    <Target Name="SGE04:Clean" DependsOnTargets="Componentes:Clean">
-        <MSBuild Projects="SGE04.dproj" Targets="Clean"/>
+    <Target Name="SGE05:Clean" DependsOnTargets="Componentes:Clean">
+        <MSBuild Projects="SGE05.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SGE04:Make" DependsOnTargets="Componentes:Make">
-        <MSBuild Projects="SGE04.dproj" Targets="Make"/>
+    <Target Name="SGE05:Make" DependsOnTargets="Componentes:Make">
+        <MSBuild Projects="SGE05.dproj" Targets="Make"/>
     </Target>
     <Target Name="Componentes">
         <MSBuild Projects="C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj"/>
@@ -48,13 +48,13 @@
         <MSBuild Projects="C:\Users\servidor\Documents\RAD Studio\Projects\ConectorBalanza\ConectorBalanza.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="SGE04;Componentes;ConectorBalanza"/>
+        <CallTarget Targets="SGE05;Componentes;ConectorBalanza"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="SGE04:Clean;Componentes:Clean;ConectorBalanza:Clean"/>
+        <CallTarget Targets="SGE05:Clean;Componentes:Clean;ConectorBalanza:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="SGE04:Make;Componentes:Make;ConectorBalanza:Make"/>
+        <CallTarget Targets="SGE05:Make;Componentes:Make;ConectorBalanza:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

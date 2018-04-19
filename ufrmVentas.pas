@@ -89,7 +89,6 @@ type
     btnAnularFactura: TButton;
     bvl1: TBevel;
     actVistaFacturaDia: TAction;
-    Bevel1: TBevel;
     pnl1: TPanel;
     gridClientes: TDBGridEh;
     qryClientes: TIBQuery;
@@ -185,6 +184,16 @@ type
     qryListadoPRECIO_OTROS: TFloatField;
     dbcbbPRECIO_MAYORISTA: TDBComboBox;
     actBuscarClientes: TAction;
+    tblVentasTIMBRADO_NUMERO: TIBStringField;
+    tblVentasFECHA_CREADO: TDateTimeField;
+    tblVentasFECHA_MODIF: TDateTimeField;
+    grp2: TGroupBox;
+    lbl9: TLabel;
+    dbedtNUMERO: TDBEdit;
+    lbl12: TLabel;
+    dbedtTIMBRADO_NUMERO: TDBEdit;
+    lbl13: TLabel;
+    edtSiguienteFactura: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);

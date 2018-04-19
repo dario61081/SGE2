@@ -184,6 +184,7 @@ type
     qryListadoPRECIO_DISTRIBUIDORA: TFloatField;
     qryListadoPRECIO_OTROS: TFloatField;
     dbcbbPRECIO_MAYORISTA: TDBComboBox;
+    actBuscarClientes: TAction;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -218,6 +219,9 @@ type
       DisplayText: Boolean);
     procedure tblVentasPRECIO_MAYORISTASetText(Sender: TField;
       const Text: string);
+    procedure grid1Columns3UpdateData(Sender: TObject; var Text: string;
+      var Value: Variant; var UseText, Handled: Boolean);
+    procedure actBuscarClientesExecute(Sender: TObject);
   private
     { Private declarations }
     gbuffer: string;
@@ -235,7 +239,7 @@ implementation
 
 uses
   datos, ufrmBuscarEquivalencia, ufrmBuscarProductos, Num2Let, Controles,
-  ufrmVistaRapidaFacturas, ufrmGenerarRecibo;
+  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes;
 
 {$R *.dfm}
 
@@ -266,6 +270,28 @@ begin
     end;
 
   end;
+
+end;
+
+procedure TfrmVentas.actBuscarClientesExecute(Sender: TObject);
+begin
+  inherited;
+  //buscar clientes registrados de operaciones anteriores.
+  frmClientes := TfrmClientes.Create(Application);
+  if frmClientes.ShowModal = mrOk then
+  begin
+      if tblVentas.State = dsBrowse then
+      begin
+        tblventas.Edit;
+      end;
+        //registrar la seleccion
+        dbedtRUC.Text := frmClientes.ruc;
+        dbedtRAZON_SOCIAL.Text := frmClientes.razon_social;
+        dbedtDIRECCION.Text := frmClientes.direccion;
+  end;
+  frmClientes.Free;
+
+
 
 end;
 
@@ -591,6 +617,16 @@ begin
   // apuntar al siguietne
 end;
 
+procedure TfrmVentas.grid1Columns3UpdateData(Sender: TObject; var Text: string;
+  var Value: Variant; var UseText, Handled: Boolean);
+begin
+  inherited;
+  // actualizar datos del producto
+  tblDetallesPRODUCTOS_DESCRIPCION.Value := qryListadoDESCRIPCION.Text;
+  tblDetallesPRODUCTOS_CODIGO.Value := qryListadoCODIGO.Value;
+
+end;
+
 procedure TfrmVentas.grid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -658,12 +694,14 @@ begin
     nbPost:
       BEGIN
         // ACTUALIZAR AL GRABAR
-        tblDetalles.post;
+        IF tblDetalles.State IN dsWriteModes THEN
+          tblDetalles.post;
         actualizarTabla(tblDetalles);
       END;
     nbCancel:
       begin
-        tblDetalles.Cancel;
+        IF tblDetalles.State IN dsWriteModes THEN
+          tblDetalles.Cancel;
         actualizarTabla(tblDetalles);
 
       END;
