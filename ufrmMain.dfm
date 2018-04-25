@@ -104,6 +104,14 @@ object frmMain: TfrmMain
             Tag = 0
             AutoToggle = False
             OnClick = actGestionPrecioProductosExecute
+          end
+          item
+            Action = actFacturasyTimbrados
+            Caption = 'Facturas y timbrados'
+            ImageIndex = 6
+            Tag = 0
+            AutoToggle = False
+            OnClick = actFacturasyTimbradosExecute
           end>
         ButtonSize = olbsSmall
         Caption = 'M'#243'dulos'
@@ -246,6 +254,7 @@ object frmMain: TfrmMain
     Top = 280
     StyleName = 'Platform Default'
     object actFacturacionVentas: TAction
+      Category = 'modulos'
       Caption = 'Facturacion ventas...'
       ImageIndex = 0
       OnExecute = actFacturacionVentasExecute
@@ -326,9 +335,17 @@ object frmMain: TfrmMain
       ImageIndex = 6
     end
     object actGestionPrecioProductos: TAction
+      Category = 'modulos'
       Caption = 'Productos y precios'
       ImageIndex = 6
       OnExecute = actGestionPrecioProductosExecute
+    end
+    object actFacturasyTimbrados: TAction
+      Category = 'modulos'
+      Caption = 'Facturas y timbrados'
+      Hint = 'Permiteadministrar las facturas y timbrados del sistema'
+      ImageIndex = 6
+      OnExecute = actFacturasyTimbradosExecute
     end
   end
   object ilsmall: TImageList
@@ -615,7 +632,7 @@ object frmMain: TfrmMain
     Top = 280
   end
   object JvAppInstances1: TJvAppInstances
-    Left = 560
-    Top = 220
+    Left = 485
+    Top = 280
   end
 end

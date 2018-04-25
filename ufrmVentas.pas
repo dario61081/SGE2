@@ -291,22 +291,20 @@ end;
 procedure TfrmVentas.actBuscarClientesExecute(Sender: TObject);
 begin
   inherited;
-  //buscar clientes registrados de operaciones anteriores.
+  // buscar clientes registrados de operaciones anteriores.
   frmClientes := TfrmClientes.Create(Application);
   if frmClientes.ShowModal = mrOk then
   begin
-      if tblVentas.State = dsBrowse then
-      begin
-        tblventas.Edit;
-      end;
-        //registrar la seleccion
-        dbedtRUC.Text := frmClientes.ruc;
-        dbedtRAZON_SOCIAL.Text := frmClientes.razon_social;
-        dbedtDIRECCION.Text := frmClientes.direccion;
+    if tblVentas.State = dsBrowse then
+    begin
+      tblVentas.Edit;
+    end;
+    // registrar la seleccion
+    dbedtRUC.Text := frmClientes.ruc;
+    dbedtRAZON_SOCIAL.Text := frmClientes.razon_social;
+    dbedtDIRECCION.Text := frmClientes.direccion;
   end;
   frmClientes.Free;
-
-
 
 end;
 
@@ -315,7 +313,7 @@ begin
   inherited;
 
   frmBuscarProductos := TfrmBuscarProductos.Create(self);
-  if frmBuscarProductos.ShowModal = mrok then
+  if frmBuscarProductos.ShowModal = mrOk then
   begin
     // si la tabla esta en browser
     if tblDetalles.State = dsBrowse then
@@ -344,7 +342,7 @@ begin
     tblVentas.Edit;
 
   frmBuscarEquivalencias := TfrmBuscarEquivalencias.Create(self);
-  if frmBuscarEquivalencias.ShowModal = mrok then
+  if frmBuscarEquivalencias.ShowModal = mrOk then
   begin
     tblVentasRUC.Value := frmBuscarEquivalencias.qryEqRUC.Value;
     tblVentasRAZON_SOCIAL.Value :=
@@ -378,7 +376,7 @@ begin
 
   frmGenerarRecibo := TfrmGenerarRecibo.Create(self);
   frmGenerarRecibo.edtMonto.Text := grid1.Columns[9].Footers[1].Value;
-  if frmGenerarRecibo.ShowModal = mrok then
+  if frmGenerarRecibo.ShowModal = mrOk then
   begin
 
   end;
@@ -423,7 +421,7 @@ procedure TfrmVentas.actVistaFacturaDiaExecute(Sender: TObject);
 begin
   inherited;
   frmVistaFacturas := TfrmVistaFacturas.Create(self);
-  if frmVistaFacturas.ShowModal = mrok then
+  if frmVistaFacturas.ShowModal = mrOk then
   begin
     tblVentas.Locate(tblVentasID.FieldName, frmVistaFacturas.qryVentaID.Value,
       [loCaseInsensitive]);
@@ -482,28 +480,28 @@ begin
     begin
       Edit;
       tblVentasESTADO.Text := 'IMPR';
-      //REGISTRAR EL NUMERO DE FACTURA Y TIMBRADO
-      tblVentasNUMERO.Text := spFacturaNumero.ParamByName('FACTURA_NUMERO').Text;
-      tblVentasTIMBRADO_NUMERO.Text := spFacturaNumero.ParamByName('FACTURA_TIMBRADO').Text;
+      // REGISTRAR EL NUMERO DE FACTURA Y TIMBRADO
+      tblVentasNUMERO.Text := spFacturaNumero.ParamByName
+        ('FACTURA_NUMERO').Text;
+      tblVentasTIMBRADO_NUMERO.Text := spFacturaNumero.ParamByName
+        ('FACTURA_TIMBRADO').Text;
 
       post;
       Transaction.CommitRetaining;
 
-
-
     end;
 
-    //REGISTRAR SIGUIENTE NUMERO DE FACTURA
-    WITH spFacturaSiguiente DO
-    BEGIN
-      ParamByName('TERMINAL_NOMBRE').Text := terminal_nombre;
-      ExecProc;
-      if Transaction.InTransaction then
-      Transaction.CommitRetaining;
+    // REGISTRAR SIGUIENTE NUMERO DE FACTURA
+    // WITH spFacturaSiguiente DO
+    // BEGIN
+    // ParamByName('TERMINAL_NOMBRE').Text := terminal_nombre;
+    // ExecProc;
+    // if Transaction.InTransaction then
+    // Transaction.CommitRetaining;
+    //
+    // END;
 
-    END;
-
-    //ACTUALIZAR SIGUIENTE FACTURA
+    // ACTUALIZAR SIGUIENTE FACTURA
     actualizarNumeroFacturaSiguiente;
     // sumar los valores de las columnas.
     valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
@@ -512,12 +510,11 @@ begin
     report1.Parameters['prletras'].Value := NumLetra(valor, 1, 1);
 
     report1.PrintReport;
-    //actualizar listado
+    // actualizar listado
     actualizarTablaVentas;
   end;
 
   grid1.SumList.RecalcAll;
-
 
 end;
 
@@ -583,17 +580,22 @@ end;
 
 procedure TfrmVentas.actualizarTablaVentas;
 begin
-  TBLVENTAS.Close;
+  tblVentas.close;
   tblVentas.Filtered := false;
-  TBLVENTAS.Open;
-  TBLVENTAS.Last;
+  tblVentas.open;
+  tblVentas.Last;
 end;
 
+/// <summary>
+/// traer la informacion de la siguiente factura a utilizar
+/// </summary>
 procedure TfrmVentas.actualizarNumeroFacturaSiguiente;
 begin
-  spFacturaNumero.ParamByName('TERMINAL_NOMBRE').text := terminal_nombre;
+
+  spFacturaNumero.ParamByName('TERMINAL_NOMBRE').Text := terminal_nombre;
   spFacturaNumero.ExecProc;
-  edtSiguienteFactura.Text := spFacturaNumero.ParamByName('FACTURA_NUMERO').Text;
+  edtSiguienteFactura.Text := spFacturaNumero.ParamByName
+    ('FACTURA_NUMERO').Text;
 end;
 
 procedure TfrmVentas.dbedtRUCKeyUp(Sender: TObject; var Key: Word;

@@ -30,6 +30,10 @@ type
     procedure grid1Columns1AdvDrawDataCell(Sender: TCustomDBGridEh; Cell,
       AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
       var Params: TColCellParamsEh; var Processed: Boolean);
+    procedure grid1Columns2AdvDrawDataCell(Sender: TCustomDBGridEh; Cell,
+      AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
+      var Params: TColCellParamsEh; var Processed: Boolean);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,6 +50,12 @@ uses
 
 {$R *.dfm}
 
+procedure TfrmVistaFacturas.FormCreate(Sender: TObject);
+begin
+  inherited;
+qryVenta.Open ;
+end;
+
 procedure TfrmVistaFacturas.grid1Columns1AdvDrawDataCell(
   Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh;
   const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
@@ -56,6 +66,17 @@ begin
   if Column.Field.Value = 'GENE' then Params.Background := $00D5FFAA;
   if Column.Field.Value = 'IMPR' then Params.Background := $00E8FFFF;
   if Column.Field.Value = 'ANUL' then Params.Background := $00C6C6FF;
+end;
+
+procedure TfrmVistaFacturas.grid1Columns2AdvDrawDataCell(
+  Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh;
+  const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
+begin
+  inherited;
+  if column.Field.Value = 'CONT' then params.Background := $00D5FFAA;
+  if column.Field.Value = 'CRED' then params.Background := $00E8FFFF;
+
+
 end;
 
 end.

@@ -59,6 +59,7 @@ type
     spl1: TSplitter;
     actGestionPrecioProductos: TAction;
     JvAppInstances1: TJvAppInstances;
+    actFacturasyTimbrados: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -69,6 +70,7 @@ type
     procedure actResumenVentasExecute(Sender: TObject);
     procedure actProductosExecute(Sender: TObject);
     procedure actGestionPrecioProductosExecute(Sender: TObject);
+    procedure actFacturasyTimbradosExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
@@ -87,7 +89,7 @@ implementation
 
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
-  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo;
+  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo, ufrmFacturasTimbrados;
 
 {$R *.dfm}
 
@@ -96,6 +98,14 @@ begin
 
   frmVentas := TfrmVentas.Create(Application);
   frmVentas.Show;
+
+end;
+
+procedure TfrmMain.actFacturasyTimbradosExecute(Sender: TObject);
+begin
+
+  frmFacturasTimbrados := TfrmFacturasTimbrados.Create(Application);
+  frmFacturasTimbrados.Show;
 
 end;
 
