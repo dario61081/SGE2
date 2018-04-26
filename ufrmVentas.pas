@@ -234,6 +234,7 @@ type
     procedure grid1Columns3UpdateData(Sender: TObject; var Text: string;
       var Value: Variant; var UseText, Handled: Boolean);
     procedure actBuscarClientesExecute(Sender: TObject);
+    procedure edtSiguienteFacturaDblClick(Sender: TObject);
   private
     { Private declarations }
     gbuffer: string;
@@ -596,6 +597,9 @@ begin
   spFacturaNumero.ExecProc;
   edtSiguienteFactura.Text := spFacturaNumero.ParamByName
     ('FACTURA_NUMERO').Text;
+    if spfacturanumero.Transaction.InTransaction then
+    spFacturaNumero.Transaction.CommitRetaining;
+
 end;
 
 procedure TfrmVentas.dbedtRUCKeyUp(Sender: TObject; var Key: Word;
@@ -646,6 +650,12 @@ procedure TfrmVentas.dsVentasRecordChanged(Sender: TObject);
 begin
   inherited;
   grid1.SumList.RecalcAll;
+end;
+
+procedure TfrmVentas.edtSiguienteFacturaDblClick(Sender: TObject);
+begin
+  inherited;
+  actualizarNumeroFacturaSiguiente;
 end;
 
 procedure TfrmVentas.FormClose(Sender: TObject; var Action: TCloseAction);
