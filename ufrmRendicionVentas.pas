@@ -97,12 +97,15 @@ type
     ppDBCalc6: TppDBCalc;
     ppLabel15: TppLabel;
     ppLine1: TppLine;
-    Splitter1: TSplitter;
     edtfechafin: TJvDatePickerEdit;
     GroupBox1: TGroupBox;
     lbl3: TLabel;
     JvStatusBar1: TJvStatusBar;
     Label1: TLabel;
+    qryDetalleNUMERO: TIBStringField;
+    qryDetalleTOTAL: TFloatField;
+    ppDBText13: TppDBText;
+    ppLabel16: TppLabel;
     procedure btnGenerarClick(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
   private
