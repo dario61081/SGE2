@@ -60,6 +60,8 @@ type
     actGestionPrecioProductos: TAction;
     JvAppInstances1: TJvAppInstances;
     actFacturasyTimbrados: TAction;
+    actListaFacturasClientes: TAction;
+    Listadodefacturasdeclientes1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -71,6 +73,7 @@ type
     procedure actProductosExecute(Sender: TObject);
     procedure actGestionPrecioProductosExecute(Sender: TObject);
     procedure actFacturasyTimbradosExecute(Sender: TObject);
+    procedure actListaFacturasClientesExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
@@ -89,7 +92,7 @@ implementation
 
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
-  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo, ufrmFacturasTimbrados;
+  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo, ufrmFacturasTimbrados, ufrmFacturasClientes;
 
 {$R *.dfm}
 
@@ -130,6 +133,13 @@ begin
   frmImprimirProductos := TfrmImprimirProductos.Create(self);
   frmImprimirProductos.ShowModal;
   FreeAndNil(frmImprimirProductos);
+end;
+
+procedure TfrmMain.actListaFacturasClientesExecute(Sender: TObject);
+begin
+  frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.create(application);
+  frmResumenFacturasProveedores.Show;
+
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);

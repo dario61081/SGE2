@@ -162,6 +162,9 @@ object frmMain: TfrmMain
         object RendiciondeVentas1: TMenuItem
           Action = actRendiciondeVentas
         end
+        object Listadodefacturasdeclientes1: TMenuItem
+          Action = actListaFacturasClientes
+        end
         object Gestindedepositos2: TMenuItem
           Action = actGestionVentas
         end
@@ -346,6 +349,10 @@ object frmMain: TfrmMain
       Hint = 'Permiteadministrar las facturas y timbrados del sistema'
       ImageIndex = 6
       OnExecute = actFacturasyTimbradosExecute
+    end
+    object actListaFacturasClientes: TAction
+      Caption = 'Listado de facturas de clientes...'
+      OnExecute = actListaFacturasClientesExecute
     end
   end
   object ilsmall: TImageList

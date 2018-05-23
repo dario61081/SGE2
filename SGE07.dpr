@@ -26,7 +26,8 @@ uses
   ufrmGenerarRecibo in 'forms\ufrmGenerarRecibo.pas' {frmGenerarRecibo},
   ufrmMantenerProductos in 'ufrmMantenerProductos.pas' {frmMantenerProductos},
   ufrmClientes in 'mejoras\ufrmClientes.pas' {frmClientes},
-  ufrmFacturasTimbrados in 'mejoras\ufrmFacturasTimbrados.pas' {frmFacturasTimbrados};
+  ufrmFacturasTimbrados in 'mejoras\ufrmFacturasTimbrados.pas' {frmFacturasTimbrados},
+  ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores};
 
 {$R *.res}
 
