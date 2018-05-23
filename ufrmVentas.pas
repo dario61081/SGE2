@@ -414,7 +414,9 @@ procedure TfrmVentas.actReimprimirFacturaExecute(Sender: TObject);
 begin
   inherited;
   if tblVentasESTADO.Text.Equals('IMPR') then
-    btnImprimir.Click;
+    btnImprimir.Click
+  else
+    showmessage('No se puede reimprimir esta factura');
 
 end;
 
@@ -461,34 +463,62 @@ begin
 
 end;
 
+/// <summary>
+/// Imprimir factura
+/// </summary>
 procedure TfrmVentas.btnImprimirClick(Sender: TObject);
 var
   valor: Int64;
 
 begin
   inherited;
+  // veerificar que las tablas esten cerradas.
+  with tblVentas.Transaction do
+  begin
+    if InTransaction then
+      CommitRetaining;
+  end;
+  with tblDetalles.Transaction do
+  begin
+    if InTransaction then
+      CommitRetaining;
+
+  end;
+
+  // sumar los valores de las columnas.
+  valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
+    .SumValue + grid1.Columns[9].Footers[0].SumValue;
+  // sumatoria
+  grid1.SumList.RecalcAll;
 
   if Application.MessageBox('Confirma imprimir esta factura?', 'Imprimir',
     MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
   begin
-    if tblVentas.Transaction.InTransaction then
-      tblVentas.Transaction.CommitRetaining;
-    if tblDetalles.Transaction.InTransaction then
-      tblDetalles.Transaction.CommitRetaining;
+    // if tblVentas.Transaction.InTransaction then
+    // tblVentas.Transaction.CommitRetaining;
+    // if tblDetalles.Transaction.InTransaction then
+    // tblDetalles.Transaction.CommitRetaining;
 
     // marcar como impreso
     with tblVentas do
     begin
-      Edit;
-      tblVentasESTADO.Text := 'IMPR';
-      // REGISTRAR EL NUMERO DE FACTURA Y TIMBRADO
-      tblVentasNUMERO.Text := spFacturaNumero.ParamByName
-        ('FACTURA_NUMERO').Text;
-      tblVentasTIMBRADO_NUMERO.Text := spFacturaNumero.ParamByName
-        ('FACTURA_TIMBRADO').Text;
 
-      post;
-      Transaction.CommitRetaining;
+      // cambiar el estado si esta en edicion
+      if (tblVentasESTADO.Text <> 'IMPR') then
+      begin
+        Edit;
+        tblVentasESTADO.Text := 'IMPR';
+        // REGISTRAR EL NUMERO DE FACTURA Y TIMBRADO
+        tblVentasNUMERO.Text := spFacturaNumero.ParamByName
+          ('FACTURA_NUMERO').Text;
+        tblVentasTIMBRADO_NUMERO.Text := spFacturaNumero.ParamByName
+          ('FACTURA_TIMBRADO').Text;
+        // grabar cambios
+        post;
+        Transaction.CommitRetaining;
+        // ACTUALIZAR SIGUIENTE FACTURA SOLO SI ESTA HA CAMBIADO DE ESTADO A 'IMPR'
+        actualizarNumeroFacturaSiguiente;
+      end;
 
     end;
 
@@ -502,20 +532,12 @@ begin
     //
     // END;
 
-    // ACTUALIZAR SIGUIENTE FACTURA
-    actualizarNumeroFacturaSiguiente;
-    // sumar los valores de las columnas.
-    valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-      .SumValue + grid1.Columns[9].Footers[0].SumValue;
-
+    // generar modelo de factura
     report1.Parameters['prletras'].Value := NumLetra(valor, 1, 1);
-
     report1.PrintReport;
     // actualizar listado
     actualizarTablaVentas;
   end;
-
-  grid1.SumList.RecalcAll;
 
 end;
 
@@ -597,8 +619,16 @@ begin
   spFacturaNumero.ExecProc;
   edtSiguienteFactura.Text := spFacturaNumero.ParamByName
     ('FACTURA_NUMERO').Text;
-    if spfacturanumero.Transaction.InTransaction then
+  if spFacturaNumero.Transaction.InTransaction then
     spFacturaNumero.Transaction.CommitRetaining;
+
+  with tblVentas.Transaction do
+  begin
+    if (InTransaction) then
+    begin
+      CommitRetaining;
+    end;
+  end;
 
 end;
 

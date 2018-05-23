@@ -3,7 +3,8 @@ unit ufrmFacturasTimbrados;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping, ToolCtrlsEh,
   DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBQuery, Vcl.ToolWin,
   Vcl.ComCtrls, JvExComCtrls, JvToolBar, EhLibVCL, GridsEh, DBAxisGridsEh,
@@ -29,6 +30,7 @@ type
     dbnvgr1: TDBNavigator;
     procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -48,11 +50,28 @@ uses
 procedure TfrmFacturasTimbrados.dbnvgr1Click(Sender: TObject;
   Button: TNavigateBtn);
 begin
-  case button of
+  case Button of
 
-    nbInsert: tblTimbrados.Append ;
+    nbInsert:
+      tblTimbrados.Append;
 
   end;
+end;
+
+procedure TfrmFacturasTimbrados.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+
+  with tblTimbrados.Transaction do
+  begin
+    if (InTransaction) then
+    begin
+      CommitRetaining;
+
+    end;
+
+  end;
+
 end;
 
 procedure TfrmFacturasTimbrados.FormCreate(Sender: TObject);

@@ -66,11 +66,11 @@
         <Manifest_File>None</Manifest_File>
         <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_MapFile>3</DCC_MapFile>
-        <VerInfo_Build>28</VerInfo_Build>
+        <VerInfo_Build>34</VerInfo_Build>
         <Icon_MainIcon>SGE_Icon.ico</Icon_MainIcon>
         <DCC_ExeOutput>C:\sge\binarios\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.28;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.34;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
