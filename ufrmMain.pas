@@ -62,6 +62,7 @@ type
     actFacturasyTimbrados: TAction;
     actListaFacturasClientes: TAction;
     Listadodefacturasdeclientes1: TMenuItem;
+    actLotesProductos: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -74,6 +75,7 @@ type
     procedure actGestionPrecioProductosExecute(Sender: TObject);
     procedure actFacturasyTimbradosExecute(Sender: TObject);
     procedure actListaFacturasClientesExecute(Sender: TObject);
+    procedure actLotesProductosExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
@@ -140,6 +142,11 @@ begin
   frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.create(application);
   frmResumenFacturasProveedores.Show;
 
+end;
+
+procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
+begin
+//lotes de productos
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);

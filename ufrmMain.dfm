@@ -112,6 +112,14 @@ object frmMain: TfrmMain
             Tag = 0
             AutoToggle = False
             OnClick = actFacturasyTimbradosExecute
+          end
+          item
+            Action = actLotesProductos
+            Caption = 'Lotes...'
+            ImageIndex = 6
+            Tag = 0
+            AutoToggle = False
+            OnClick = actLotesProductosExecute
           end>
         ButtonSize = olbsSmall
         Caption = 'M'#243'dulos'
@@ -353,6 +361,12 @@ object frmMain: TfrmMain
     object actListaFacturasClientes: TAction
       Caption = 'Listado de facturas de clientes...'
       OnExecute = actListaFacturasClientesExecute
+    end
+    object actLotesProductos: TAction
+      Category = 'modulos'
+      Caption = 'Lotes'
+      ImageIndex = 6
+      OnExecute = actLotesProductosExecute
     end
   end
   object ilsmall: TImageList
