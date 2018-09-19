@@ -656,4 +656,44 @@ object frmMain: TfrmMain
     Left = 485
     Top = 280
   end
+  object JvTipOfDay1: TJvTipOfDay
+    AppStorage = JvAppStorage1
+    AppStoragePath = '.\appstorage.ini'
+    ButtonNext.Caption = '&Next Tip'
+    ButtonNext.Flat = False
+    ButtonNext.ShowHint = False
+    ButtonNext.HotTrack = False
+    ButtonNext.HotTrackFont.Charset = DEFAULT_CHARSET
+    ButtonNext.HotTrackFont.Color = clWindowText
+    ButtonNext.HotTrackFont.Height = -11
+    ButtonNext.HotTrackFont.Name = 'Tahoma'
+    ButtonNext.HotTrackFont.Style = []
+    ButtonClose.Caption = '&Close'
+    ButtonClose.Flat = False
+    ButtonClose.ShowHint = False
+    ButtonClose.HotTrack = False
+    ButtonClose.HotTrackFont.Charset = DEFAULT_CHARSET
+    ButtonClose.HotTrackFont.Color = clWindowText
+    ButtonClose.HotTrackFont.Height = -11
+    ButtonClose.HotTrackFont.Name = 'Tahoma'
+    ButtonClose.HotTrackFont.Style = []
+    CheckBoxText = '&Show Tips on Startup'
+    HeaderText = 'Sabias que...'
+    Tips.Strings = (
+      
+        'Esta actualizaci'#243'n contiene informacion sobre lotes y vencimient' +
+        'os de productos. '
+      ''
+      'Utiliizar el modulo lotes para administrarlos. ')
+    Title = 'Tips, informaci'#243'n y otros'
+    Left = 465
+    Top = 190
+  end
+  object JvAppStorage1: TJvAppStorage
+    StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
+    StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
+    SubStorages = <>
+    Left = 555
+    Top = 195
+  end
 end

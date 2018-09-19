@@ -3,7 +3,7 @@
         <ProjectGuid>{93A888B8-AD96-46A0-A9E9-92730E26BBCA}</ProjectGuid>
         <ProjectVersion>15.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>SGE08.dpr</MainSource>
+        <MainSource>SGE2018_9_1.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -253,7 +253,7 @@
                     <VersionInfoKeys Name="theme"/>
                 </VersionInfoKeys>
                 <Source>
-                    <Source Name="MainSource">SGE08.dpr</Source>
+                    <Source Name="MainSource">SGE2018_9_1.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k190.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>

@@ -9,7 +9,8 @@ uses
   Vcl.Menus, JvBackgrounds, System.Actions, Vcl.ActnList,
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ImgList, JvCoolBar,
   Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager,
-  JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO, JvAppInst;
+  JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO, JvAppInst, JvBaseDlg,
+  JvTipOfDay, JvAppStorage;
 
 type
   TfrmMain = class(TForm)
@@ -63,6 +64,8 @@ type
     actListaFacturasClientes: TAction;
     Listadodefacturasdeclientes1: TMenuItem;
     actLotesProductos: TAction;
+    JvTipOfDay1: TJvTipOfDay;
+    JvAppStorage1: TJvAppStorage;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -84,7 +87,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-     property terminal: string read Fterminal write Setterminal;
+    property terminal: string read Fterminal write Setterminal;
   end;
 
 var
@@ -94,7 +97,8 @@ implementation
 
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
-  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo, ufrmFacturasTimbrados, ufrmFacturasClientes;
+  ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes;
 
 {$R *.dfm}
 
@@ -139,14 +143,17 @@ end;
 
 procedure TfrmMain.actListaFacturasClientesExecute(Sender: TObject);
 begin
-  frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.create(application);
+  frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.Create
+    (Application);
   frmResumenFacturasProveedores.Show;
 
 end;
 
 procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
 begin
-//lotes de productos
+  // lotes de productos
+  frmlotes := tfrmlotes.Create(Application);
+  frmlotes.Show;
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);
@@ -228,7 +235,7 @@ end;
 procedure TfrmMain.Setterminal(const Value: string);
 begin
   Fterminal := Value;
-  status1.Panels[1].Text := value;
+  status1.Panels[1].Text := Value;
 end;
 
 end.

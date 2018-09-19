@@ -1,4 +1,4 @@
-program SGE08;
+program SGE2018_9_1;
 
 uses
   Vcl.Forms,
