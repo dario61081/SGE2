@@ -115,7 +115,7 @@ object frmMain: TfrmMain
           end
           item
             Action = actLotesProductos
-            Caption = 'Lotes...'
+            Caption = 'Lotes y vencimientos...'
             ImageIndex = 6
             Tag = 0
             AutoToggle = False
@@ -141,7 +141,7 @@ object frmMain: TfrmMain
     ButtonSize = olbsSmall
     ThemedBackground = False
     BorderStyle = bsNone
-    Color = clScrollBar
+    Color = clSilver
     TabOrder = 1
   end
   object mm1: TMainMenu
@@ -364,7 +364,7 @@ object frmMain: TfrmMain
     end
     object actLotesProductos: TAction
       Category = 'modulos'
-      Caption = 'Lotes'
+      Caption = 'Lotes y vencimientos...'
       ImageIndex = 6
       OnExecute = actLotesProductosExecute
     end
@@ -679,6 +679,7 @@ object frmMain: TfrmMain
     ButtonClose.HotTrackFont.Style = []
     CheckBoxText = '&Show Tips on Startup'
     HeaderText = 'Sabias que...'
+    Options = [toShowWhenFormShown]
     Tips.Strings = (
       
         'Esta actualizaci'#243'n contiene informacion sobre lotes y vencimient' +
