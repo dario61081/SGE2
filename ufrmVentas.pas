@@ -197,6 +197,7 @@ type
     spFacturaNumeroFACTURA_TIMBRADO: TIBStringField;
     spFacturaSiguiente: TIBStoredProc;
     spFacturaSiguienteVALOR: TLargeintField;
+    lblPeriodo: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
