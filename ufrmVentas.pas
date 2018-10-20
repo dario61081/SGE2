@@ -486,10 +486,12 @@ begin
   end;
 
   // sumar los valores de las columnas.
-  valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-    .SumValue + grid1.Columns[9].Footers[0].SumValue;
   // sumatoria
   grid1.SumList.RecalcAll;
+  //capturar monto de factura
+  valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
+    .SumValue + grid1.Columns[9].Footers[0].SumValue;
+
 
   if Application.MessageBox('Confirma imprimir esta factura?', 'Imprimir',
     MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
@@ -537,6 +539,7 @@ begin
     report1.PrintReport;
     // actualizar listado
     actualizarTablaVentas;
+
   end;
 
 end;
