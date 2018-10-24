@@ -66,6 +66,8 @@ type
     actLotesProductos: TAction;
     JvTipOfDay1: TJvTipOfDay;
     JvAppStorage1: TJvAppStorage;
+    pnlTask: TPanel;
+    imgLogo: TImage;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);

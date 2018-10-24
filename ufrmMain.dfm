@@ -20,12 +20,11 @@ object frmMain: TfrmMain
   PixelsPerInch = 96
   TextHeight = 13
   object spl1: TSplitter
-    Left = 191
+    Left = 185
     Top = 30
     Height = 346
-    ExplicitLeft = 205
-    ExplicitTop = 115
-    ExplicitHeight = 100
+    ExplicitLeft = 240
+    ExplicitTop = 15
   end
   object status1: TJvStatusBar
     Left = 0
@@ -51,6 +50,8 @@ object frmMain: TfrmMain
     Width = 750
     Height = 30
     AutoSize = True
+    BandBorderStyle = bsNone
+    BandMaximize = bmNone
     Bands = <
       item
         Control = acttbMain
@@ -80,69 +81,91 @@ object frmMain: TfrmMain
       Spacing = 0
     end
   end
-  object outlook1: TJvOutlookBar
+  object pnlTask: TPanel
     Left = 0
     Top = 30
-    Width = 191
+    Width = 185
     Height = 346
     Align = alLeft
-    Pages = <
-      item
-        Buttons = <
-          item
-            Action = actFacturacionVentas
-            Caption = 'Facturacion ventas...'
-            ImageIndex = 0
-            Tag = 0
-            AutoToggle = False
-            OnClick = actFacturacionVentasExecute
-          end
-          item
-            Action = actGestionPrecioProductos
-            Caption = 'Productos y precios'
-            ImageIndex = 6
-            Tag = 0
-            AutoToggle = False
-            OnClick = actGestionPrecioProductosExecute
-          end
-          item
-            Action = actFacturasyTimbrados
-            Caption = 'Facturas y timbrados'
-            ImageIndex = 6
-            Tag = 0
-            AutoToggle = False
-            OnClick = actFacturasyTimbradosExecute
-          end
-          item
-            Action = actLotesProductos
-            Caption = 'Lotes y vencimientos...'
-            ImageIndex = 6
-            Tag = 0
-            AutoToggle = False
-            OnClick = actLotesProductosExecute
-          end>
-        ButtonSize = olbsSmall
-        Caption = 'M'#243'dulos'
-        Color = clGray
-        DownFont.Charset = DEFAULT_CHARSET
-        DownFont.Color = clWindowText
-        DownFont.Height = -11
-        DownFont.Name = 'Tahoma'
-        DownFont.Style = []
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWhite
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentColor = False
-        TopButtonIndex = 0
-      end>
-    SmallImages = ilsmall
-    ButtonSize = olbsSmall
-    ThemedBackground = False
-    BorderStyle = bsNone
-    Color = clSilver
+    BevelOuter = bvNone
+    Caption = 'pnlTask'
+    Color = clGray
+    ParentBackground = False
     TabOrder = 1
+    object imgLogo: TImage
+      Left = 0
+      Top = 0
+      Width = 185
+      Height = 105
+      Align = alTop
+      ExplicitLeft = 75
+      ExplicitTop = 205
+      ExplicitWidth = 105
+    end
+    object outlook1: TJvOutlookBar
+      Left = 0
+      Top = 105
+      Width = 185
+      Height = 241
+      Align = alClient
+      Pages = <
+        item
+          Buttons = <
+            item
+              Action = actFacturacionVentas
+              Caption = 'Facturacion ventas...'
+              ImageIndex = 0
+              Tag = 0
+              AutoToggle = False
+              OnClick = actFacturacionVentasExecute
+            end
+            item
+              Action = actGestionPrecioProductos
+              Caption = 'Productos y precios'
+              ImageIndex = 6
+              Tag = 0
+              AutoToggle = False
+              OnClick = actGestionPrecioProductosExecute
+            end
+            item
+              Action = actFacturasyTimbrados
+              Caption = 'Facturas y timbrados'
+              ImageIndex = 6
+              Tag = 0
+              AutoToggle = False
+              OnClick = actFacturasyTimbradosExecute
+            end
+            item
+              Action = actLotesProductos
+              Caption = 'Lotes y vencimientos...'
+              ImageIndex = 6
+              Tag = 0
+              AutoToggle = False
+              OnClick = actLotesProductosExecute
+            end>
+          ButtonSize = olbsSmall
+          Caption = 'M'#243'dulos'
+          Color = clGray
+          DownFont.Charset = DEFAULT_CHARSET
+          DownFont.Color = clWindowText
+          DownFont.Height = -11
+          DownFont.Name = 'Tahoma'
+          DownFont.Style = []
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentColor = False
+          TopButtonIndex = 0
+        end>
+      SmallImages = ilsmall
+      ButtonSize = olbsSmall
+      ThemedBackground = False
+      BorderStyle = bsNone
+      Color = clSilver
+      TabOrder = 0
+    end
   end
   object mm1: TMainMenu
     Left = 290
@@ -649,12 +672,12 @@ object frmMain: TfrmMain
     PluginFolder = 'etc'
     Extension = 'bpl'
     PluginKind = plgPackage
-    Left = 425
-    Top = 280
+    Left = 500
+    Top = 245
   end
   object JvAppInstances1: TJvAppInstances
-    Left = 485
-    Top = 280
+    Left = 560
+    Top = 245
   end
   object JvTipOfDay1: TJvTipOfDay
     AppStorage = JvAppStorage1

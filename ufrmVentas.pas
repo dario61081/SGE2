@@ -16,7 +16,7 @@ uses
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
   Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
-  JvLED, JvLabel, JclSysInfo;
+  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage;
 
 type
 
@@ -198,6 +198,7 @@ type
     spFacturaSiguiente: TIBStoredProc;
     spFacturaSiguienteVALOR: TLargeintField;
     lblPeriodo: TLabel;
+    tblDetallesLOTE: TIBStringField;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -470,7 +471,7 @@ end;
 procedure TfrmVentas.btnImprimirClick(Sender: TObject);
 var
   valor: Int64;
-
+  texto_valor: string;
 begin
   inherited;
   // veerificar que las tablas esten cerradas.
@@ -493,8 +494,9 @@ begin
   valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
     .SumValue + grid1.Columns[9].Footers[0].SumValue;
 
+    texto_valor := NumLetra(valor, 1, 1);
 
-  if Application.MessageBox('Confirma imprimir esta factura?', 'Imprimir',
+  if Application.MessageBox(PWideChar('Confirma imprimir esta factura?' + #13#10 + 'Total a facturar: ' + valor.ToString() + ' Gs.' + #13#10 + texto_valor) , 'Imprimir',
     MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
   begin
     // if tblVentas.Transaction.InTransaction then
@@ -536,7 +538,7 @@ begin
     // END;
 
     // generar modelo de factura
-    report1.Parameters['prletras'].Value := NumLetra(valor, 1, 1);
+    report1.Parameters['prletras'].Value := texto_valor;
     report1.PrintReport;
     // actualizar listado
     actualizarTablaVentas;
