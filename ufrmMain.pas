@@ -10,7 +10,7 @@ uses
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ImgList, JvCoolBar,
   Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager,
   JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO, JvAppInst, JvBaseDlg,
-  JvTipOfDay, JvAppStorage;
+  JvTipOfDay, JvAppStorage, Vcl.Imaging.pngimage;
 
 type
   TfrmMain = class(TForm)
@@ -220,6 +220,7 @@ begin
 
   with plugin1 do
   begin
+
     PluginFolder := '.\etc';
     LoadPlugins;
 
