@@ -185,6 +185,10 @@
             <Form>frmLotes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="forms\uFrmLoteProductos.pas">
+            <Form>frmLoteProductos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

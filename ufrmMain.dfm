@@ -44,7 +44,6 @@ object frmMain: TfrmMain
       item
         Width = 50
       end>
-    ExplicitTop = 376
   end
   object JvCoolBar1: TJvCoolBar
     Left = 0
@@ -94,7 +93,6 @@ object frmMain: TfrmMain
     Color = clGray
     ParentBackground = False
     TabOrder = 1
-    ExplicitHeight = 346
     object imgLogo: TImage
       AlignWithMargins = True
       Left = 3
@@ -1446,7 +1444,6 @@ object frmMain: TfrmMain
       BorderStyle = bsNone
       Color = clSilver
       TabOrder = 0
-      ExplicitHeight = 210
     end
   end
   object mm1: TMainMenu

@@ -28,7 +28,8 @@ uses
   ufrmClientes in 'mejoras\ufrmClientes.pas' {frmClientes},
   ufrmFacturasTimbrados in 'mejoras\ufrmFacturasTimbrados.pas' {frmFacturasTimbrados},
   ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores},
-  ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes};
+  ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes},
+  uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos};
 
 {$R *.res}
 

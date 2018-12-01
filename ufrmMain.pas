@@ -100,7 +100,7 @@ implementation
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
-  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes;
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos;
 
 {$R *.dfm}
 
@@ -154,8 +154,11 @@ end;
 procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
 begin
   // lotes de productos
-  frmlotes := tfrmlotes.Create(Application);
-  frmlotes.Show;
+//  frmlotes := tfrmlotes.Create(Application);
+//  frmlotes.Show
+  frmLoteProductos := TfrmLoteProductos.Create(Application);
+  frmLoteProductos.Show();
+
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);
