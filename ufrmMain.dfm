@@ -1954,6 +1954,7 @@ object frmMain: TfrmMain
     Top = 245
   end
   object JvAppInstances1: TJvAppInstances
+    OnRejected = JvAppInstances1Rejected
     Left = 560
     Top = 245
   end
@@ -1997,5 +1998,13 @@ object frmMain: TfrmMain
     SubStorages = <>
     Left = 555
     Top = 195
+  end
+  object XPManifest1: TXPManifest
+    Left = 570
+    Top = 80
+  end
+  object ShellResources1: TShellResources
+    Left = 630
+    Top = 140
   end
 end

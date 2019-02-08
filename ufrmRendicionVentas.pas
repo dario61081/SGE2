@@ -4,13 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, DBGridEhGrouping,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Vcl.StdCtrls, EhLibVCL, GridsEh,
   DBAxisGridsEh, DBGridEh, Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit,
   JvCheckedMaskEdit, JvDatePickerEdit, Data.DB, ppComm, ppRelatv, ppProd,
   ppClass, ppReport, IBCustomDataSet, IBQuery, ppVar, ppCtrls, ppBands,
   ppPrnabl, ppStrtch, ppSubRpt, ppCache, ppDB, ppDesignLayer, ppParameter,
-  ppDBPipe, Vcl.ExtCtrls, Vcl.ComCtrls, JvExComCtrls, JvStatusBar;
+  ppDBPipe, Vcl.ExtCtrls, Vcl.ComCtrls, JvExComCtrls, JvStatusBar,
+  ufrmTemplateDatos, dr2gcomponentes;
 
 type
   TfrmRendicionVentas = class(TfrmDatos)

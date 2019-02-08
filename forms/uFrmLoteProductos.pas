@@ -4,11 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, DBGridEhGrouping,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBTable,
   Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit, JvCheckedMaskEdit,
   JvDatePickerEdit, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls;
+  dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos;
 
 type
   TfrmLoteProductos = class(TfrmDatos)
@@ -54,7 +54,6 @@ type
       AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
       var Params: TColCellParamsEh; var Processed: Boolean);
     procedure FormActivate(Sender: TObject);
-    procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
   private
     { Private declarations }
   public
@@ -81,12 +80,6 @@ begin
   edtFechaVencimiento.Date := date + StrToInt(edtDias.Text);
 
 
-
-end;
-
-procedure TfrmLoteProductos.dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
-begin
-  inherited;
 
 end;
 

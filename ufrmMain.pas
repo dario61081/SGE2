@@ -10,7 +10,8 @@ uses
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, Vcl.ImgList, JvCoolBar,
   Vcl.ToolWin, Vcl.ActnCtrls, Vcl.StdActns, JvComponentBase, JvPluginManager,
   JvExControls, JvOutlookBar, Vcl.ExtCtrls, EhLibADO, JvAppInst, JvBaseDlg,
-  JvTipOfDay, JvAppStorage, Vcl.Imaging.pngimage;
+  JvTipOfDay, JvAppStorage, Vcl.Imaging.pngimage, Vcl.Tabs, Vcl.ShellAnimations,
+  Vcl.XPMan;
 
 type
   TfrmMain = class(TForm)
@@ -68,6 +69,8 @@ type
     JvAppStorage1: TJvAppStorage;
     pnlTask: TPanel;
     imgLogo: TImage;
+    XPManifest1: TXPManifest;
+    ShellResources1: TShellResources;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -81,15 +84,22 @@ type
     procedure actFacturasyTimbradosExecute(Sender: TObject);
     procedure actListaFacturasClientesExecute(Sender: TObject);
     procedure actLotesProductosExecute(Sender: TObject);
+    procedure JvAppInstances1Rejected(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
+
   protected
     procedure ClientWndProc(var Message: TMessage); override;
+    procedure CMWindowhook(var Message: TMessage); message CM_WINDOWHOOK;
+    procedure CMChanged(var Message: TCMChanged); message CM_CHANGED;
+    procedure CMEnter(var Message: TCMEnter); message CM_ENTER;
+
     { Private declarations }
   public
     { Public declarations }
     property terminal: string read Fterminal write Setterminal;
+
   end;
 
 var
@@ -154,8 +164,8 @@ end;
 procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
 begin
   // lotes de productos
-//  frmlotes := tfrmlotes.Create(Application);
-//  frmlotes.Show
+  // frmlotes := tfrmlotes.Create(Application);
+  // frmlotes.Show
   frmLoteProductos := TfrmLoteProductos.Create(Application);
   frmLoteProductos.Show();
 
@@ -213,6 +223,21 @@ begin
 
 end;
 
+procedure TfrmMain.CMChanged(var Message: TCMChanged);
+begin
+
+end;
+
+procedure TfrmMain.CMEnter(var Message: TCMEnter);
+begin
+
+end;
+
+procedure TfrmMain.CMWindowhook(var Message: TMessage);
+begin
+
+end;
+
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   acttbMain.ParentBackground := true;
@@ -231,6 +256,12 @@ begin
 
   Setterminal(GetLocalComputerName.ToUpper);
 
+end;
+
+procedure TfrmMain.JvAppInstances1Rejected(Sender: TObject);
+begin
+  showmessage
+    ('Ya existe una instancia de esta aplicacion. el inicio ha sido cancelado');
 end;
 
 procedure TfrmMain.Salir1Click(Sender: TObject);

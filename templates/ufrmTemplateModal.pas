@@ -1,4 +1,4 @@
-unit ufrmmensaje;
+unit ufrmTemplateModal;
 
 interface
 

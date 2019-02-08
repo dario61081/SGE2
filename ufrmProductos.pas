@@ -8,11 +8,10 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.StdCtrls,
   DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
   IBCustomDataSet, IBTable, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  Vcl.ComCtrls, JvExComCtrls, JvComCtrls;
+  Vcl.ComCtrls, JvExComCtrls, JvComCtrls, dr2gcomponentes;
 
 type
   TfrmProductos = class(TfrmDatos)
-    lbl9: TLabel;
     grid1: TDBGridEh;
     tblProductos: TIBTable;
     dsProductos: TDataSource;
@@ -22,7 +21,6 @@ type
     tblProductosDESCRIPCION: TIBStringField;
     tblProductosACTIVO: TSmallintField;
     tblProductosIMPUESTO: TIBStringField;
-    lbl1: TLabel;
   private
     { Private declarations }
   public

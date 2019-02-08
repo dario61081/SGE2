@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping, ToolCtrlsEh,
   DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBQuery, Vcl.ToolWin,
   Vcl.ComCtrls, JvExComCtrls, JvToolBar, EhLibVCL, GridsEh, DBAxisGridsEh,
-  DBGridEh, Vcl.ExtCtrls, Vcl.DBCtrls, IBTable;
+  DBGridEh, Vcl.ExtCtrls, Vcl.DBCtrls, IBTable, dr2gcomponentes;
 
 type
   TfrmFacturasTimbrados = class(TForm)
@@ -28,6 +28,7 @@ type
     tblTimbradosFECHA_CREADO: TDateTimeField;
     tblTimbradosFECHA_MODIF: TDateTimeField;
     dbnvgr1: TDBNavigator;
+    header1: TDxHeader;
     procedure dbnvgr1Click(Sender: TObject; Button: TNavigateBtn);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

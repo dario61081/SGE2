@@ -4,11 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, DBGridEhGrouping,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
   DBGridEh, Data.DB, IBCustomDataSet, IBQuery,
   Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ActnMan,
-  dr2gcomponentes;
+  dr2gcomponentes, ufrmTemplateDatos;
 
 type
   TfrmabmVentas = class(TfrmDatos)

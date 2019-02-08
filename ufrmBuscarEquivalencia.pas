@@ -5,9 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmmensaje, DBGridEhGrouping,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Vcl.StdCtrls, Data.DB,
-  IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh;
+  IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
+  ufrmTemplateModal, dr2gcomponentes;
 
 type
   TfrmBuscarEquivalencias = class(TfrmMensaje)

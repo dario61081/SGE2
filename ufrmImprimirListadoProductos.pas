@@ -5,10 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmmensaje, Vcl.StdCtrls, ppDB,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.StdCtrls, ppDB,
   ppDBPipe, Data.DB, JvDataSource, IBCustomDataSet, IBTable, ppComm, ppRelatv,
   ppProd, ppClass, ppReport, ppBands, ppStrtch, ppSubRpt, ppCtrls, ppVar,
-  ppPrnabl, ppCache, ppDesignLayer, ppParameter, IBQuery;
+  ppPrnabl, ppCache, ppDesignLayer, ppParameter, IBQuery, ufrmTemplateModal,
+  dr2gcomponentes;
 
 type
   TfrmImprimirProductos = class(TfrmMensaje)

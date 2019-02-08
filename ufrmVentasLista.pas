@@ -5,9 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.ComCtrls,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.ComCtrls,
   DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL,
-  GridsEh, DBAxisGridsEh, DBGridEh, Data.DB, IBCustomDataSet, IBQuery;
+  GridsEh, DBAxisGridsEh, DBGridEh, Data.DB, IBCustomDataSet, IBQuery,
+  ufrmTemplateDatos, dr2gcomponentes;
 
 type
   TfrmVentasLista = class(TfrmDatos)
