@@ -29,7 +29,8 @@ uses
   ufrmFacturasTimbrados in 'mejoras\ufrmFacturasTimbrados.pas' {frmFacturasTimbrados},
   ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores},
   ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes},
-  uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos};
+  uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos},
+  Utilidades in 'Utilidades.pas';
 
 {$R *.res}
 

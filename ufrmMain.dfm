@@ -58,12 +58,12 @@ object frmMain: TfrmMain
         Control = acttbMain
         ImageIndex = -1
         MinHeight = 26
-        Width = 744
+        Width = 746
       end>
     object acttbMain: TActionToolBar
-      Left = 11
+      Left = 9
       Top = 0
-      Width = 735
+      Width = 737
       Height = 26
       ActionManager = actmgr1
       Caption = 'acttbMain'

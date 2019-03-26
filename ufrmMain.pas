@@ -240,6 +240,15 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+
+//  with FormatSettings do begin
+//    CurrencyString := 'Gs.';
+//    ThousandSeparator := '.';
+//    DecimalSeparator := ',';
+//  end;
+//  if application.UpdateFormatSettings then ShowMessage('Se ha aplicado el formato');
+
+
   acttbMain.ParentBackground := true;
 
   ForceDirectories('.\etc');

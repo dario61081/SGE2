@@ -5,10 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, EhLibVCL, GridsEh, DBAxisGridsEh,
   DBGridEh, Vcl.StdCtrls, Data.DB, JvDataSource, IBCustomDataSet, IBTable,
-  dr2gcomponentes, IBQuery, ufrmTemplateModal;
+  dr2gcomponentes, IBQuery, ufrmTemplateModal, Vcl.ImgList;
 
 type
   TfrmBuscarProductos = class(TfrmMensaje)
@@ -21,7 +21,6 @@ type
     tblProductosACTIVO: TSmallintField;
     tblProductosIMPUESTO: TIBStringField;
     dsProductos: TJvDataSource;
-    header1: TDxHeader;
     qryProductos: TIBQuery;
     qryProductosID: TLargeintField;
     qryProductosCODIGO: TIBStringField;
@@ -36,12 +35,16 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     Fcodigo_producto: integer;
+    Fdescripcion_producto: string;
     procedure Setcodigo_producto(const Value: integer);
+    procedure Setdescripcion_producto(const Value: string);
     { Private declarations }
   public
     { Public declarations }
-    property codigo_producto: integer read Fcodigo_producto write Setcodigo_producto;
-
+    property codigo_producto: integer read Fcodigo_producto
+      write Setcodigo_producto;
+    property descripcion_producto: string read Fdescripcion_producto
+      write Setdescripcion_producto;
   end;
 
 var
@@ -56,8 +59,9 @@ uses
 
 procedure TfrmBuscarProductos.btnAceptarClick(Sender: TObject);
 begin
-  //seleccionar
-  codigo_producto := qryProductosid.Value;
+  // seleccionar
+  codigo_producto := qryProductosID.Value;
+  descripcion_producto := qryProductosDESCRIPCION.Value;
   inherited;
 
 end;
@@ -65,7 +69,7 @@ end;
 procedure TfrmBuscarProductos.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  //cerrar la consulta
+  // cerrar la consulta
   qryProductos.Close;
   inherited;
 
@@ -80,6 +84,11 @@ end;
 procedure TfrmBuscarProductos.Setcodigo_producto(const Value: integer);
 begin
   Fcodigo_producto := Value;
+end;
+
+procedure TfrmBuscarProductos.Setdescripcion_producto(const Value: string);
+begin
+  Fdescripcion_producto := Value;
 end;
 
 end.

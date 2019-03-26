@@ -189,6 +189,7 @@
             <Form>frmLoteProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Utilidades.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

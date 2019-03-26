@@ -5,13 +5,15 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dr2gcomponentes;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dr2gcomponentes,
+  Vcl.ImgList;
 
 type
   TfrmMensaje = class(TForm)
     btnAceptar: TButton;
     btnCancelar: TButton;
     headerCabecera: TDxHeader;
+    ilButtons: TImageList;
     procedure btnAceptarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
