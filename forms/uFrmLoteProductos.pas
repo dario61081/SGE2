@@ -4,14 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
+  System.Classes, Vcl.Graphics,  strutils,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBTable,
   Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit, JvCheckedMaskEdit,
   JvDatePickerEdit, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
   dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos,
   IBStoredProc, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, System.Actions,
-  Vcl.ActnList;
+  Vcl.ActnList, DBCtrlsEh;
 
 type
   TfrmLoteProductos = class(TfrmDatos)
@@ -46,7 +46,6 @@ type
     lblProducto: TLabel;
     edtCodigoProducto: TEdit;
     edtProducto: TEdit;
-    edtCantidad: TEdit;
     grpRegistrarItem: TGroupBox;
     lblCantidad: TLabel;
     btnAgregarItem: TButton;
@@ -69,6 +68,7 @@ type
     tblLotesOBSERVACION: TIBStringField;
     actlst1: TActionList;
     actBuscarProducto: TAction;
+    edtCantidad2: TDBNumberEditEh;
     procedure btnGenerarCodigoLoteClick(Sender: TObject);
     procedure grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh;
       Cell, AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
@@ -77,7 +77,6 @@ type
     procedure btnAgregarItemClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure actBuscarProductoExecute(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -121,7 +120,7 @@ begin
     ParamByName('lote').Text := edtLote.Text;
     ParamByName('fecha_fabricacion').AsDate := edtFechaElaboracion.Date;
     ParamByName('fecha_vencimiento').AsDate := edtFechaVencimiento.Date;
-    ParamByName('cantidad').AsFloat := tutilidades.parseNumber(edtCantidad.Text) ;
+    ParamByName('cantidad').AsFloat := StrToFloat(edtcantidad2.Text) ;
     ParamByName('observacion').Text := '';
 
     Prepare;
@@ -150,13 +149,6 @@ procedure TfrmLoteProductos.FormActivate(Sender: TObject);
 begin
   inherited;
   tblLotes.Open;
-end;
-
-procedure TfrmLoteProductos.FormCreate(Sender: TObject);
-begin
-  inherited;
-
-  
 end;
 
 procedure TfrmLoteProductos.FormResize(Sender: TObject);

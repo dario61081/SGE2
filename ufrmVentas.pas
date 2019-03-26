@@ -200,6 +200,14 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
+    qryLotes: TIBQuery;
+    qryLotesLOTE: TIBStringField;
+    qryLotesCANTIDAD: TFloatField;
+    qryLotesSALDO: TFloatField;
+    qryLotesESTADO: TIBStringField;
+    qryLotesFECHA_FABRICACION: TDateTimeField;
+    qryLotesFECHA_VENCIMIENTO: TDateTimeField;
+    qryLotesOBSERVACION: TIBStringField;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
