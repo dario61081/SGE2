@@ -8,11 +8,11 @@ uses
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBTable,
   Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit, JvCheckedMaskEdit,
   JvDatePickerEdit, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos;
+  dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos,
+  IBStoredProc;
 
 type
   TfrmLoteProductos = class(TfrmDatos)
-    header2: TDxHeader;
     grid1: TDBGridEh;
     lbl1: TLabel;
     edtLote: TEdit;
@@ -49,6 +49,7 @@ type
     lblCantidad: TLabel;
     btnAgregarItem: TButton;
     btnDescartar: TButton;
+    spGeneraLote: TIBStoredProc;
     procedure btnGenerarCodigoLoteClick(Sender: TObject);
     procedure grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh; Cell,
       AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
