@@ -30,7 +30,8 @@ uses
   ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores},
   ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes},
   uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos},
-  Utilidades in 'Utilidades.pas';
+  Utilidades in 'Utilidades.pas',
+  ufrmLotesDisponibles in 'mejoras\ufrmLotesDisponibles.pas' {frmLotesDisponibles};
 
 {$R *.res}
 

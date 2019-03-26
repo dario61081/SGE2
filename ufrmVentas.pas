@@ -200,14 +200,7 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    qryLotes: TIBQuery;
-    qryLotesLOTE: TIBStringField;
-    qryLotesCANTIDAD: TFloatField;
-    qryLotesSALDO: TFloatField;
-    qryLotesESTADO: TIBStringField;
-    qryLotesFECHA_FABRICACION: TDateTimeField;
-    qryLotesFECHA_VENCIMIENTO: TDateTimeField;
-    qryLotesOBSERVACION: TIBStringField;
+    actBuscarLotes: TAction;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -246,6 +239,7 @@ type
       var Value: Variant; var UseText, Handled: Boolean);
     procedure actBuscarClientesExecute(Sender: TObject);
     procedure edtSiguienteFacturaDblClick(Sender: TObject);
+    procedure actBuscarLotesExecute(Sender: TObject);
   private
     { Private declarations }
     gbuffer: string;
@@ -266,7 +260,7 @@ implementation
 
 uses
   datos, ufrmBuscarEquivalencia, ufrmBuscarProductos, Num2Let, Controles,
-  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes;
+  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes, ufrmLotesDisponibles;
 
 {$R *.dfm}
 
@@ -318,6 +312,23 @@ begin
   end;
   frmClientes.Free;
 
+end;
+
+procedure TfrmVentas.actBuscarLotesExecute(Sender: TObject);
+begin
+  inherited;
+  frmLotesDisponibles := TfrmLotesDisponibles.Create(application);
+  frmLotesDisponibles.producto_id := tblDetallesPRODUCTOS_ID.Value;
+  frmLotesDisponibles.update;
+  if frmLotesDisponibles.ShowModal = mrok then
+  begin
+
+
+
+
+
+  end;
+  FreeAndNil(frmLotesDisponibles);
 end;
 
 procedure TfrmVentas.actBuscarProductoExecute(Sender: TObject);

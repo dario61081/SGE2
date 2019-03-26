@@ -11,7 +11,7 @@ uses
   JvDatePickerEdit, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
   dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos,
   IBStoredProc, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, System.Actions,
-  Vcl.ActnList, DBCtrlsEh;
+  Vcl.ActnList, DBCtrlsEh, Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmLoteProductos = class(TfrmDatos)
@@ -69,6 +69,7 @@ type
     actlst1: TActionList;
     actBuscarProducto: TAction;
     edtCantidad2: TDBNumberEditEh;
+    DBGrid1: TDBGrid;
     procedure btnGenerarCodigoLoteClick(Sender: TObject);
     procedure grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh;
       Cell, AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
