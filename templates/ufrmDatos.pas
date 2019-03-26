@@ -5,11 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dr2gcomponentes;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
 
 type
   TfrmDatos = class(TForm)
-    headerCabecera: TDxHeader;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private

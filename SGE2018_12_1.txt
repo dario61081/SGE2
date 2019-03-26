@@ -1,0 +1,452 @@
+Source Statistics Result Report
+
+--------------------------
+;
+Project 's Information:
+Bytes: 93,683
+Code Bytes: 69,288
+Comment Bytes: 5,888
+Lines: 3,533
+Effective Lines: 2,993
+Blank Lines: 540
+Code Lines: 2,795
+Comment Lines: 254
+Comment Blocks: 254
+
+--------------------------
+;
+Filename: SGE2018_12_1.dpr
+
+At Dir.: C:\sge\sources\SGE-Desktop
+Bytes: 1,986
+Code Bytes: 820
+Comment Bytes: 417
+Lines: 43
+Effective Lines: 39
+Blank Lines: 4
+Code Lines: 38
+Comment Lines: 26
+Comment Blocks: 26
+
+--------------------------
+;
+  Filename: ufrmMain.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 7,643
+  Code Bytes: 6,257
+  Comment Bytes: 212
+  Lines: 278
+  Effective Lines: 224
+  Blank Lines: 54
+  Code Lines: 214
+  Comment Lines: 10
+  Comment Blocks: 10
+
+--------------------------
+;
+  Filename: datos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 1,724
+  Code Bytes: 1,357
+  Comment Bytes: 94
+  Lines: 59
+  Effective Lines: 51
+  Blank Lines: 8
+  Code Lines: 47
+  Comment Lines: 4
+  Comment Blocks: 4
+
+--------------------------
+;
+  Filename: ufrmTemplateModal.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\templates
+  Bytes: 1,212
+  Code Bytes: 978
+  Comment Bytes: 57
+  Lines: 54
+  Effective Lines: 43
+  Blank Lines: 11
+  Code Lines: 40
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmTemplateDatos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\templates
+  Bytes: 1,009
+  Code Bytes: 741
+  Comment Bytes: 84
+  Lines: 46
+  Effective Lines: 35
+  Blank Lines: 11
+  Code Lines: 31
+  Comment Lines: 4
+  Comment Blocks: 4
+
+--------------------------
+;
+  Filename: ufrmEquivalencias.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 577
+  Code Bytes: 423
+  Comment Bytes: 57
+  Lines: 31
+  Effective Lines: 23
+  Blank Lines: 8
+  Code Lines: 20
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmVentas.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 25,509
+  Code Bytes: 18,092
+  Comment Bytes: 2,667
+  Lines: 950
+  Effective Lines: 823
+  Blank Lines: 127
+  Code Lines: 714
+  Comment Lines: 111
+  Comment Blocks: 111
+
+--------------------------
+;
+  Filename: ufrmSplash.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 474
+  Code Bytes: 318
+  Comment Bytes: 57
+  Lines: 29
+  Effective Lines: 22
+  Blank Lines: 7
+  Code Lines: 19
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmBuscarEquivalencia.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 1,394
+  Code Bytes: 1,100
+  Comment Bytes: 57
+  Lines: 63
+  Effective Lines: 51
+  Blank Lines: 12
+  Code Lines: 48
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmBuscarProductos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 2,290
+  Code Bytes: 1,877
+  Comment Bytes: 90
+  Lines: 85
+  Effective Lines: 70
+  Blank Lines: 15
+  Code Lines: 65
+  Comment Lines: 5
+  Comment Blocks: 5
+
+--------------------------
+;
+  Filename: ufrmImprimirListadoProductos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 2,189
+  Code Bytes: 1,769
+  Comment Bytes: 57
+  Lines: 80
+  Effective Lines: 70
+  Blank Lines: 10
+  Code Lines: 67
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: uEnlace.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\unidades
+  Bytes: 3,596
+  Code Bytes: 2,521
+  Comment Bytes: 141
+  Lines: 151
+  Effective Lines: 136
+  Blank Lines: 15
+  Code Lines: 133
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: Num2Let.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 11,650
+  Code Bytes: 6,896
+  Comment Bytes: 1,014
+  Lines: 414
+  Effective Lines: 366
+  Blank Lines: 48
+  Code Lines: 365
+  Comment Lines: 30
+  Comment Blocks: 30
+
+--------------------------
+;
+  Filename: ufrmVentasLista.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 724
+  Code Bytes: 548
+  Comment Bytes: 57
+  Lines: 35
+  Effective Lines: 27
+  Blank Lines: 8
+  Code Lines: 24
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmProductos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 979
+  Code Bytes: 773
+  Comment Bytes: 57
+  Lines: 40
+  Effective Lines: 32
+  Blank Lines: 8
+  Code Lines: 29
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: Controles.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\unidades
+  Bytes: 424
+  Code Bytes: 353
+  Comment Bytes: 0
+  Lines: 27
+  Effective Lines: 18
+  Blank Lines: 9
+  Code Lines: 18
+  Comment Lines: 0
+  Comment Blocks: 0
+
+--------------------------
+;
+  Filename: ufrmabmventas.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 1,641
+  Code Bytes: 1,341
+  Comment Bytes: 57
+  Lines: 63
+  Effective Lines: 52
+  Blank Lines: 11
+  Code Lines: 49
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: terminal.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 1,360
+  Code Bytes: 1,080
+  Comment Bytes: 57
+  Lines: 63
+  Effective Lines: 51
+  Blank Lines: 12
+  Code Lines: 48
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmVistaRapidaFacturas.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 2,624
+  Code Bytes: 2,222
+  Comment Bytes: 57
+  Lines: 83
+  Effective Lines: 68
+  Blank Lines: 15
+  Code Lines: 65
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmRendicionVentas.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 4,381
+  Code Bytes: 3,483
+  Comment Bytes: 57
+  Lines: 165
+  Effective Lines: 143
+  Blank Lines: 22
+  Code Lines: 140
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmVentasDia.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 1,370
+  Code Bytes: 1,082
+  Comment Bytes: 57
+  Lines: 60
+  Effective Lines: 49
+  Blank Lines: 11
+  Code Lines: 46
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: Unit1.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 413
+  Code Bytes: 285
+  Comment Bytes: 57
+  Lines: 24
+  Effective Lines: 17
+  Blank Lines: 7
+  Code Lines: 14
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmGenerarRecibo.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\forms
+  Bytes: 3,907
+  Code Bytes: 3,106
+  Comment Bytes: 57
+  Lines: 136
+  Effective Lines: 122
+  Blank Lines: 14
+  Code Lines: 119
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmMantenerProductos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop
+  Bytes: 3,152
+  Code Bytes: 2,546
+  Comment Bytes: 57
+  Lines: 129
+  Effective Lines: 111
+  Blank Lines: 18
+  Code Lines: 108
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmClientes.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\mejoras
+  Bytes: 1,879
+  Code Bytes: 1,539
+  Comment Bytes: 57
+  Lines: 69
+  Effective Lines: 57
+  Blank Lines: 12
+  Code Lines: 54
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmFacturasTimbrados.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\mejoras
+  Bytes: 2,070
+  Code Bytes: 1,688
+  Comment Bytes: 57
+  Lines: 84
+  Effective Lines: 66
+  Blank Lines: 18
+  Code Lines: 63
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmFacturasClientes.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\mejoras
+  Bytes: 2,603
+  Code Bytes: 2,070
+  Comment Bytes: 57
+  Lines: 104
+  Effective Lines: 87
+  Blank Lines: 17
+  Code Lines: 84
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: ufrmlotes.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\forms
+  Bytes: 1,832
+  Code Bytes: 1,496
+  Comment Bytes: 57
+  Lines: 62
+  Effective Lines: 54
+  Blank Lines: 8
+  Code Lines: 51
+  Comment Lines: 3
+  Comment Blocks: 3
+
+--------------------------
+;
+  Filename: uFrmLoteProductos.pas
+
+  At Dir.: C:\sge\sources\SGE-Desktop\forms
+  Bytes: 3,071
+  Code Bytes: 2,527
+  Comment Bytes: 86
+  Lines: 106
+  Effective Lines: 86
+  Blank Lines: 20
+  Code Lines: 82
+  Comment Lines: 4
+  Comment Blocks: 4
+
+--------------------------
+;
