@@ -322,11 +322,7 @@ begin
   frmLotesDisponibles.update;
   if frmLotesDisponibles.ShowModal = mrok then
   begin
-
-
-
-
-
+      tblDetallesLOTE.Value  := frmLotesDisponibles.lote;
   end;
   FreeAndNil(frmLotesDisponibles);
 end;
