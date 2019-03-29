@@ -142,6 +142,7 @@ type
     spFacturaSiguienteVALOR: TLargeintField;
     lblPeriodo: TLabel;
     tblDetallesLOTE: TIBStringField;
+    actBuscarLotes: TAction;
     ppHeaderBand1: TppHeaderBand;
     chkContado: TmyCheckBox;
     chkCredito: TmyCheckBox;
@@ -167,10 +168,10 @@ type
     ppDBCalc2: TppDBCalc;
     ppDBCalc3: TppDBCalc;
     raCodeModule2: TraCodeModule;
-    raProgramInfo3: TraProgramInfo;
-    raProgramInfo4: TraProgramInfo;
-    raProgramInfo7: TraProgramInfo;
-    raProgramInfo8: TraProgramInfo;
+    raProgramInfo1: TraProgramInfo;
+    raProgramInfo2: TraProgramInfo;
+    raProgramInfo5: TraProgramInfo;
+    raProgramInfo6: TraProgramInfo;
     ppDesignLayers2: TppDesignLayers;
     ppDesignLayer2: TppDesignLayer;
     ppFooterBand1: TppFooterBand;
@@ -200,7 +201,6 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    actBuscarLotes: TAction;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -322,7 +322,17 @@ begin
   frmLotesDisponibles.update;
   if frmLotesDisponibles.ShowModal = mrok then
   begin
-      tblDetallesLOTE.Value  := frmLotesDisponibles.lote;
+
+      if tblDetalles.State in [dsBrowse] then
+      begin
+        tblDetalles.Edit;
+        tblDetallesLOTE.Value  := frmLotesDisponibles.lote;
+        tblDetalles.Post;
+      end;
+
+
+
+
   end;
   FreeAndNil(frmLotesDisponibles);
 end;
