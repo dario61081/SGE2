@@ -6,10 +6,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dr2gcomponentes,
-  Vcl.ImgList;
+  Vcl.ImgList , uinterfaces;
 
 type
-  TfrmMensaje = class(TForm)
+  TfrmMensaje = class(TForm, imodal)
     btnAceptar: TButton;
     btnCancelar: TButton;
     headerCabecera: TDxHeader;
@@ -22,14 +22,18 @@ type
     procedure Setusuario(const Value: string);
     { Private declarations }
   public
+    procedure update;
     { Public declarations }
     property usuario: string read Fusuario write Setusuario;
+
   end;
 
 var
   frmMensaje: TfrmMensaje;
 
 implementation
+
+
 
 {$R *.dfm}
 
@@ -51,6 +55,11 @@ end;
 procedure TfrmMensaje.Setusuario(const Value: string);
 begin
   Fusuario := Value;
+end;
+
+procedure TfrmMensaje.update;
+begin
+
 end;
 
 end.

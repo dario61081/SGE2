@@ -140,9 +140,10 @@ begin
   inherited;
   // generar nuevo tag para lote
 
-  edtLote.Text := 'L' + FormatDateTime('ddmmyyyy', Date);
+  edtLote.Text := 'L' + FormatDateTime('yyyymmdd', Date);
   edtFechaElaboracion.Date := Date;
   edtFechaVencimiento.Date := Date + StrToInt(edtDias.Text);
+
 
 end;
 
