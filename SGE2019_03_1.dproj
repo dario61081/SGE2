@@ -66,11 +66,11 @@
         <Manifest_File>None</Manifest_File>
         <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_MapFile>3</DCC_MapFile>
-        <VerInfo_Build>42</VerInfo_Build>
+        <VerInfo_Build>46</VerInfo_Build>
         <Icon_MainIcon>SGE_Icon.ico</Icon_MainIcon>
         <DCC_ExeOutput>C:\sge\binarios\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.42;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.46;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -102,10 +102,6 @@
             <Form>frmDatos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmEquivalencias.pas">
-            <Form>frmEquivalencias</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="ufrmVentas.pas">
             <Form>frmVentas</Form>
             <FormType>dfm</FormType>
@@ -114,11 +110,11 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmBuscarEquivalencia.pas">
+        <DCCReference Include="forms\busquedas\ufrmBuscarEquivalencia.pas">
             <Form>frmBuscarEquivalencias</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmBuscarProductos.pas">
+        <DCCReference Include="forms\busquedas\ufrmBuscarProductos.pas">
             <Form>frmBuscarProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -137,12 +133,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unidades\Controles.pas"/>
-        <DCCReference Include="ufrmabmventas.pas">
+        <DCCReference Include="forms\ventas\ufrmabmventas.pas">
             <Form>frmabmVentas</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="terminal.pas">
-            <Form>Form2</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="ufrmVistaRapidaFacturas.pas">

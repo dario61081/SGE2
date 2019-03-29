@@ -3,15 +3,14 @@ unit uFrmLoteProductos;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,  strutils,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Vcl.Graphics, strutils, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBTable,
   Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit, JvCheckedMaskEdit,
   JvDatePickerEdit, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
   dr2gcomponentes, JclStrings, Vcl.ExtCtrls, Vcl.DBCtrls, ufrmTemplateDatos,
-  IBStoredProc, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, System.Actions,
-  Vcl.ActnList, DBCtrlsEh, Vcl.Grids, Vcl.DBGrids;
+  IBStoredProc, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, System.Actions, Vcl.ActnList,
+  DBCtrlsEh, Vcl.Grids, Vcl.DBGrids,ib,  IBQuery;
 
 type
   TfrmLoteProductos = class(TfrmDatos)
@@ -50,7 +49,6 @@ type
     lblCantidad: TLabel;
     btnAgregarItem: TButton;
     btnDescartar: TButton;
-    spGeneraLote: TIBStoredProc;
     Label2: TLabel;
     edtObservacion: TEdit;
     status1: TJvStatusBar;
@@ -70,16 +68,17 @@ type
     actBuscarProducto: TAction;
     edtCantidad2: TDBNumberEditEh;
     DBGrid1: TDBGrid;
+    qryRegistrarLote: TIBQuery;
     procedure btnGenerarCodigoLoteClick(Sender: TObject);
-    procedure grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh;
-      Cell, AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
-      var Params: TColCellParamsEh; var Processed: Boolean);
+    procedure grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
     procedure FormActivate(Sender: TObject);
     procedure btnAgregarItemClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure actBuscarProductoExecute(Sender: TObject);
+    procedure btnDescartarClick(Sender: TObject);
   private
     { Private declarations }
+    procedure limpiarcampos;
   public
     { Public declarations }
   end;
@@ -107,32 +106,83 @@ begin
   end;
   FreeAndNil(frmBuscarProductos);
 
-  
 end;
 
 procedure TfrmLoteProductos.btnAgregarItemClick(Sender: TObject);
+var
+  cantidad: extended;
 begin
   inherited;
-  // registrar el nuevo lote y actualizar la lista de lotes.
-  with spGeneraLote do
+  if string(edtCodigoProducto.Text).IsEmpty then
   begin
+    showmessage('Debe de ingresar un codigo de producto');
+    exit;
+  end;
 
-    ParamByName('producto_id').Text := edtCodigoProducto.Text;
-    ParamByName('lote').Text := edtLote.Text;
-    ParamByName('fecha_fabricacion').AsDate := edtFechaElaboracion.Date;
-    ParamByName('fecha_vencimiento').AsDate := edtFechaVencimiento.Date;
-    ParamByName('cantidad').AsFloat := StrToFloat(edtcantidad2.Text) ;
-    ParamByName('observacion').Text := '';
+  if edtCantidad2.Text.IsEmpty then
+  begin
+    showmessage('Debe ingresar cantidad');
+    exit;
+  end;
 
-    Prepare;
-    ExecProc;
+  if string(edtFechaElaboracion.Text).IsEmpty then
+  begin
+    showmessage('Debe de ingresar una fecha de elaboracion');
+    exit;
+  end;
 
-
-    tblLotes.Close;
-    tbllotes.Open;
+  if string(edtFechaVencimiento.Text).IsEmpty then
+  begin
+    showmessage('Debe de ingresar una fecha de vencimiento');
+    exit;
 
   end;
 
+
+
+
+  // registrar el nuevo lote y actualizar la lista de lotes.
+  try
+    with tblLotes do
+    begin
+
+      append;
+      cantidad := strtofloat(edtCantidad2.Value);
+
+      FieldByName('producto_id').Text := edtCodigoProducto.Text;
+      FieldByName('lote').Text := edtLote.Text;
+      FieldByName('fecha_fabricacion').Value := edtFechaElaboracion.Date;
+      FieldByName('fecha_vencimiento').Value := edtFechaVencimiento.Date;
+      FieldByName('cantidad').Value := cantidad;
+      FieldByName('observacion').Text := '';
+      FieldByName('saldo').Value := cantidad;
+
+      post;
+
+
+      tblLotes.Close;
+      tbllotes.Open;
+
+    end;
+  except on e: EIBInterBaseError do begin
+    showmessage('Ha ocurrido un error, posible lote con mismo producto');
+    tblLotes.delete;
+    if tblLotes.Transaction.InTransaction then
+      tbllotes.Transaction.RollbackRetaining;
+  end;
+
+
+  end;
+
+  limpiarcampos;
+
+end;
+
+procedure TfrmLoteProductos.btnDescartarClick(Sender: TObject);
+begin
+  inherited;
+  limpiarcampos;
+  showmessage('Se ha descartado esta informacion');
 end;
 
 procedure TfrmLoteProductos.btnGenerarCodigoLoteClick(Sender: TObject);
@@ -143,7 +193,6 @@ begin
   edtLote.Text := 'L' + FormatDateTime('yyyymmdd', Date);
   edtFechaElaboracion.Date := Date;
   edtFechaVencimiento.Date := Date + StrToInt(edtDias.Text);
-
 
 end;
 
@@ -159,9 +208,7 @@ begin
   invalidate;
 end;
 
-procedure TfrmLoteProductos.grid1Columns6AdvDrawDataCell
-  (Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh;
-  const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
+procedure TfrmLoteProductos.grid1Columns6AdvDrawDataCell(Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
 begin
   inherited;
 
@@ -172,4 +219,19 @@ begin
 
 end;
 
+procedure TfrmLoteProductos.limpiarcampos;
+begin
+
+  edtFechaElaboracion.Clear;
+  edtFechaVencimiento.Clear;
+  edtObservacion.Clear;
+  edtCantidad2.Clear;
+  edtCodigoProducto.Clear;
+  edtProducto.Clear;
+  edtlote.clear;
+  edtLote.SetFocus;
+
+end;
+
 end.
+

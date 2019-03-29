@@ -28,7 +28,6 @@ type
     qryVentasESTADO: TIBStringField;
     qryVentasNUMERO: TIBStringField;
     actmgr1: TActionManager;
-    header1: TDxHeader;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

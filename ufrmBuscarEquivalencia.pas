@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Vcl.StdCtrls, Data.DB,
   IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  ufrmTemplateModal, dr2gcomponentes;
+  ufrmTemplateModal, dr2gcomponentes, Vcl.ImgList;
 
 type
   TfrmBuscarEquivalencias = class(TfrmMensaje)

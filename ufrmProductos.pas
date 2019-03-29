@@ -21,6 +21,7 @@ type
     tblProductosDESCRIPCION: TIBStringField;
     tblProductosACTIVO: TSmallintField;
     tblProductosIMPUESTO: TIBStringField;
+    header1: TDxHeader;
   private
     { Private declarations }
   public
