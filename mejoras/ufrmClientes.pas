@@ -7,7 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, DBGridEhGrouping, ToolCtrlsEh,
   DBGridEhToolCtrls, DynVarsEh, Data.DB, EhLibVCL, GridsEh, DBAxisGridsEh,
   DBGridEh, Vcl.StdCtrls, Vcl.ExtCtrls, System.Actions, Vcl.ActnList,
-  Vcl.DBCtrls, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, dr2gcomponentes;
+  Vcl.DBCtrls, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, dr2gcomponentes,
+  IBCustomDataSet, IBTable;
 
 type
   TfrmClientes = class(TForm)
@@ -15,8 +16,9 @@ type
     dsClientes: TDataSource;
     pnl1: TPanel;
     dbnvgr1: TDBNavigator;
-    btnSeleccionar: TButton;
     header1: TDxHeader;
+    btnSeleccionar: TButton;
+    tblClientes: TIBTable;
     procedure btnSeleccionarClick(Sender: TObject);
   private
     Frazon_social: string;
