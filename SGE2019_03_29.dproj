@@ -187,6 +187,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unidades\uinterfaces.pas"/>
+        <DCCReference Include="mejoras\ufrmNotaCredito.pas">
+            <Form>frmNotaCredito</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

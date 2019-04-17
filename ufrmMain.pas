@@ -71,6 +71,7 @@ type
     imgLogo: TImage;
     XPManifest1: TXPManifest;
     ShellResources1: TShellResources;
+    actGenerarNotaCredito: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -85,6 +86,7 @@ type
     procedure actListaFacturasClientesExecute(Sender: TObject);
     procedure actLotesProductosExecute(Sender: TObject);
     procedure JvAppInstances1Rejected(Sender: TObject);
+    procedure actGenerarNotaCreditoExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
@@ -110,7 +112,7 @@ implementation
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
-  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos;
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito;
 
 {$R *.dfm}
 
@@ -127,6 +129,12 @@ begin
 
   frmFacturasTimbrados := TfrmFacturasTimbrados.Create(Application);
   frmFacturasTimbrados.Show;
+
+end;
+
+procedure TfrmMain.actGenerarNotaCreditoExecute(Sender: TObject);
+begin
+     TfrmNotaCredito.Create(Application).Show;
 
 end;
 

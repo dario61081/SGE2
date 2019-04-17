@@ -16,7 +16,7 @@ uses
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
   Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
-  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage;
+  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage, Vcl.Menus;
 
 type
 
@@ -240,6 +240,7 @@ type
     procedure actBuscarClientesExecute(Sender: TObject);
     procedure edtSiguienteFacturaDblClick(Sender: TObject);
     procedure actBuscarLotesExecute(Sender: TObject);
+    procedure Generarnotadecreditoparaestafactura1Click(Sender: TObject);
   private
     { Private declarations }
     gbuffer: string;
@@ -742,6 +743,12 @@ begin
   actualizarNumeroFacturaSiguiente;
 
   // apuntar al siguiente
+end;
+
+procedure TfrmVentas.Generarnotadecreditoparaestafactura1Click(Sender: TObject);
+begin
+  inherited;
+      showmessagE('generado nota de venta');
 end;
 
 function TfrmVentas.getTerminal_nombre: string;
