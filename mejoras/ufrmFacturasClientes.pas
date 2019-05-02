@@ -4,11 +4,12 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.StdCtrls,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.StdCtrls,
   DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
   IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, ppBands,
   ppCtrls, ppClass, ppVar, ppPrnabl, ppCache, ppDesignLayer, ppParameter, ppDB,
-  ppDBPipe, ppComm, ppRelatv, ppProd, ppReport;
+  ppDBPipe, ppComm, ppRelatv, ppProd, ppReport, ufrmTemplateDatos,
+  dr2gcomponentes;
 
 type
   TfrmResumenFacturasProveedores = class(TfrmDatos)

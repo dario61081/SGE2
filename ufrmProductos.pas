@@ -5,14 +5,13 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.StdCtrls,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.StdCtrls,
   DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
   IBCustomDataSet, IBTable, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  Vcl.ComCtrls, JvExComCtrls, JvComCtrls;
+  Vcl.ComCtrls, JvExComCtrls, JvComCtrls, dr2gcomponentes, ufrmTemplateDatos;
 
 type
-  TfrmProductos = class(TfrmDatos)
-    lbl9: TLabel;
+  TfrmProductos = class(tform)
     grid1: TDBGridEh;
     tblProductos: TIBTable;
     dsProductos: TDataSource;
@@ -22,7 +21,6 @@ type
     tblProductosDESCRIPCION: TIBStringField;
     tblProductosACTIVO: TSmallintField;
     tblProductosIMPUESTO: TIBStringField;
-    lbl1: TLabel;
   private
     { Private declarations }
   public

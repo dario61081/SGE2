@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.Mask, JvExMask,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.Mask, JvExMask,
   JvToolEdit, JvDBControls, Vcl.StdCtrls, dr2gcomponentes, ppComm, ppRelatv,
   ppProd, ppClass, ppReport, ppDesignLayer, ppParameter, ppBands, ppCtrls,
   ppPrnabl, ppVar, ppCache, raCodMod, ppModule, num2let, JvMaskEdit,
@@ -98,7 +98,7 @@ var
 implementation
 
 uses
-  datos;
+  datos, ufrmTemplateModal;
 
 {$R *.dfm}
 

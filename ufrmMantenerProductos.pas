@@ -4,10 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Data.DB, IBCustomDataSet,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Data.DB, IBCustomDataSet,
   IBTable, DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh,
   EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, Vcl.ExtCtrls, Vcl.DBCtrls,
-  Vcl.StdCtrls, Vcl.ComCtrls, dr2gcomponentes, Vcl.ToolWin;
+  Vcl.StdCtrls, Vcl.ComCtrls, dr2gcomponentes, Vcl.ToolWin, ufrmTemplateDatos;
 
 type
   TfrmMantenerProductos = class(TfrmDatos)

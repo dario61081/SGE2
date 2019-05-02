@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, System.StrUtils,
-  Vcl.Forms, Vcl.Dialogs, ufrmDatos, DBGridEhGrouping,
+  Vcl.Forms, Vcl.Dialogs, ufrmTemplateDatos, DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, JvDataSource,
   IBCustomDataSet, IBTable, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
   Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls, JvDBControls, Vcl.ComCtrls,
@@ -119,7 +119,6 @@ type
     qryListadoDESCRIPCION: TIBStringField;
     qryListadoIMPUESTO: TIBStringField;
     edtFECHA: TJvDBDateEdit;
-    header1: TDxHeader;
     ledCero: TJvLED;
     lblstatus1: TJvDBStatusLabel;
     lblstatus2: TJvDBStatusLabel;
@@ -201,6 +200,14 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
+    qryLotes: TIBQuery;
+    qryLotesLOTE: TIBStringField;
+    qryLotesCANTIDAD: TFloatField;
+    qryLotesSALDO: TFloatField;
+    qryLotesESTADO: TIBStringField;
+    qryLotesFECHA_FABRICACION: TDateTimeField;
+    qryLotesFECHA_VENCIMIENTO: TDateTimeField;
+    qryLotesOBSERVACION: TIBStringField;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);

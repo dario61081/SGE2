@@ -4,10 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.ExtCtrls, Vcl.StdCtrls,
-  DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
-  IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  Vcl.Mask, JvExMask, JvToolEdit, Vcl.ComCtrls, dr2gcomponentes;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmTemplateDatos, DBGridEhGrouping,
+  ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB, IBCustomDataSet, IBQuery,
+  Vcl.ComCtrls, Vcl.StdCtrls, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
+  dr2gcomponentes;
 
 type
   TfrmVentasDia = class(TfrmDatos)

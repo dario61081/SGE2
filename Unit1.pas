@@ -4,10 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  ufrmTemplateDatos,
+  dr2gcomponentes;
 
 type
-  TfrmGenerarRecibos = class(TfrmDatos)
+  TfrmGenerarRecibos = class(tform)
   private
     { Private declarations }
   public

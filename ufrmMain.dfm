@@ -1950,12 +1950,13 @@ object frmMain: TfrmMain
     PluginFolder = 'etc'
     Extension = 'bpl'
     PluginKind = plgPackage
-    Left = 460
-    Top = 245
+    Left = 515
+    Top = 365
   end
   object JvAppInstances1: TJvAppInstances
-    Left = 560
-    Top = 245
+    OnRejected = JvAppInstances1Rejected
+    Left = 615
+    Top = 365
   end
   object JvTipOfDay1: TJvTipOfDay
     AppStorage = JvAppStorage1
@@ -1988,14 +1989,22 @@ object frmMain: TfrmMain
       ''
       'Utiliizar el modulo lotes para administrarlos. ')
     Title = 'Tips, informaci'#243'n y otros'
-    Left = 465
-    Top = 190
+    Left = 520
+    Top = 310
   end
   object JvAppStorage1: TJvAppStorage
     StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
     StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
     SubStorages = <>
-    Left = 555
-    Top = 195
+    Left = 610
+    Top = 315
+  end
+  object XPManifest1: TXPManifest
+    Left = 625
+    Top = 200
+  end
+  object ShellResources1: TShellResources
+    Left = 685
+    Top = 260
   end
 end
