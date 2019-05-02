@@ -261,7 +261,8 @@ implementation
 
 uses
   datos, ufrmBuscarEquivalencia, ufrmBuscarProductos, Num2Let, Controles,
-  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes, ufrmLotesDisponibles;
+  ufrmVistaRapidaFacturas, ufrmGenerarRecibo, ufrmClientes,
+  ufrmLotesDisponibles;
 
 {$R *.dfm}
 
@@ -318,21 +319,18 @@ end;
 procedure TfrmVentas.actBuscarLotesExecute(Sender: TObject);
 begin
   inherited;
-  frmLotesDisponibles := TfrmLotesDisponibles.Create(application);
+  frmLotesDisponibles := TfrmLotesDisponibles.Create(Application);
   frmLotesDisponibles.producto_id := tblDetallesPRODUCTOS_ID.Value;
   frmLotesDisponibles.update;
-  if frmLotesDisponibles.ShowModal = mrok then
+  if frmLotesDisponibles.ShowModal = mrOk then
   begin
 
-      if tblDetalles.State in [dsBrowse] then
-      begin
-        tblDetalles.Edit;
-        tblDetallesLOTE.Value  := frmLotesDisponibles.lote;
-        tblDetalles.Post;
-      end;
-
-
-
+    if tblDetalles.State in [dsBrowse] then
+    begin
+      tblDetalles.Edit;
+      tblDetallesLOTE.Value := frmLotesDisponibles.lote;
+      tblDetalles.post;
+    end;
 
   end;
   FreeAndNil(frmLotesDisponibles);
@@ -483,6 +481,19 @@ begin
     dbedtEstado.Color := $0092FEB3;
   if dbedtEstado.Text = 'ANUL' then
     dbedtEstado.Color := $00C6C6FF;
+  if dbedtEstado.Text = 'EMIT' then
+    dbedtEstado.Color := $0091B5FF;
+  // mostrar que la factura tiene una nota de credito
+  if dbedtEstado.Text = 'EMIT' then
+  begin
+    dbedtEstado.Hint := 'Esta venta tiene una nota de credito';
+    dbedtEstado.ShowHint := true;
+  end
+  else
+  begin
+    dbedtEstado.Hint := '';
+  end;
+
   // bloquear para cuando la factura ya fue impresa
   modo := (dbedtEstado.Text = 'GENE');
 
@@ -517,14 +528,15 @@ begin
   // sumar los valores de las columnas.
   // sumatoria
   grid1.SumList.RecalcAll;
-  //capturar monto de factura
+  // capturar monto de factura
   valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
     .SumValue + grid1.Columns[9].Footers[0].SumValue;
 
-    texto_valor := NumLetra(valor, 1, 1);
+  texto_valor := NumLetra(valor, 1, 1);
 
-  if Application.MessageBox(PWideChar('Confirma imprimir esta factura?' + #13#10 + 'Total a facturar: ' + valor.ToString() + ' Gs.' + #13#10 + texto_valor) , 'Imprimir',
-    MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
+  if Application.MessageBox(PWideChar('Confirma imprimir esta factura?' + #13#10
+    + 'Total a facturar: ' + valor.ToString() + ' Gs.' + #13#10 + texto_valor),
+    'Imprimir', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
   begin
     // if tblVentas.Transaction.InTransaction then
     // tblVentas.Transaction.CommitRetaining;
@@ -748,7 +760,7 @@ end;
 procedure TfrmVentas.Generarnotadecreditoparaestafactura1Click(Sender: TObject);
 begin
   inherited;
-      showmessagE('generado nota de venta');
+  showmessage('generado nota de venta');
 end;
 
 function TfrmVentas.getTerminal_nombre: string;
