@@ -66,11 +66,11 @@
         <Manifest_File>None</Manifest_File>
         <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_MapFile>3</DCC_MapFile>
-        <VerInfo_Build>48</VerInfo_Build>
+        <VerInfo_Build>49</VerInfo_Build>
         <Icon_MainIcon>SGE_Icon.ico</Icon_MainIcon>
         <DCC_ExeOutput>C:\sge\binarios\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.48;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.49;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -104,10 +104,6 @@
         </DCCReference>
         <DCCReference Include="ufrmVentas.pas">
             <Form>frmVentas</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="ufrmSplash.pas">
-            <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="forms\busquedas\ufrmBuscarEquivalencia.pas">
@@ -189,6 +185,14 @@
         <DCCReference Include="unidades\uinterfaces.pas"/>
         <DCCReference Include="mejoras\ufrmNotaCredito.pas">
             <Form>frmNotaCredito</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="mejoras\ufrmNotaCreditoManual.pas">
+            <Form>frmNotaCreditoManual</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmSplash.pas">
+            <Form>frmSplash</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

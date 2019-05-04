@@ -112,7 +112,7 @@ implementation
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
-  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito;
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito, ufrmNotaCreditoManual;
 
 {$R *.dfm}
 
@@ -134,8 +134,8 @@ end;
 
 procedure TfrmMain.actGenerarNotaCreditoExecute(Sender: TObject);
 begin
-     TfrmNotaCredito.Create(Application).Show;
-
+//     TfrmNotaCredito.Create(Application).Show;
+  TfrmNotaCreditoManual.Create(application).Show;
 end;
 
 procedure TfrmMain.actGestionPrecioProductosExecute(Sender: TObject);
@@ -265,10 +265,8 @@ begin
 
   with plugin1 do
   begin
-
     PluginFolder := '.\etc';
     LoadPlugins;
-
   end;
 
   Setterminal(GetLocalComputerName.ToUpper);

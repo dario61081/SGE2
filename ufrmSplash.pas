@@ -3,16 +3,17 @@ unit ufrmSplash;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls;
 
 type
-  TForm1 = class(TForm)
-    lbl1: TLabel;
-    lbl2: TLabel;
+  TfrmSplash = class(TForm)
     img1: TImage;
-    lbl3: TLabel;
+    pnl1: TPanel;
+    lbl1: TLabel;
+    pb1: TProgressBar;
+    procedure FormPaint(Sender: TObject);
+    procedure img1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -20,10 +21,24 @@ type
   end;
 
 var
-  Form1: TForm1;
+  frmSplash: TfrmSplash;
 
 implementation
 
 {$R *.dfm}
+
+procedure TfrmSplash.FormPaint(Sender: TObject);
+begin
+
+  canvas.Pen.Color := clSilver;
+  canvas.Rectangle(GetClientRect);
+
+end;
+
+procedure TfrmSplash.img1Click(Sender: TObject);
+begin
+  self.Hide;
+  self.Free;
+end;
 
 end.

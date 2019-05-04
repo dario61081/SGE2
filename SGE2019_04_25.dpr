@@ -7,7 +7,6 @@ uses
   ufrmTemplateModal in 'templates\ufrmTemplateModal.pas' {frmMensaje},
   ufrmTemplateDatos in 'templates\ufrmTemplateDatos.pas' {frmDatos},
   ufrmVentas in 'ufrmVentas.pas' {frmVentas},
-  ufrmSplash in 'ufrmSplash.pas' {Form1},
   ufrmBuscarEquivalencia in 'forms\busquedas\ufrmBuscarEquivalencia.pas' {frmBuscarEquivalencias},
   ufrmBuscarProductos in 'forms\busquedas\ufrmBuscarProductos.pas' {frmBuscarProductos},
   ufrmImprimirListadoProductos in 'ufrmImprimirListadoProductos.pas' {frmImprimirProductos},
@@ -31,7 +30,9 @@ uses
   Utilidades in 'Utilidades.pas',
   ufrmLotesDisponibles in 'mejoras\ufrmLotesDisponibles.pas' {frmLotesDisponibles},
   uinterfaces in 'unidades\uinterfaces.pas',
-  ufrmNotaCredito in 'mejoras\ufrmNotaCredito.pas' {frmNotaCredito};
+  ufrmNotaCredito in 'mejoras\ufrmNotaCredito.pas' {frmNotaCredito},
+  ufrmNotaCreditoManual in 'mejoras\ufrmNotaCreditoManual.pas' {frmNotaCreditoManual},
+  ufrmSplash in 'ufrmSplash.pas' {frmSplash};
 
 {$R *.res}
 
