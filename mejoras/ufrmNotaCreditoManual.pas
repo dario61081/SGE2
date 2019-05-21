@@ -16,23 +16,6 @@ uses
 type
   TfrmNotaCreditoManual = class(TfrmDatos)
     tblCabecera: TIBTable;
-    tblCabeceraCODIGO: TLargeintField;
-    tblCabeceraEMPRESAS_CODIGO: TLargeintField;
-    tblCabeceraVENTAS_CODIGO: TLargeintField;
-    tblCabeceraFECHA: TDateTimeField;
-    tblCabeceraRUC: TIBStringField;
-    tblCabeceraRAZON_SOCIAL: TIBStringField;
-    tblCabeceraCONDICION: TIBStringField;
-    tblCabeceraDIRECCION: TIBStringField;
-    tblCabeceraTELEFONO: TIBStringField;
-    tblCabeceraNOTA_REMISION: TIBStringField;
-    tblCabeceraOBSERVACION: TIBStringField;
-    tblCabeceraPRECIO_MAYORISTA: TSmallintField;
-    tblCabeceraESTADO: TIBStringField;
-    tblCabeceraNUMERO: TIBStringField;
-    tblCabeceraTIMBRADO_NUMERO: TIBStringField;
-    tblCabeceraFECHA_CREADO: TDateTimeField;
-    tblCabeceraFECHA_MODIF: TDateTimeField;
     grp1: TGroupBox;
     grid1: TDBGridEh;
     dsDetalle: TDataSource;
@@ -73,12 +56,23 @@ type
     btnDescartarNota: TButton;
     actBuscarCliente: TAction;
     status1: TJvStatusBar;
+    grp2: TGroupBox;
+    dbnvgr2: TDBNavigator;
+    tblCabeceraCODIGO: TLargeintField;
+    tblCabeceraFECHA: TDateTimeField;
+    tblCabeceraRUC: TIBStringField;
+    tblCabeceraRAZON_SOCIAL: TIBStringField;
+    tblCabeceraESTADO: TIBStringField;
+    tblCabeceraOBSERVACION: TIBStringField;
+    bvl1: TBevel;
     procedure btnImprimirClick(Sender: TObject);
     procedure actNuevaNotaCreditoExecute(Sender: TObject);
     procedure actDescartarNotaExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure actBuscarClienteExecute(Sender: TObject);
+    procedure tblDetallesNewRecord(DataSet: TDataSet);
+    procedure grid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
@@ -102,7 +96,7 @@ begin
   if frmClientes.ShowModal = mrok then
   begin
     dbedtRUC.Text := frmClientes.ruc;
-    dbedtRAZON_SOCIAL.Text := frmclientes.razon_social;
+    dbedtRAZON_SOCIAL.Text := frmClientes.razon_social;
   end;
   FreeAndNil(frmClientes);
 end;
@@ -163,6 +157,26 @@ begin
   inherited;
   tblCabecera.Open;
   tblDetalles.Open;
+end;
+
+procedure TfrmNotaCreditoManual.grid1KeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if (key = VK_RETURN) or (key = VK_LEFT) or (key = VK_RIGHT) or (key=VK_TAB) then
+  begin
+//    if tblDetalles.Transaction.InTransaction then tblDetalles.Transaction.CommitRetaining;
+    grid1.DataSource.DataSet.Refresh;
+  end;
+end;
+
+procedure TfrmNotaCreditoManual.tblDetallesNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+
+  DataSet.FieldByName(tblDetallesNOTAS_CREDITOS_CODIGO.FieldName).Value :=
+    tblCabeceraCODIGO.Value;
+
 end;
 
 end.
