@@ -58,12 +58,12 @@ object frmMain: TfrmMain
         Control = acttbMain
         ImageIndex = -1
         MinHeight = 26
-        Width = 746
+        Width = 744
       end>
     object acttbMain: TActionToolBar
-      Left = 9
+      Left = 11
       Top = 0
-      Width = 737
+      Width = 735
       Height = 26
       ActionManager = actmgr1
       Caption = 'acttbMain'
@@ -1455,8 +1455,8 @@ object frmMain: TfrmMain
     end
   end
   object mm1: TMainMenu
-    Left = 290
-    Top = 160
+    Left = 361
+    Top = 213
     object Sistema1: TMenuItem
       Caption = 'Sistema'
       object Salir1: TMenuItem
@@ -4161,8 +4161,8 @@ object frmMain: TfrmMain
     Image.TileHeight = 130
     Clients.Clients = (
       'frmMain')
-    Left = 290
-    Top = 280
+    Left = 425
+    Top = 181
   end
   object actmgr1: TActionManager
     ActionBars = <
@@ -4208,8 +4208,8 @@ object frmMain: TfrmMain
         ActionBar = acttbMain
       end>
     Images = ilsmall
-    Left = 360
-    Top = 280
+    Left = 297
+    Top = 181
     StyleName = 'Platform Default'
     object actFacturacionVentas: TAction
       Category = 'modulos'
@@ -4324,8 +4324,8 @@ object frmMain: TfrmMain
   end
   object ilsmall: TImageList
     ColorDepth = cd32Bit
-    Left = 290
-    Top = 220
+    Left = 329
+    Top = 181
     Bitmap = {
       494C010107000900040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
@@ -4602,13 +4602,13 @@ object frmMain: TfrmMain
     PluginFolder = 'etc'
     Extension = 'bpl'
     PluginKind = plgPackage
-    Left = 515
-    Top = 365
+    Left = 297
+    Top = 213
   end
   object JvAppInstances1: TJvAppInstances
     OnRejected = JvAppInstances1Rejected
-    Left = 615
-    Top = 365
+    Left = 361
+    Top = 181
   end
   object JvTipOfDay1: TJvTipOfDay
     AppStorage = JvAppStorage1
@@ -4641,22 +4641,22 @@ object frmMain: TfrmMain
       ''
       'Utiliizar el modulo lotes para administrarlos. ')
     Title = 'Tips, informaci'#243'n y otros'
-    Left = 520
-    Top = 310
+    Left = 329
+    Top = 213
   end
   object JvAppStorage1: TJvAppStorage
     StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
     StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
     SubStorages = <>
-    Left = 610
-    Top = 315
+    Left = 393
+    Top = 181
   end
   object XPManifest1: TXPManifest
-    Left = 625
-    Top = 200
+    Left = 425
+    Top = 213
   end
   object ShellResources1: TShellResources
-    Left = 685
-    Top = 260
+    Left = 393
+    Top = 213
   end
 end
