@@ -241,6 +241,8 @@ type
     procedure edtSiguienteFacturaDblClick(Sender: TObject);
     procedure actBuscarLotesExecute(Sender: TObject);
     procedure Generarnotadecreditoparaestafactura1Click(Sender: TObject);
+    procedure appevents2ActionExecute(Action: TBasicAction;
+      var Handled: Boolean);
   private
     { Private declarations }
     gbuffer: string;
@@ -500,6 +502,13 @@ begin
   btnImprimir.Enabled := modo;
   nav2.Enabled := modo;
   grid1.ReadOnly := not modo;
+
+end;
+
+procedure TfrmVentas.appevents2ActionExecute(Action: TBasicAction;
+  var Handled: Boolean);
+begin
+  inherited;
 
 end;
 

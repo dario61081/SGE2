@@ -71,6 +71,11 @@ type
     grp4: TGroupBox;
     dbnvgr1: TDBNavigator;
     report1: TppReport;
+    ppVentas: TppDBPipeline;
+    ppDetalles: TppDBPipeline;
+    tblCabeceraPRECIO_MAYORISTA: TSmallintField;
+    Label1: TLabel;
+    dbcbbPRECIO_MAYORISTA: TDBComboBox;
     ppHeaderBand1: TppHeaderBand;
     chkContado: TmyCheckBox;
     chkCredito: TmyCheckBox;
@@ -79,6 +84,7 @@ type
     ppDBText3: TppDBText;
     ppDireccion: TppDBText;
     ppTelefono: TppDBText;
+    plbl1: TppLabel;
     ppDetailBand1: TppDetailBand;
     psbrprt1: TppSubReport;
     pchldrprt1: TppChildReport;
@@ -129,22 +135,7 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    ppVentas: TppDBPipeline;
-    ppDetalles: TppDBPipeline;
-    ppDetallesppField1: TppField;
-    ppDetallesppField2: TppField;
-    ppDetallesppField3: TppField;
-    ppDetallesppField4: TppField;
-    ppDetallesppField5: TppField;
-    ppDetallesppField6: TppField;
-    ppDetallesppField7: TppField;
-    ppDetallesppField8: TppField;
-    ppDetallesppField9: TppField;
-    ppDetallesppField10: TppField;
-    ppDetallesppField11: TppField;
-    ppDetallesppField12: TppField;
-    plbl1: TppLabel;
-    procedure btnImprimirClick(Sender: TObject);
+
     procedure actNuevaNotaCreditoExecute(Sender: TObject);
     procedure actDescartarNotaExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -152,7 +143,11 @@ type
     procedure actBuscarClienteExecute(Sender: TObject);
     procedure tblDetallesNewRecord(DataSet: TDataSet);
     procedure grid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure appevents1Idle(Sender: TObject; var Done: Boolean);
+    procedure tblCabeceraPRECIO_MAYORISTAGetText(Sender: TField;
+      var Text: string; DisplayText: Boolean);
+    procedure tblCabeceraPRECIO_MAYORISTASetText(Sender: TField;
+      const Text: string);
+    procedure actImprimirNotaExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -165,7 +160,7 @@ var
 implementation
 
 uses
-  datos, ufrmClientes;
+  datos, ufrmClientes, Num2Let;
 
 {$R *.dfm}
 
@@ -198,35 +193,31 @@ begin
 
 end;
 
-procedure TfrmNotaCreditoManual.actNuevaNotaCreditoExecute(Sender: TObject);
-begin
-  inherited;
-  tblCabecera.Append;
-end;
-
-procedure TfrmNotaCreditoManual.appevents1Idle(Sender: TObject;
-  var Done: Boolean);
-begin
-  inherited;
-  actImprimirNota.Enabled := tblCabeceraESTADO.Text.Equals('GENE');
-end;
-
-procedure TfrmNotaCreditoManual.btnImprimirClick(Sender: TObject);
+procedure TfrmNotaCreditoManual.actImprimirNotaExecute(Sender: TObject);
+var
+  valor: int64;
+  texto_valor: string;
 begin
   inherited;
   if Application.MessageBox('Confirma imprimir esta nota de credito?',
     'Imprimir', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES then
   begin
-//    grid1.SumList.RecalcAll;
-//    // capturar monto de factura
-//    valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-//      .SumValue + grid1.Columns[9].Footers[0].SumValue;
-//
-//    texto_valor := NumLetra(valor, 1, 1);
+    grid1.SumList.RecalcAll;
+    // capturar monto de factura
+    valor := grid1.Columns[6].Footers[0].SumValue +
+             grid1.Columns[7].Footers[0].SumValue +
+             grid1.Columns[8].Footers[0].SumValue;
+
+    texto_valor := NumLetra(valor, 1, 1);
     // imprimir documento
     report1.PrintReport;
   end;
+end;
 
+procedure TfrmNotaCreditoManual.actNuevaNotaCreditoExecute(Sender: TObject);
+begin
+  inherited;
+  tblCabecera.Append;
 end;
 
 procedure TfrmNotaCreditoManual.FormClose(Sender: TObject;
@@ -260,6 +251,36 @@ begin
   /// /    if tblDetalles.Transaction.InTransaction then tblDetalles.Transaction.CommitRetaining;
   // grid1.DataSource.DataSet.Refresh;
   // end;
+end;
+
+procedure TfrmNotaCreditoManual.tblCabeceraPRECIO_MAYORISTAGetText
+  (Sender: TField; var Text: string; DisplayText: Boolean);
+begin
+  inherited;
+  case Sender.AsInteger of
+    1:
+      Text := 'MAYORISTA';
+    2:
+      Text := 'DISTRIBUIDORA';
+    3:
+      Text := 'OTROS';
+    0:
+      Text := 'MINORISTA';
+  end;
+end;
+
+procedure TfrmNotaCreditoManual.tblCabeceraPRECIO_MAYORISTASetText
+  (Sender: TField; const Text: string);
+begin
+  inherited;
+  IF (Text.Equals('MINORISTA')) then
+    Sender.AsInteger := 0;
+  IF (Text.Equals('MAYORISTA')) THEN
+    Sender.AsInteger := 1;
+  if (Text.Equals('DISTRIBUIDORA')) THEN
+    Sender.AsInteger := 2;
+  IF (Text.Equals('OTROS')) THEN
+    Sender.AsInteger := 3;
 end;
 
 procedure TfrmNotaCreditoManual.tblDetallesNewRecord(DataSet: TDataSet);
