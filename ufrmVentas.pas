@@ -87,7 +87,6 @@ type
     actReimprimirFactura: TAction;
     actAnularFactura: TAction;
     btnAnularFactura: TButton;
-    bvl1: TBevel;
     actVistaFacturaDia: TAction;
     pnl1: TPanel;
     gridClientes: TDBGridEh;
@@ -201,6 +200,8 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
+    grpNav2: TGroupBox;
+    grpNav1: TGroupBox;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
