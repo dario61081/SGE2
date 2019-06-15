@@ -128,6 +128,17 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
+    lbl6: TLabel;
+    dbedtCODIGO: TDBEdit;
+    qryProductosID: TLargeintField;
+    qryProductosCODIGO: TIBStringField;
+    qryProductosORIGEN: TIBStringField;
+    qryProductosDESCRIPCION: TIBStringField;
+    qryProductosACTIVO: TSmallintField;
+    qryProductosIMPUESTO: TIBStringField;
+    qryProductosFECHA_CREADO: TDateTimeField;
+    qryProductosFECHA_MODIF: TDateTimeField;
+    qryProductosUNIDAD: TIBStringField;
 
     procedure actNuevaNotaCreditoExecute(Sender: TObject);
     procedure actDescartarNotaExecute(Sender: TObject);
@@ -141,6 +152,15 @@ type
     procedure tblCabeceraPRECIO_MAYORISTASetText(Sender: TField;
       const Text: string);
     procedure actImprimirNotaExecute(Sender: TObject);
+    procedure appevents1Idle(Sender: TObject; var Done: Boolean);
+    procedure dbnvgr2Click(Sender: TObject; Button: TNavigateBtn);
+    procedure grid1Columns1OpenDropDownForm(Grid: TCustomDBGridEh;
+      Column: TColumnEh; Button: TEditButtonEh; var DropDownForm: TCustomForm;
+      DynParams: TDynVarsEh);
+    procedure grid1Columns1CloseDropDownForm(Grid: TCustomDBGridEh;
+      Column: TColumnEh; Button: TEditButtonEh; Accept: Boolean;
+      DropDownForm: TCustomForm; DynParams: TDynVarsEh);
+    procedure tblDetallesAfterRefresh(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -196,9 +216,8 @@ begin
   // calcular el total
   grid1.SumList.RecalcAll;
   // capturar monto de factura
-  valor :=  grid1.Columns[5].footer.SumValue +
-            grid1.Columns[6].footer.SumValue +
-            grid1.Columns[7].footer.SumValue;
+  valor := grid1.Columns[5].footer.SumValue + grid1.Columns[6].footer.SumValue +
+    grid1.Columns[7].footer.SumValue;
 
   texto_valor := NumLetra(valor, 1, 1);
 
@@ -222,7 +241,62 @@ end;
 procedure TfrmNotaCreditoManual.actNuevaNotaCreditoExecute(Sender: TObject);
 begin
   inherited;
+  tblCabecera.DisableControls;
   tblCabecera.Append;
+  tblCabeceraFECHA.Value := date;
+  tblCabecera.Post;
+  if tblCabecera.Transaction.InTransaction then
+    tblCabecera.Transaction.CommitRetaining;
+  tblCabecera.Refresh;
+  tblCabecera.Last;
+  tblCabecera.EnableControls;
+  tblcabecera.Edit;
+
+end;
+
+procedure TfrmNotaCreditoManual.appevents1Idle(Sender: TObject;
+  var Done: Boolean);
+begin
+  inherited;
+  if dbedtESTADO.Text = 'IMPR' then
+    dbedtESTADO.Color := $00B8F9FE;
+  if dbedtESTADO.Text = 'CANC' then
+    dbedtESTADO.Color := $00FF80FF;
+  if dbedtESTADO.Text = 'FACT' then
+    dbedtESTADO.Color := $00FEB381;
+  if dbedtESTADO.Text = 'GENE' then
+    dbedtESTADO.Color := $0092FEB3;
+  if dbedtESTADO.Text = 'ANUL' then
+    dbedtESTADO.Color := $00C6C6FF;
+  if dbedtESTADO.Text = 'EMIT' then
+    dbedtESTADO.Color := $0091B5FF;
+
+  // bloquear si ya esta impreso
+
+  actImprimirNota.Enabled := (dbedtESTADO.Text = 'GENE');
+  dbnvgr2.Enabled := (dbedtESTADO.Text = 'GENE');
+end;
+
+procedure TfrmNotaCreditoManual.dbnvgr2Click(Sender: TObject;
+  Button: TNavigateBtn);
+begin
+  inherited;
+
+  case button of
+    nbFirst: ;
+    nbPrior: ;
+    nbNext: ;
+    nbLast: ;
+    nbInsert: ;
+    nbDelete: ;
+    nbEdit: ;
+    nbPost: ;
+    nbCancel: ;
+    nbRefresh: ;
+    nbApplyUpdates: ;
+    nbCancelUpdates: ;
+  end;
+
 end;
 
 procedure TfrmNotaCreditoManual.FormClose(Sender: TObject;
@@ -245,6 +319,22 @@ begin
   inherited;
   tblCabecera.Open;
   tblDetalles.Open;
+end;
+
+procedure TfrmNotaCreditoManual.grid1Columns1CloseDropDownForm(
+  Grid: TCustomDBGridEh; Column: TColumnEh; Button: TEditButtonEh;
+  Accept: Boolean; DropDownForm: TCustomForm; DynParams: TDynVarsEh);
+begin
+  inherited;
+  qryProductos.Close;
+end;
+
+procedure TfrmNotaCreditoManual.grid1Columns1OpenDropDownForm(
+  Grid: TCustomDBGridEh; Column: TColumnEh; Button: TEditButtonEh;
+  var DropDownForm: TCustomForm; DynParams: TDynVarsEh);
+begin
+  inherited;
+  qryProductos.Open;
 end;
 
 procedure TfrmNotaCreditoManual.grid1KeyUp(Sender: TObject; var Key: Word;
@@ -286,6 +376,12 @@ begin
     Sender.AsInteger := 2;
   IF (Text.Equals('OTROS')) THEN
     Sender.AsInteger := 3;
+end;
+
+procedure TfrmNotaCreditoManual.tblDetallesAfterRefresh(DataSet: TDataSet);
+begin
+  inherited;
+  grid1.SumList.RecalcAll;
 end;
 
 procedure TfrmNotaCreditoManual.tblDetallesNewRecord(DataSet: TDataSet);
