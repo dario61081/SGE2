@@ -1429,6 +1429,14 @@ object frmMain: TfrmMain
               Tag = 0
               AutoToggle = False
               OnClick = actGenerarNotaCreditoExecute
+            end
+            item
+              Action = actListadoNotasCreditos
+              Caption = 'Listado de notas de credito'
+              ImageIndex = 0
+              Tag = 0
+              AutoToggle = False
+              OnClick = actListadoNotasCreditosExecute
             end>
           ButtonSize = olbsSmall
           Caption = 'M'#243'dulos'
@@ -4320,6 +4328,11 @@ object frmMain: TfrmMain
       Caption = 'Generar nota de credito'
       ImageIndex = 6
       OnExecute = actGenerarNotaCreditoExecute
+    end
+    object actListadoNotasCreditos: TAction
+      Caption = 'Listado de notas de credito'
+      ImageIndex = 0
+      OnExecute = actListadoNotasCreditosExecute
     end
   end
   object ilsmall: TImageList

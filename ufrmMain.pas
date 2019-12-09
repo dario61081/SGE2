@@ -72,6 +72,7 @@ type
     XPManifest1: TXPManifest;
     ShellResources1: TShellResources;
     actGenerarNotaCredito: TAction;
+    actListadoNotasCreditos: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -87,6 +88,7 @@ type
     procedure actLotesProductosExecute(Sender: TObject);
     procedure JvAppInstances1Rejected(Sender: TObject);
     procedure actGenerarNotaCreditoExecute(Sender: TObject);
+    procedure actListadoNotasCreditosExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure Setterminal(const Value: string);
@@ -112,7 +114,7 @@ implementation
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
-  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito, ufrmNotaCreditoManual;
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito, ufrmNotaCreditoManual, ufrmListadoNotaCredito;
 
 {$R *.dfm}
 
@@ -161,6 +163,13 @@ begin
   FreeAndNil(frmImprimirProductos);
 end;
 
+procedure TfrmMain.actListadoNotasCreditosExecute(Sender: TObject);
+begin
+  // iniciar formulario de listado de notas de credito.
+   frmListadoNotaCredito := TfrmListadoNotaCredito.Create(Application);
+   frmListadoNotaCredito.Show;
+end;
+
 procedure TfrmMain.actListaFacturasClientesExecute(Sender: TObject);
 begin
   frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.Create
@@ -175,7 +184,7 @@ begin
   // frmlotes := tfrmlotes.Create(Application);
   // frmlotes.Show
   frmLoteProductos := TfrmLoteProductos.Create(Application);
-  frmLoteProductos.Show();
+  frmLoteProductos.Show;
 
 end;
 
