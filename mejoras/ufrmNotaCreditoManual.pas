@@ -1,4 +1,4 @@
-unit ufrmNotaCreditoManual;
+﻿unit ufrmNotaCreditoManual;
 
 interface
 
@@ -241,6 +241,7 @@ end;
 procedure TfrmNotaCreditoManual.actNuevaNotaCreditoExecute(Sender: TObject);
 begin
   inherited;
+  tblCabecera.IndexName  := 'PK_NOTAS_CREDITOS';
   tblCabecera.DisableControls;
   tblCabecera.Append;
   tblCabeceraFECHA.Value := date;
@@ -248,9 +249,18 @@ begin
   if tblCabecera.Transaction.InTransaction then
     tblCabecera.Transaction.CommitRetaining;
   tblCabecera.Refresh;
+//  tblCabecera.Close; //bug del ultimo nuevo numero
+//  tblCabecera.Open;  //bug del ultimo nuevo numero
   tblCabecera.Last;
   tblCabecera.EnableControls;
   tblcabecera.Edit;
+
+  Application.MessageBox(pwidechar('Se generó la nueva nota, codigo: ' + tblCabeceraCODIGO.Value.ToString()), 'Generar', MB_OK
+    + MB_ICONINFORMATION + MB_DEFBUTTON2);
+
+
+
+
 
 end;
 
@@ -319,6 +329,7 @@ begin
   inherited;
   tblCabecera.Open;
   tblDetalles.Open;
+  qryProductos.Open;
 end;
 
 procedure TfrmNotaCreditoManual.grid1Columns1CloseDropDownForm(
