@@ -16,11 +16,11 @@ uses
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
   Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
-  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage, Vcl.Menus;
+  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage, Vcl.Menus, uinterfaceVentas;
 
 type
 
-  TfrmVentas = class(TfrmDatos)
+  TfrmVentas = class(TfrmDatos, IVentas)
     grid1: TDBGridEh;
     tblVentas: TIBTable;
     tblDetalles: TIBTable;
@@ -142,6 +142,8 @@ type
     lblPeriodo: TLabel;
     tblDetallesLOTE: TIBStringField;
     actBuscarLotes: TAction;
+    grpNav2: TGroupBox;
+    grpNav1: TGroupBox;
     ppHeaderBand1: TppHeaderBand;
     chkContado: TmyCheckBox;
     chkCredito: TmyCheckBox;
@@ -200,8 +202,6 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    grpNav2: TGroupBox;
-    grpNav1: TGroupBox;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -253,8 +253,11 @@ type
     procedure actualizarTablaVentas;
   public
     constructor Create(AOwner: TComponent); override;
+    function getProducto(codigo: string): string;
     { Public declarations }
     property terminal_nombre: string read getTerminal_nombre;
+
+
   end;
 
 var
@@ -771,6 +774,14 @@ procedure TfrmVentas.Generarnotadecreditoparaestafactura1Click(Sender: TObject);
 begin
   inherited;
   showmessage('generado nota de venta');
+end;
+
+function TfrmVentas.getProducto(codigo: string): string;
+begin
+
+  //traer la informacion del producto
+
+
 end;
 
 function TfrmVentas.getTerminal_nombre: string;

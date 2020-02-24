@@ -33,7 +33,10 @@ uses
   ufrmNotaCredito in 'mejoras\ufrmNotaCredito.pas' {frmNotaCredito},
   ufrmNotaCreditoManual in 'mejoras\ufrmNotaCreditoManual.pas' {frmNotaCreditoManual},
   ufrmSplash in 'ufrmSplash.pas' {frmSplash},
-  ufrmListadoNotaCredito in 'mejoras\ufrmListadoNotaCredito.pas' {frmListadoNotaCredito};
+  ufrmListadoNotaCredito in 'mejoras\ufrmListadoNotaCredito.pas' {frmListadoNotaCredito},
+  ufrmDialogTemplate in 'templates\ufrmDialogTemplate.pas' {frmDialogTemplate},
+  ufrmdialogoimprimirt in 'ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
+  uinterfaceVentas in 'uinterfaceVentas.pas';
 
 {$R *.res}
 

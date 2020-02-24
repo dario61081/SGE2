@@ -198,6 +198,15 @@
             <Form>frmListadoNotaCredito</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="templates\ufrmDialogTemplate.pas">
+            <Form>frmDialogTemplate</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ufrmdialogoimprimirt.pas">
+            <Form>frmDlgImprimirReporte</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uinterfaceVentas.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
