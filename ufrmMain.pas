@@ -121,42 +121,38 @@ uses
 
 procedure TfrmMain.actFacturacionVentasExecute(Sender: TObject);
 begin
-
-  frmVentas := TfrmVentas.Create(Application);
-  frmVentas.Show;
-
+  // gestion de facturacion
+  TfrmVentas.Create(Application).show;
 end;
 
 procedure TfrmMain.actFacturasyTimbradosExecute(Sender: TObject);
 begin
-
-  frmFacturasTimbrados := TfrmFacturasTimbrados.Create(Application);
-  frmFacturasTimbrados.Show;
-
+  // gestion de timbrados
+  TfrmFacturasTimbrados.Create(Application).show;
 end;
 
 procedure TfrmMain.actGenerarNotaCreditoExecute(Sender: TObject);
 begin
   // TfrmNotaCredito.Create(Application).Show;
-  TfrmNotaCreditoManual.Create(Application).Show;
+  TfrmNotaCreditoManual.Create(Application).show;
 end;
 
 procedure TfrmMain.actGestionPrecioProductosExecute(Sender: TObject);
 begin
   // gestion de productos y precios
-  frmMantenerProductos := TfrmMantenerProductos.Create(Application);
-  frmMantenerProductos.Show;
+  TfrmMantenerProductos.Create(Application).show;
+
 end;
 
 procedure TfrmMain.actGestionVentasExecute(Sender: TObject);
 begin
   // abrir gestion de ventas
-  TfrmabmVentas.Create(Application).Show;
+  TfrmabmVentas.Create(Application).show;
 end;
 
 procedure TfrmMain.actImprimirListadoProductosExecute(Sender: TObject);
 begin
-  //imprimir lista de productos
+  // imprimir lista de productos
   frmImprimirProductos := TfrmImprimirProductos.Create(self);
   frmImprimirProductos.ShowModal;
   FreeAndNil(frmImprimirProductos);
@@ -165,32 +161,32 @@ end;
 procedure TfrmMain.actListadoNotasCreditosExecute(Sender: TObject);
 begin
   // iniciar formulario de listado de notas de credito.
-  TfrmListadoNotaCredito.Create(Application).Show;
+  TfrmListadoNotaCredito.Create(Application).show;
 end;
 
 procedure TfrmMain.actListaFacturasClientesExecute(Sender: TObject);
 begin
   // facturas del proveedor
-  TfrmResumenFacturasProveedores.Create(Application).Show;
+  TfrmResumenFacturasProveedores.Create(Application).show;
 end;
 
 procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
 begin
   // lotes de productos
-  TfrmLoteProductos.Create(Application).Show;
+  TfrmLoteProductos.Create(Application).show;
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);
 begin
   // mantenimiento de productos
-  TfrmMantenerProductos.Create(Application).Show;
+  TfrmMantenerProductos.Create(Application).show;
 end;
 
 procedure TfrmMain.actRendiciondeVentasExecute(Sender: TObject);
 begin
 
   frmRendicionVentas := TfrmRendicionVentas.Create(Application);
-  frmRendicionVentas.Show;
+  frmRendicionVentas.show;
 
 end;
 
@@ -198,7 +194,7 @@ procedure TfrmMain.actResumenVentasExecute(Sender: TObject);
 begin
   /// mostrar
   ///
-  tfrmVentasDia.Create(self).Show;
+  tfrmVentasDia.Create(self).show;
 
 end;
 
@@ -206,7 +202,7 @@ procedure TfrmMain.actVentasListaExecute(Sender: TObject);
 begin
   if not Assigned(frmVentasLista) then
     frmVentasLista := TfrmVentasLista.Create(self);
-  frmVentasLista.Show;
+  frmVentasLista.show;
 
 end;
 

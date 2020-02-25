@@ -139,7 +139,6 @@ type
     spFacturaNumeroFACTURA_TIMBRADO: TIBStringField;
     spFacturaSiguiente: TIBStoredProc;
     spFacturaSiguienteVALOR: TLargeintField;
-    lblPeriodo: TLabel;
     tblDetallesLOTE: TIBStringField;
     actBuscarLotes: TAction;
     grpNav2: TGroupBox;

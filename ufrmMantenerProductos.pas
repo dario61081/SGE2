@@ -25,7 +25,6 @@ type
     tblPreciosPRODUCTOS_ID: TLargeintField;
     tblPreciosPRECIO_VENTA: TFloatField;
     tblPreciosMAYORISTA: TSmallintField;
-    header1: TDxHeader;
     pgc1: TPageControl;
     TabSheet1: TTabSheet;
     gridProductos: TDBGridEh;
@@ -36,12 +35,20 @@ type
     tsPrecios: TTabSheet;
     spl1: TSplitter;
     gridPrecios: TDBGridEh;
+    tblProdFECHA_CREADO: TDateTimeField;
+    tblProdFECHA_MODIF: TDateTimeField;
+    tblProdUNIDAD: TIBStringField;
+    tblProdCODIGO_BARRA: TIBStringField;
+    tlb2: TToolBar;
     dbnvgrPrecios: TDBNavigator;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure tblPreciosNewRecord(DataSet: TDataSet);
     procedure dbnvgrProdClick(Sender: TObject; Button: TNavigateBtn);
     procedure dbnvgrPreciosClick(Sender: TObject; Button: TNavigateBtn);
+    procedure gridPreciosColumns2AdvDrawDataCell(Sender: TCustomDBGridEh; Cell,
+      AreaCell: TGridCoord; Column: TColumnEh; const ARect: TRect;
+      var Params: TColCellParamsEh; var Processed: Boolean);
   private
     { Private declarations }
   public
@@ -118,6 +125,18 @@ begin
   inherited;
   tblProd.Open;
   tblPrecios.Open;
+end;
+
+procedure TfrmMantenerProductos.gridPreciosColumns2AdvDrawDataCell(
+  Sender: TCustomDBGridEh; Cell, AreaCell: TGridCoord; Column: TColumnEh;
+  const ARect: TRect; var Params: TColCellParamsEh; var Processed: Boolean);
+begin
+  inherited;
+  if ((Column.Field.Value = NULL) or (Column.Field.AsInteger = 0)) THEN BEGIN
+    PARAMS.Background := clYellow;
+  END;
+
+
 end;
 
 procedure TfrmMantenerProductos.tblPreciosNewRecord(DataSet: TDataSet);
