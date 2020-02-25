@@ -1,4 +1,4 @@
-unit ufrmMain;
+﻿unit ufrmMain;
 
 interface
 
@@ -91,7 +91,7 @@ type
     procedure actListadoNotasCreditosExecute(Sender: TObject);
   private
     Fterminal: string;
-    procedure Setterminal(const Value: string);
+    procedure SetTerminalName(const Value: string);
 
   protected
     procedure ClientWndProc(var Message: TMessage); override;
@@ -102,7 +102,7 @@ type
     { Private declarations }
   public
     { Public declarations }
-    property terminal: string read Fterminal write Setterminal;
+    property terminal: string read Fterminal write SetTerminalName;
 
   end;
 
@@ -114,7 +114,8 @@ implementation
 uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
-  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos, ufrmNotaCredito, ufrmNotaCreditoManual, ufrmListadoNotaCredito;
+  ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos,
+  ufrmNotaCredito, ufrmNotaCreditoManual, ufrmListadoNotaCredito;
 
 {$R *.dfm}
 
@@ -136,8 +137,8 @@ end;
 
 procedure TfrmMain.actGenerarNotaCreditoExecute(Sender: TObject);
 begin
-//     TfrmNotaCredito.Create(Application).Show;
-  TfrmNotaCreditoManual.Create(application).Show;
+  // TfrmNotaCredito.Create(Application).Show;
+  TfrmNotaCreditoManual.Create(Application).Show;
 end;
 
 procedure TfrmMain.actGestionPrecioProductosExecute(Sender: TObject);
@@ -149,15 +150,13 @@ end;
 
 procedure TfrmMain.actGestionVentasExecute(Sender: TObject);
 begin
-
   // abrir gestion de ventas
-  frmabmVentas := TfrmabmVentas.Create(Application);
-  frmabmVentas.Show;
-
+  TfrmabmVentas.Create(Application).Show;
 end;
 
 procedure TfrmMain.actImprimirListadoProductosExecute(Sender: TObject);
 begin
+  //imprimir lista de productos
   frmImprimirProductos := TfrmImprimirProductos.Create(self);
   frmImprimirProductos.ShowModal;
   FreeAndNil(frmImprimirProductos);
@@ -166,34 +165,25 @@ end;
 procedure TfrmMain.actListadoNotasCreditosExecute(Sender: TObject);
 begin
   // iniciar formulario de listado de notas de credito.
-   frmListadoNotaCredito := TfrmListadoNotaCredito.Create(Application);
-   frmListadoNotaCredito.Show;
+  TfrmListadoNotaCredito.Create(Application).Show;
 end;
 
 procedure TfrmMain.actListaFacturasClientesExecute(Sender: TObject);
 begin
-  frmResumenFacturasProveedores := TfrmResumenFacturasProveedores.Create
-    (Application);
-  frmResumenFacturasProveedores.Show;
-
+  // facturas del proveedor
+  TfrmResumenFacturasProveedores.Create(Application).Show;
 end;
 
 procedure TfrmMain.actLotesProductosExecute(Sender: TObject);
 begin
   // lotes de productos
-  // frmlotes := tfrmlotes.Create(Application);
-  // frmlotes.Show
-  frmLoteProductos := TfrmLoteProductos.Create(Application);
-  frmLoteProductos.Show;
-
+  TfrmLoteProductos.Create(Application).Show;
 end;
 
 procedure TfrmMain.actProductosExecute(Sender: TObject);
 begin
-
-  frmMantenerProductos := TfrmMantenerProductos.Create(Application);
-  frmMantenerProductos.Show;
-
+  // mantenimiento de productos
+  TfrmMantenerProductos.Create(Application).Show;
 end;
 
 procedure TfrmMain.actRendiciondeVentasExecute(Sender: TObject);
@@ -208,8 +198,7 @@ procedure TfrmMain.actResumenVentasExecute(Sender: TObject);
 begin
   /// mostrar
   ///
-  frmVentasDia := tfrmVentasDia.Create(self);
-  frmVentasDia.Show;
+  tfrmVentasDia.Create(self).Show;
 
 end;
 
@@ -258,13 +247,12 @@ end;
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
 
-//  with FormatSettings do begin
-//    CurrencyString := 'Gs.';
-//    ThousandSeparator := '.';
-//    DecimalSeparator := ',';
-//  end;
-//  if application.UpdateFormatSettings then ShowMessage('Se ha aplicado el formato');
-
+  // with FormatSettings do begin
+  // CurrencyString := 'Gs.';
+  // ThousandSeparator := '.';
+  // DecimalSeparator := ',';
+  // end;
+  // if application.UpdateFormatSettings then ShowMessage('Se ha aplicado el formato');
 
   acttbMain.ParentBackground := true;
 
@@ -278,14 +266,13 @@ begin
     LoadPlugins;
   end;
 
-  Setterminal(GetLocalComputerName.ToUpper);
+  SetTerminalName(GetLocalComputerName.ToUpper);
 
 end;
 
 procedure TfrmMain.JvAppInstances1Rejected(Sender: TObject);
 begin
-  showmessage
-    ('Ya existe una instancia de esta aplicacion. el inicio ha sido cancelado');
+  showmessage('Ya existe una instancia de esta aplicación.');
 end;
 
 procedure TfrmMain.Salir1Click(Sender: TObject);
@@ -293,7 +280,8 @@ begin
   close;
 end;
 
-procedure TfrmMain.Setterminal(const Value: string);
+// Establer el nombre de la pc en panel maestro
+procedure TfrmMain.SetTerminalName(const Value: string);
 begin
   Fterminal := Value;
   status1.Panels[1].Text := Value;

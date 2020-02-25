@@ -3,7 +3,7 @@ unit datos;
 interface
 
 uses
-  System.SysUtils, System.Classes, IBDatabase, Data.DB;
+  System.SysUtils, System.Classes, IBDatabase, Data.DB, IBDatabaseINI;
 
 type
   Tdm1 = class(TDataModule)

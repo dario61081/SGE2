@@ -152,6 +152,8 @@ type
     ppDBText3: TppDBText;
     ppDireccion: TppDBText;
     ppTelefono: TppDBText;
+    ppDBText10: TppDBText;
+    plbl1: TppLabel;
     ppDetailBand1: TppDetailBand;
     psbrprt1: TppSubReport;
     pchldrprt1: TppChildReport;
@@ -163,7 +165,6 @@ type
     ppDBText7: TppDBText;
     ppDBText8: TppDBText;
     ppDBText9: TppDBText;
-    lblLote: TppDBText;
     ppSummaryBand1: TppSummaryBand;
     ppDBCalc1: TppDBCalc;
     ppDBCalc2: TppDBCalc;
@@ -185,8 +186,6 @@ type
     plblSumaGrabadas05: TppLabel;
     plblSumaExentas: TppLabel;
     raCodeModule1: TraCodeModule;
-    raProgramInfo9: TraProgramInfo;
-    raProgramInfo10: TraProgramInfo;
     raProgramInfo11: TraProgramInfo;
     raProgramInfo12: TraProgramInfo;
     raProgramInfo13: TraProgramInfo;
@@ -198,6 +197,8 @@ type
     raProgramInfo19: TraProgramInfo;
     raProgramInfo20: TraProgramInfo;
     raProgramInfo21: TraProgramInfo;
+    raProgramInfo22: TraProgramInfo;
+    raProgramInfo23: TraProgramInfo;
     ppDesignLayers1: TppDesignLayers;
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
@@ -910,17 +911,9 @@ begin
 end;
 
 procedure TfrmVentas.tblDetallesAfterRefresh(DataSet: TDataSet);
-// var
-// suma: integer;
 begin
-
   inherited;
   grid1.SumList.RecalcAll;
-  //
-  // suma := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-  // .SumValue + grid1.Columns[9].Footers[0].SumValue;
-  //
-  // grid1.Columns[9].Footers[1].Value := IntToStr(suma)
 end;
 
 procedure TfrmVentas.tblDetallesNewRecord(DataSet: TDataSet);
@@ -929,9 +922,10 @@ begin
 
   if tblDetalles.RecordCount > 10 then
   begin
+    //hasta 10 items por factura
     showmessage('Limite de filas para esta factura');
+    //salir de la rutina
     exit;
-
   end;
 
   // asignar la venta a los detalles
