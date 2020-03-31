@@ -1377,9 +1377,7 @@ object frmMain: TfrmMain
         B8A5939C129C36E79290383648E792904811A4734948A408D2B924245204E95C
         12122982742E098914413A9784448A209D4B422245F805CCED247E3A0209E200
         00000049454E44AE426082}
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 185
+      ExplicitWidth = 215
     end
     object outlook1: TJvOutlookBar
       Left = 0
