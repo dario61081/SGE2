@@ -119,8 +119,6 @@ type
     qryListadoIMPUESTO: TIBStringField;
     edtFECHA: TJvDBDateEdit;
     ledCero: TJvLED;
-    lblstatus1: TJvDBStatusLabel;
-    lblstatus2: TJvDBStatusLabel;
     actCapturarBalanza: TAction;
     qryListadoPRECIO_DISTRIBUIDORA: TFloatField;
     qryListadoPRECIO_OTROS: TFloatField;
@@ -512,7 +510,7 @@ end;
 procedure TfrmVentas.appevents2Idle(Sender: TObject; var Done: Boolean);
 begin
   inherited;
-  self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
+//  self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
 end;
 
 /// <summary>
@@ -812,6 +810,22 @@ procedure TfrmVentas.grid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
+  if (Key = VK_DOWN) then begin
+    //Application.MessageBox('reset', 'tab', MB_OK + MB_DEFBUTTON2);
+    //cuando se presiona tab, actualizar el precio
+//    if tblDetalles.State in dsEditModes then begin
+//      tblDetalles.Post;
+//      if tblDetalles.Transaction.InTransaction then
+//        tblDetalles.Transaction.CommitRetaining;
+//
+//
+//    end;
+
+
+//     self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
+
+  end;
+
   // if ((Key = VK_RETURN) or (Key = VK_TAB)) then
   //
   // Refresh(tblDetalles);
@@ -823,9 +837,12 @@ var
 begin
   inherited;
   // sumar laos campos.
-  valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-    .SumValue + grid1.Columns[9].Footers[0].SumValue;
+  valor := grid1.Columns[7].Footers[0].SumValue +
+  grid1.Columns[8].Footers[0].SumValue +
+  grid1.Columns[9].Footers[0].SumValue;
   grid1.Columns[9].Footers[1].Value := FormatFloat('0,.', valor);
+
+
 end;
 
 procedure TfrmVentas.nav1Click(Sender: TObject; Button: TNavigateBtn);
@@ -847,7 +864,8 @@ begin
       begin
         if tblVentas.Transaction.InTransaction then
           tblVentas.Transaction.CommitRetaining;
-        tblVentas.Refresh;
+          tblVentas.Refresh;
+
       end;
 
   end;
@@ -878,6 +896,7 @@ begin
         IF tblDetalles.State IN dsWriteModes THEN
           tblDetalles.post;
         actualizarTabla(tblDetalles);
+        self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
       END;
     nbCancel:
       begin
@@ -891,7 +910,7 @@ begin
         if tblDetalles.Transaction.InTransaction then
           tblDetalles.Transaction.CommitRetaining;
         actualizarTabla(tblDetalles);
-
+        self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
       end;
     // nbApplyUpdates: ;
     // nbCancelUpdates: ;
