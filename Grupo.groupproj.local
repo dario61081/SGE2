@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2017/04/17 21:05:00.000.399,C:\sge\sources\SGE-Desktop\Grupo.groupproj=C:\Users\servidor\Documents\RAD Studio\Projects\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2017/04/17 21:05:00.000.399,C:\Users\servidor\Documents\RAD Studio\Projects\ProjectGroup1.groupproj=C:\sge\sources\SGE-Desktop\Grupo.groupproj</Transaction>
   </Transactions>
 	<Default.Personality>
-		<Projects ActiveProject="C:\sge\sources\SGE-Desktop\SGE2020_02_28.dproj"/>
+		<Projects ActiveProject="C:\sge\sources\SGE-Desktop\SGE2020_03_30.dproj"/>
 	</Default.Personality>
 </BorlandProject>

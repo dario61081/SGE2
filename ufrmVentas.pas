@@ -242,8 +242,7 @@ type
     procedure edtSiguienteFacturaDblClick(Sender: TObject);
     procedure actBuscarLotesExecute(Sender: TObject);
     procedure Generarnotadecreditoparaestafactura1Click(Sender: TObject);
-    procedure appevents2ActionExecute(Action: TBasicAction;
-      var Handled: Boolean);
+    procedure appevents2Idle(Sender: TObject; var Done: Boolean);
   private
     { Private declarations }
     gbuffer: string;
@@ -251,6 +250,7 @@ type
     function getTerminal_nombre: string;
     procedure actualizarNumeroFacturaSiguiente;
     procedure actualizarTablaVentas;
+    function CalcularSumaVenta(): int64;
   public
     constructor Create(AOwner: TComponent); override;
     function getProducto(codigo: string): string;
@@ -509,11 +509,10 @@ begin
 
 end;
 
-procedure TfrmVentas.appevents2ActionExecute(Action: TBasicAction;
-  var Handled: Boolean);
+procedure TfrmVentas.appevents2Idle(Sender: TObject; var Done: Boolean);
 begin
   inherited;
-
+  self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
 end;
 
 /// <summary>
@@ -537,13 +536,7 @@ begin
       CommitRetaining;
 
   end;
-
-  // sumar los valores de las columnas.
-  // sumatoria
-  grid1.SumList.RecalcAll;
-  // capturar monto de factura
-  valor := grid1.Columns[7].Footers[0].SumValue + grid1.Columns[8].Footers[0]
-    .SumValue + grid1.Columns[9].Footers[0].SumValue;
+  valor := CalcularSumaVenta();
 
   texto_valor := NumLetra(valor, 1, 1);
 
@@ -782,6 +775,22 @@ begin
   //traer la informacion del producto
 
 
+end;
+
+function TfrmVentas.CalcularSumaVenta(): Int64;
+var
+  suma : Int64;
+begin
+  suma := 0;
+  // sumar los valores de las columnas.
+  // sumatoria
+  grid1.SumList.RecalcAll;
+  // capturar monto de factura
+  suma := suma + grid1.Columns[7].Footers[0].sumValue;
+  suma := suma + grid1.Columns[8].Footers[0].SumValue;
+  suma := suma + grid1.Columns[9].Footers[0].SumValue;
+  // retornar valor
+  result := suma;
 end;
 
 function TfrmVentas.getTerminal_nombre: string;
