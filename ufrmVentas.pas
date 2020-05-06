@@ -241,6 +241,7 @@ type
     procedure actBuscarLotesExecute(Sender: TObject);
     procedure Generarnotadecreditoparaestafactura1Click(Sender: TObject);
     procedure appevents2Idle(Sender: TObject; var Done: Boolean);
+    procedure dsVentasDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
     gbuffer: string;
@@ -716,6 +717,12 @@ begin
     grid1.SumList.RecalcAll;
 
   END;
+end;
+
+procedure TfrmVentas.dsVentasDataChange(Sender: TObject; Field: TField);
+begin
+  inherited;
+        self.statMain.Panels[0].Text := Num2Let.NumLetra(CalcularSumaVenta,1,1);
 end;
 
 procedure TfrmVentas.dsVentasEditingChanged(Sender: TObject);

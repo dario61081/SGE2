@@ -100,6 +100,7 @@ type
     tblCabeceraFECHA_MODIF: TDateTimeField;
     Label2: TLabel;
     dbedtSOLICITUD_NOTA_CREDITO: TDBEdit;
+    qryProductosCODIGO_BARRA: TIBStringField;
     ppHeaderBand1: TppHeaderBand;
     ppDBText1: TppDBText;
     ppDBText2: TppDBText;
@@ -108,6 +109,7 @@ type
     ppTelefono: TppDBText;
     plbl1: TppLabel;
     lblSOLICITUD_NOTA_CREDITO: TppDBText;
+    ppLabel1: TppLabel;
     ppDetailBand1: TppDetailBand;
     psbrprt1: TppSubReport;
     pchldrprt1: TppChildReport;
@@ -125,9 +127,9 @@ type
     ppDBCalc2: TppDBCalc;
     ppDBCalc3: TppDBCalc;
     raCodeModule2: TraCodeModule;
-    raProgramInfo1: TraProgramInfo;
-    raProgramInfo2: TraProgramInfo;
-    raProgramInfo5: TraProgramInfo;
+    raProgramInfo3: TraProgramInfo;
+    raProgramInfo4: TraProgramInfo;
+    raProgramInfo6: TraProgramInfo;
     ppDesignLayers2: TppDesignLayers;
     ppDesignLayer2: TppDesignLayer;
     ppFooterBand1: TppFooterBand;
@@ -150,6 +152,7 @@ type
     raProgramInfo19: TraProgramInfo;
     raProgramInfo20: TraProgramInfo;
     rprgrmnf1: TraProgramInfo;
+    raProgramInfo7: TraProgramInfo;
     ppDesignLayers1: TppDesignLayers;
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
