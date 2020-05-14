@@ -339,6 +339,7 @@ begin
 
   tblDetalles.Close;
   tblCabecera.Close;
+  qryProductos.Close;
 
 end;
 
@@ -347,6 +348,8 @@ begin
   inherited;
   tblCabecera.Open;
   tblDetalles.Open;
+
+  qryProductos.Prepare;
   qryProductos.Open;
 end;
 
