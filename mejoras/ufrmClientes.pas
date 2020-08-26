@@ -77,7 +77,7 @@ procedure TfrmClientes.btnSeleccionarClick(Sender: TObject);
 begin
      ruc := dsClientes.DataSet.FieldByName('ruc').Text;
      razon_social := dsClientes.DataSet.FieldByName('razon_social').Text;
-     direccion := dsClientes.DataSet.FieldByName('direccion').Text;
+     direccion := dsDirecciones.DataSet.FieldByName('direccion').Text;
      ModalResult := mrOk;
 end;
 
@@ -86,6 +86,7 @@ begin
 
   if tblDirecciones.Transaction.InTransaction then
   tbldirecciones.Transaction.CommitRetaining;
+
   if tblClientes.Transaction.InTransaction then
   tblClientes.Transaction.CommitRetaining;
 

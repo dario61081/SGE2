@@ -242,6 +242,7 @@ type
     procedure Generarnotadecreditoparaestafactura1Click(Sender: TObject);
     procedure appevents2Idle(Sender: TObject; var Done: Boolean);
     procedure dsVentasDataChange(Sender: TObject; Field: TField);
+    procedure tblDetallesAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
     gbuffer: string;
@@ -944,9 +945,17 @@ begin
 
 end;
 
+procedure TfrmVentas.tblDetallesAfterPost(DataSet: TDataSet);
+begin
+  inherited;
+  if tblDetalles.Transaction.InTransaction then
+    tblDetalles.Transaction.CommitRetaining;
+end;
+
 procedure TfrmVentas.tblDetallesAfterRefresh(DataSet: TDataSet);
 begin
   inherited;
+  
   grid1.SumList.RecalcAll;
 end;
 
