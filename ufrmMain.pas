@@ -73,6 +73,7 @@ type
     ShellResources1: TShellResources;
     actGenerarNotaCredito: TAction;
     actListadoNotasCreditos: TAction;
+    actGestionClientes: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -89,6 +90,7 @@ type
     procedure JvAppInstances1Rejected(Sender: TObject);
     procedure actGenerarNotaCreditoExecute(Sender: TObject);
     procedure actListadoNotasCreditosExecute(Sender: TObject);
+    procedure actGestionClientesExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure SetTerminalName(const Value: string);
@@ -115,7 +117,7 @@ uses
   ufrmVentas, ufrmImprimirListadoProductos, ufrmVentasLista, ufrmabmventas,
   ufrmRendicionVentas, ufrmVentasDia, ufrmMantenerProductos, JclSysInfo,
   ufrmFacturasTimbrados, ufrmFacturasClientes, ufrmlotes, uFrmLoteProductos,
-  ufrmNotaCredito, ufrmNotaCreditoManual, ufrmListadoNotaCredito;
+  ufrmNotaCredito, ufrmNotaCreditoManual, ufrmListadoNotaCredito, ufrmClientes;
 
 {$R *.dfm}
 
@@ -135,6 +137,11 @@ procedure TfrmMain.actGenerarNotaCreditoExecute(Sender: TObject);
 begin
   // TfrmNotaCredito.Create(Application).Show;
   TfrmNotaCreditoManual.Create(Application).show;
+end;
+
+procedure TfrmMain.actGestionClientesExecute(Sender: TObject);
+begin
+    tfrmclientes.Create(application).show;
 end;
 
 procedure TfrmMain.actGestionPrecioProductosExecute(Sender: TObject);
@@ -192,16 +199,14 @@ end;
 
 procedure TfrmMain.actResumenVentasExecute(Sender: TObject);
 begin
-  /// mostrar
-  ///
-  tfrmVentasDia.Create(self).show;
+  tfrmVentasDia.Create(application).show;
 
 end;
 
 procedure TfrmMain.actVentasListaExecute(Sender: TObject);
 begin
   if not Assigned(frmVentasLista) then
-    frmVentasLista := TfrmVentasLista.Create(self);
+    frmVentasLista := TfrmVentasLista.Create(application);
   frmVentasLista.show;
 
 end;

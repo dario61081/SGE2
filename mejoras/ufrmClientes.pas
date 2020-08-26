@@ -8,7 +8,7 @@ uses
   DBGridEhToolCtrls, DynVarsEh, Data.DB, EhLibVCL, GridsEh, DBAxisGridsEh,
   DBGridEh, Vcl.StdCtrls, Vcl.ExtCtrls, System.Actions, Vcl.ActnList,
   Vcl.DBCtrls, Vcl.ComCtrls, JvExComCtrls, JvStatusBar, dr2gcomponentes,
-  IBCustomDataSet, IBTable;
+  IBCustomDataSet, IBTable, JvComCtrls, JvExExtCtrls, JvSplitter;
 
 type
   TfrmClientes = class(TForm)
@@ -19,7 +19,35 @@ type
     header1: TDxHeader;
     btnSeleccionar: TButton;
     tblClientes: TIBTable;
+    page1: TJvPageControl;
+    tsCliente: TTabSheet;
+    page2: TJvPageControl;
+    tsDirecciones: TTabSheet;
+    jvspltr1: TJvSplitter;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    dbnvgr2: TDBNavigator;
+    tblDirecciones: TIBTable;
+    gridDirecciones: TDBGridEh;
+    dsDirecciones: TDataSource;
+    tblDireccionesCODIGO: TLargeintField;
+    tblDireccionesCLIENTES_CODIGO: TLargeintField;
+    tblDireccionesDIRECCION: TIBStringField;
+    tblClientesRUC: TIBStringField;
+    tblClientesRAZON_SOCIAL: TIBStringField;
+    tblClientesDIRECCION: TIBStringField;
+    tblClientesFECHA_CREADO: TDateTimeField;
+    tblClientesFECHA_MODIF: TDateTimeField;
+    tblClientesCONDICION_PREDEFINIDO: TIBStringField;
+    tblClientesCODIGO: TLargeintField;
+    tblDireccionesSUCURSAL: TIBStringField;
+    tblDireccionesCIUDAD: TIBStringField;
+    tblDireccionesBARRIO: TIBStringField;
+    tblDireccionesTELEFONO: TIBStringField;
     procedure btnSeleccionarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure tblDireccionesBeforeInsert(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     Frazon_social: string;
     Fruc: string;
@@ -53,6 +81,25 @@ begin
      ModalResult := mrOk;
 end;
 
+procedure TfrmClientes.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+  if tblDirecciones.Transaction.InTransaction then
+  tbldirecciones.Transaction.CommitRetaining;
+  if tblClientes.Transaction.InTransaction then
+  tblClientes.Transaction.CommitRetaining;
+
+  tbldirecciones.Close;
+  tblClientes.Close;
+
+end;
+
+procedure TfrmClientes.FormCreate(Sender: TObject);
+begin
+  tblClientes.Open;
+  tblDirecciones.Open;
+end;
+
 procedure TfrmClientes.Setdireccion(const Value: string);
 begin
   Fdireccion := Value;
@@ -66,6 +113,12 @@ end;
 procedure TfrmClientes.Setruc(const Value: string);
 begin
   Fruc := Value;
+end;
+
+procedure TfrmClientes.tblDireccionesBeforeInsert(DataSet: TDataSet);
+begin
+  if DataSet.FieldByName('clientes_codigo').IsNull then
+    dataset.FieldByName('clientes_codigo').Value := tblClientesCODIGO.Value;
 end;
 
 end.
