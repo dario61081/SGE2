@@ -9,7 +9,8 @@ uses
   ppDBPipe, Data.DB, JvDataSource, IBCustomDataSet, IBTable, ppComm, ppRelatv,
   ppProd, ppClass, ppReport, ppBands, ppStrtch, ppSubRpt, ppCtrls, ppVar,
   ppPrnabl, ppCache, ppDesignLayer, ppParameter, IBQuery, ufrmTemplateModal,
-  dr2gcomponentes;
+  dr2gcomponentes, System.Actions, Vcl.ActnList, Vcl.ImgList, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmImprimirProductos = class(TfrmMensaje)
@@ -53,6 +54,7 @@ type
     ppGroupHeaderBand1: TppGroupHeaderBand;
     ppGroupFooterBand1: TppGroupFooterBand;
     plbl2: TppLabel;
+    ppImage1: TppImage;
     procedure btnAceptarClick(Sender: TObject);
   private
     { Private declarations }

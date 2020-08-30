@@ -17,7 +17,6 @@ type
   TfrmMain = class(TForm)
     mm1: TMainMenu;
     Sistema1: TMenuItem;
-    Herramientas1: TMenuItem;
     status1: TJvStatusBar;
     background1: TJvBackground;
     actmgr1: TActionManager;
@@ -74,6 +73,7 @@ type
     actGenerarNotaCredito: TAction;
     actListadoNotasCreditos: TAction;
     actGestionClientes: TAction;
+    actSalir: TAction;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
@@ -91,6 +91,7 @@ type
     procedure actGenerarNotaCreditoExecute(Sender: TObject);
     procedure actListadoNotasCreditosExecute(Sender: TObject);
     procedure actGestionClientesExecute(Sender: TObject);
+    procedure actSalirExecute(Sender: TObject);
   private
     Fterminal: string;
     procedure SetTerminalName(const Value: string);
@@ -201,6 +202,12 @@ procedure TfrmMain.actResumenVentasExecute(Sender: TObject);
 begin
   tfrmVentasDia.Create(application).show;
 
+end;
+
+procedure TfrmMain.actSalirExecute(Sender: TObject);
+begin
+  self.Close;
+  Exit();
 end;
 
 procedure TfrmMain.actVentasListaExecute(Sender: TObject);

@@ -8,7 +8,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  DBGridEhGrouping,
   ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Vcl.StdCtrls, Data.DB,
   IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  ufrmTemplateModal, dr2gcomponentes, Vcl.ImgList;
+  ufrmTemplateModal, dr2gcomponentes, Vcl.ImgList, System.Actions, Vcl.ActnList,
+  Vcl.ExtCtrls;
 
 type
   TfrmBuscarEquivalencias = class(TfrmMensaje)
@@ -20,8 +21,11 @@ type
     lbl1: TLabel;
     edtDato: TEdit;
     btnBuscar: TButton;
+    lbl2: TLabel;
     procedure btnBuscarClick(Sender: TObject);
     procedure edtDatoKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure actAceptarExecute(Sender: TObject);
+    procedure actCancelarExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,6 +41,18 @@ uses
   datos;
 
 {$R *.dfm}
+
+procedure TfrmBuscarEquivalencias.actAceptarExecute(Sender: TObject);
+begin
+  inherited;
+  self.onAccept;
+end;
+
+procedure TfrmBuscarEquivalencias.actCancelarExecute(Sender: TObject);
+begin
+  inherited;
+  self.onCancel;
+end;
 
 procedure TfrmBuscarEquivalencias.btnBuscarClick(Sender: TObject);
 begin
