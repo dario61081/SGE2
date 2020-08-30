@@ -105,15 +105,15 @@
             <Form>frmVentas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="forms\busquedas\ufrmBuscarEquivalencia.pas">
+        <DCCReference Include="forms\ufrmBuscarEquivalencia.pas">
             <Form>frmBuscarEquivalencias</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="forms\busquedas\ufrmBuscarProductos.pas">
+        <DCCReference Include="forms\ufrmBuscarProductos.pas">
             <Form>frmBuscarProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmImprimirListadoProductos.pas">
+        <DCCReference Include="reports\ufrmImprimirListadoProductos.pas">
             <Form>frmImprimirProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -128,7 +128,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unidades\Controles.pas"/>
-        <DCCReference Include="forms\ventas\ufrmabmventas.pas">
+        <DCCReference Include="reports\ufrmabmventas.pas">
             <Form>frmabmVentas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -202,11 +202,12 @@
             <Form>frmDialogTemplate</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmdialogoimprimirt.pas">
+        <DCCReference Include="forms_removed\ufrmdialogoimprimirt.pas">
             <Form>frmDlgImprimirReporte</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uinterfaceVentas.pas"/>
+        <DCCReference Include="iDatosInterface.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

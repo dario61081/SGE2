@@ -11,7 +11,8 @@ uses
   Data.DB, IBCustomDataSet, IBQuery, System.Actions, Vcl.ActnList,
   Vcl.PlatformDefaultStyleActnCtrls, Vcl.ActnMan, JvExComCtrls, JvStatusBar,
   ppDB, ppDBPipe, ppDesignLayer, ppBands, ppClass, ppVar, ppCtrls, ppPrnabl,
-  ppCache, ppParameter, ppComm, ppRelatv, ppProd, ppReport, Vcl.AppEvnts;
+  ppCache, ppParameter, ppComm, ppRelatv, ppProd, ppReport, Vcl.AppEvnts,
+  Vcl.ExtCtrls;
 
 type
   TfrmListadoNotaCredito = class(TfrmMensaje)

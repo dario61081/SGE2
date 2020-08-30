@@ -7,15 +7,15 @@ uses
   ufrmTemplateModal in 'templates\ufrmTemplateModal.pas' {frmMensaje},
   ufrmTemplateDatos in 'templates\ufrmTemplateDatos.pas' {frmDatos},
   ufrmVentas in 'ufrmVentas.pas' {frmVentas},
-  ufrmBuscarEquivalencia in 'forms\busquedas\ufrmBuscarEquivalencia.pas' {frmBuscarEquivalencias},
-  ufrmBuscarProductos in 'forms\busquedas\ufrmBuscarProductos.pas' {frmBuscarProductos},
-  ufrmImprimirListadoProductos in 'ufrmImprimirListadoProductos.pas' {frmImprimirProductos},
+  ufrmBuscarEquivalencia in 'forms\ufrmBuscarEquivalencia.pas' {frmBuscarEquivalencias},
+  ufrmBuscarProductos in 'forms\ufrmBuscarProductos.pas' {frmBuscarProductos},
+  ufrmImprimirListadoProductos in 'reports\ufrmImprimirListadoProductos.pas' {frmImprimirProductos},
   uEnlace in 'unidades\uEnlace.pas',
   Num2Let in 'Num2Let.pas',
   ufrmVentasLista in 'ufrmVentasLista.pas' {frmVentasLista},
   ufrmProductos in 'ufrmProductos.pas' {frmProductos},
   Controles in 'unidades\Controles.pas',
-  ufrmabmventas in 'forms\ventas\ufrmabmventas.pas' {frmabmVentas},
+  ufrmabmventas in 'reports\ufrmabmventas.pas' {frmabmVentas},
   ufrmVistaRapidaFacturas in 'ufrmVistaRapidaFacturas.pas' {frmVistaFacturas},
   ufrmRendicionVentas in 'ufrmRendicionVentas.pas' {frmRendicionVentas},
   ufrmVentasDia in 'ufrmVentasDia.pas' {frmVentasDia},
@@ -35,8 +35,9 @@ uses
   ufrmSplash in 'ufrmSplash.pas' {frmSplash},
   ufrmListadoNotaCredito in 'mejoras\ufrmListadoNotaCredito.pas' {frmListadoNotaCredito},
   ufrmDialogTemplate in 'templates\ufrmDialogTemplate.pas' {frmDialogTemplate},
-  ufrmdialogoimprimirt in 'ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
-  uinterfaceVentas in 'uinterfaceVentas.pas';
+  ufrmdialogoimprimirt in 'forms_removed\ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
+  uinterfaceVentas in 'uinterfaceVentas.pas',
+  iDatosInterface in 'iDatosInterface.pas';
 
 {$R *.res}
 
