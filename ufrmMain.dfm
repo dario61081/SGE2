@@ -1529,6 +1529,12 @@ object frmMain: TfrmMain
       object Listadodeventas1: TMenuItem
         Action = actVentasLista
       end
+      object Listadodenotasdecredito1: TMenuItem
+        Action = actListadoNotasCreditos
+      end
+      object RendiciondeVentas2: TMenuItem
+        Action = actRendiciondeVentas
+      end
     end
   end
   object background1: TJvBackground
@@ -4211,11 +4217,6 @@ object frmMain: TfrmMain
           end
           item
             Caption = '-'
-          end
-          item
-            Action = actFacturacionVentas
-            Caption = '&Facturacion ventas...'
-            ImageIndex = 9
           end>
         ActionBar = acttbMain
       end>
@@ -4241,11 +4242,13 @@ object frmMain: TfrmMain
       OnExecute = actProductosExecute
     end
     object actImprimirListadoProductos: TAction
-      Caption = 'Imprimir listado de productos...'
+      Caption = 'Listado de productos...'
+      ImageIndex = 0
       OnExecute = actImprimirListadoProductosExecute
     end
     object actVentasLista: TAction
       Caption = 'Listado de ventas...'
+      ImageIndex = 0
       OnExecute = actVentasListaExecute
     end
     object EditCut1: TEditCut
@@ -4295,12 +4298,19 @@ object frmMain: TfrmMain
       ImageIndex = 9
       OnExecute = actGestionVentasExecute
     end
+    object actListaFacturasClientes: TAction
+      Caption = 'Listado de facturas de clientes...'
+      ImageIndex = 0
+      OnExecute = actListaFacturasClientesExecute
+    end
     object actRendiciondeVentas: TAction
       Caption = 'Rendicion de Ventas'
+      ImageIndex = 9
       OnExecute = actRendiciondeVentasExecute
     end
     object actResumenVentas: TAction
       Caption = 'Resumen de ventas'
+      ImageIndex = 9
       OnExecute = actResumenVentasExecute
     end
     object actGestionPrecios: TAction
@@ -4319,10 +4329,6 @@ object frmMain: TfrmMain
       Hint = 'Permiteadministrar las facturas y timbrados del sistema'
       ImageIndex = 6
       OnExecute = actFacturasyTimbradosExecute
-    end
-    object actListaFacturasClientes: TAction
-      Caption = 'Listado de facturas de clientes...'
-      OnExecute = actListaFacturasClientesExecute
     end
     object actLotesProductos: TAction
       Category = 'modulos'

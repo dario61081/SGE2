@@ -74,6 +74,8 @@ type
     actListadoNotasCreditos: TAction;
     actGestionClientes: TAction;
     actSalir: TAction;
+    Listadodenotasdecredito1: TMenuItem;
+    RendiciondeVentas2: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure actFacturacionVentasExecute(Sender: TObject);
     procedure actImprimirListadoProductosExecute(Sender: TObject);
