@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,  Vcl.StdCtrls,
   DBGridEhGrouping, ToolCtrlsEh, DBGridEhToolCtrls, DynVarsEh, Data.DB,
   IBCustomDataSet, IBTable, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh,
-  Vcl.ComCtrls, JvExComCtrls, JvComCtrls, dr2gcomponentes, ufrmTemplateDatos;
+  Vcl.ComCtrls, JvExComCtrls, JvComCtrls, dr2gcomponentes, ufrmTemplateDatos, idatos;
 
 type
   TfrmProductos = class(tform)

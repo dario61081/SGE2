@@ -200,6 +200,7 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
+    bvl1: TBevel;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);

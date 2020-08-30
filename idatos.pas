@@ -3,7 +3,7 @@ unit idatos;
 interface
 
 type
-    IDatos =interface
+  IDatos2 = interface
          procedure onAccept;
          procedure onCancel;
 

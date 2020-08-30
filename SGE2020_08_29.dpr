@@ -11,7 +11,7 @@ uses
   ufrmBuscarProductos in 'forms\ufrmBuscarProductos.pas' {frmBuscarProductos},
   ufrmImprimirListadoProductos in 'reports\ufrmImprimirListadoProductos.pas' {frmImprimirProductos},
   uEnlace in 'unidades\uEnlace.pas',
-  Num2Let in 'Num2Let.pas',
+  Num2Let in 'utils\Num2Let.pas',
   ufrmVentasLista in 'ufrmVentasLista.pas' {frmVentasLista},
   ufrmProductos in 'ufrmProductos.pas' {frmProductos},
   Controles in 'unidades\Controles.pas',
@@ -27,17 +27,17 @@ uses
   ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores},
   ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes},
   uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos},
-  Utilidades in 'Utilidades.pas',
+  Utilidades in 'utils\Utilidades.pas',
   ufrmLotesDisponibles in 'mejoras\ufrmLotesDisponibles.pas' {frmLotesDisponibles},
-  uinterfaces in 'unidades\uinterfaces.pas',
+  uinterfaces in 'interfaces\uinterfaces.pas',
   ufrmNotaCredito in 'mejoras\ufrmNotaCredito.pas' {frmNotaCredito},
   ufrmNotaCreditoManual in 'mejoras\ufrmNotaCreditoManual.pas' {frmNotaCreditoManual},
-  ufrmSplash in 'ufrmSplash.pas' {frmSplash},
+  ufrmSplash in 'forms_removed\ufrmSplash.pas' {frmSplash},
   ufrmListadoNotaCredito in 'mejoras\ufrmListadoNotaCredito.pas' {frmListadoNotaCredito},
   ufrmDialogTemplate in 'templates\ufrmDialogTemplate.pas' {frmDialogTemplate},
   ufrmdialogoimprimirt in 'forms_removed\ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
-  uinterfaceVentas in 'uinterfaceVentas.pas',
-  iDatosInterface in 'iDatosInterface.pas';
+  uinterfaceVentas in 'interfaces\uinterfaceVentas.pas',
+  udatosinterface in 'interfaces\udatosinterface.pas';
 
 {$R *.res}
 

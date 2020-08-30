@@ -65,11 +65,11 @@
         <DCC_UnitSearchPath>C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Win32\Debug;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_MapFile>3</DCC_MapFile>
-        <VerInfo_Build>63</VerInfo_Build>
+        <VerInfo_Build>64</VerInfo_Build>
         <Icon_MainIcon>SGE_Icon.ico</Icon_MainIcon>
         <DCC_ExeOutput>C:\sge\binarios\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.63;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.64;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -118,7 +118,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unidades\uEnlace.pas"/>
-        <DCCReference Include="Num2Let.pas"/>
+        <DCCReference Include="utils\Num2Let.pas"/>
         <DCCReference Include="ufrmVentasLista.pas">
             <Form>frmVentasLista</Form>
             <FormType>dfm</FormType>
@@ -176,12 +176,12 @@
             <Form>frmLoteProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Utilidades.pas"/>
+        <DCCReference Include="utils\Utilidades.pas"/>
         <DCCReference Include="mejoras\ufrmLotesDisponibles.pas">
             <Form>frmLotesDisponibles</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unidades\uinterfaces.pas"/>
+        <DCCReference Include="interfaces\uinterfaces.pas"/>
         <DCCReference Include="mejoras\ufrmNotaCredito.pas">
             <Form>frmNotaCredito</Form>
             <FormType>dfm</FormType>
@@ -190,7 +190,7 @@
             <Form>frmNotaCreditoManual</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmSplash.pas">
+        <DCCReference Include="forms_removed\ufrmSplash.pas">
             <Form>frmSplash</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -206,8 +206,8 @@
             <Form>frmDlgImprimirReporte</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uinterfaceVentas.pas"/>
-        <DCCReference Include="iDatosInterface.pas"/>
+        <DCCReference Include="interfaces\uinterfaceVentas.pas"/>
+        <DCCReference Include="interfaces\udatosinterface.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
