@@ -9,7 +9,8 @@ uses
   IBCustomDataSet, IBQuery, EhLibVCL, GridsEh, DBAxisGridsEh, DBGridEh, ppBands,
   ppCtrls, ppClass, ppVar, ppPrnabl, ppCache, ppDesignLayer, ppParameter, ppDB,
   ppDBPipe, ppComm, ppRelatv, ppProd, ppReport, ufrmTemplateDatos,
-  dr2gcomponentes;
+  dr2gcomponentes, Vcl.ExtCtrls, Vcl.ComCtrls, raCodMod, ppModule,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmResumenFacturasProveedores = class(TfrmDatos)
@@ -22,43 +23,50 @@ type
     report1: TppReport;
     ppDBPipeline1: TppDBPipeline;
     ppParameterList1: TppParameterList;
-    ppDesignLayers1: TppDesignLayers;
-    pdsgnlyr1: TppDesignLayer;
-    phdrbnd1: TppHeaderBand;
-    ppDetailBand1: TppDetailBand;
-    ppFooterBand1: TppFooterBand;
+    btnImprimir: TButton;
+    pnl1: TPanel;
     ppTitleBand1: TppTitleBand;
+    phdrbnd1: TppHeaderBand;
     plbl1: TppLabel;
-    psystmvrbl1: TppSystemVariable;
-    psystmvrbl2: TppSystemVariable;
+    pmg1: TppImage;
+    ppDetailBand1: TppDetailBand;
     ppDBText1: TppDBText;
-    plbl2: TppLabel;
-    ppDBText2: TppDBText;
-    plbl3: TppLabel;
     ppDBText3: TppDBText;
-    plbl4: TppLabel;
-    ppDBText4: TppDBText;
-    plbl5: TppLabel;
-    ppDBText5: TppDBText;
-    plbl6: TppLabel;
     ppDBText6: TppDBText;
-    plbl7: TppLabel;
     ppDBText7: TppDBText;
-    plbl8: TppLabel;
     ppDBText8: TppDBText;
-    plbl9: TppLabel;
     ppDBText9: TppDBText;
-    plbl10: TppLabel;
-    pln1: TppLine;
-    pln2: TppLine;
-    ppGroup1: TppGroup;
-    ppGroupHeaderBand1: TppGroupHeaderBand;
-    ppGroupFooterBand1: TppGroupFooterBand;
+    ppDBText2: TppDBText;
+    pvrblSubTotal: TppVariable;
+    ppPageSummaryBand1: TppPageSummaryBand;
     ppDBCalc1: TppDBCalc;
     ppDBCalc2: TppDBCalc;
     ppDBCalc3: TppDBCalc;
-    ppPageSummaryBand1: TppPageSummaryBand;
-    btnImprimir: TButton;
+    ppFooterBand1: TppFooterBand;
+    pln2: TppLine;
+    psystmvrbl1: TppSystemVariable;
+    psystmvrbl2: TppSystemVariable;
+    ppGroup1: TppGroup;
+    ppGroupHeaderBand1: TppGroupHeaderBand;
+    ppShape1: TppShape;
+    plbl5: TppLabel;
+    ppDBText5: TppDBText;
+    ppDBText4: TppDBText;
+    plbl6: TppLabel;
+    pln1: TppLine;
+    plbl2: TppLabel;
+    plbl3: TppLabel;
+    plbl4: TppLabel;
+    plbl7: TppLabel;
+    plbl8: TppLabel;
+    plbl9: TppLabel;
+    plbl10: TppLabel;
+    plbl11: TppLabel;
+    ppGroupFooterBand1: TppGroupFooterBand;
+    raCodeModule1: TraCodeModule;
+    rprgrmnf1: TraProgramInfo;
+    ppDesignLayers1: TppDesignLayers;
+    pdsgnlyr1: TppDesignLayer;
     procedure btnBuscarClick(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
   private

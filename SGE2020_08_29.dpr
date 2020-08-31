@@ -22,7 +22,7 @@ uses
   Unit1 in 'Unit1.pas' {frmGenerarRecibos},
   ufrmGenerarRecibo in 'forms\ufrmGenerarRecibo.pas' {frmGenerarRecibo},
   ufrmMantenerProductos in 'ufrmMantenerProductos.pas' {frmMantenerProductos},
-  ufrmClientes in 'mejoras\ufrmClientes.pas' {frmClientes},
+  ufrmClientes in 'forms\ufrmClientes.pas' {frmClientes},
   ufrmFacturasTimbrados in 'mejoras\ufrmFacturasTimbrados.pas' {frmFacturasTimbrados},
   ufrmFacturasClientes in 'mejoras\ufrmFacturasClientes.pas' {frmResumenFacturasProveedores},
   ufrmlotes in 'forms\ufrmlotes.pas' {frmLotes},

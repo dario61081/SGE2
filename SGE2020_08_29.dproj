@@ -156,7 +156,7 @@
             <Form>frmMantenerProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="mejoras\ufrmClientes.pas">
+        <DCCReference Include="forms\ufrmClientes.pas">
             <Form>frmClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
