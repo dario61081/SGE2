@@ -12,7 +12,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TfrmBuscarEquivalencias = class(TfrmMensaje)
+  TfrmBuscarEquivalencias = class(TFormModalMessage)
     grid1: TDBGridEh;
     dseq: TDataSource;
     qryEq: TIBQuery;
@@ -29,6 +29,7 @@ type
   private
     { Private declarations }
   public
+
     { Public declarations }
   end;
 
@@ -45,13 +46,13 @@ uses
 procedure TfrmBuscarEquivalencias.actAceptarExecute(Sender: TObject);
 begin
   inherited;
-  self.onAccept;
+  self.doAccept;
 end;
 
 procedure TfrmBuscarEquivalencias.actCancelarExecute(Sender: TObject);
 begin
   inherited;
-  self.onCancel;
+  self.doCancel;
 end;
 
 procedure TfrmBuscarEquivalencias.btnBuscarClick(Sender: TObject);

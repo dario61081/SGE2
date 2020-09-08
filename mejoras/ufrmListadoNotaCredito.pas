@@ -15,7 +15,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TfrmListadoNotaCredito = class(TfrmMensaje)
+  TfrmListadoNotaCredito = class(TFormModalMessage)
     lbl2: TLabel;
     edtRuc: TEdit;
     Label1: TLabel;

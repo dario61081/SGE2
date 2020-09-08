@@ -10,7 +10,7 @@ uses
   GridsEh, DBAxisGridsEh, DBGridEh;
 
 type
-  TfrmLotesDisponibles = class(TfrmMensaje)
+  TfrmLotesDisponibles = class(TFormModalMessage)
     grid1: TDBGridEh;
     qryLotesDisponibles: TIBQuery;
     dsLotesDisponibles: TDataSource;

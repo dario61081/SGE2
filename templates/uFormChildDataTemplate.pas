@@ -1,15 +1,13 @@
-unit ufrmVentasLista;
+unit uFormChildDataTemplate;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ufrmDatos, Vcl.ComCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
 
 type
-  TfrmVentasLista = class(TfrmDatos)
-    pgc1: TPageControl;
-    tsDiario: TTabSheet;
+  TfrmChildDataTemplate = class(TForm)
   private
     { Private declarations }
   public
@@ -17,12 +15,9 @@ type
   end;
 
 var
-  frmVentasLista: TfrmVentasLista;
+  frmChildDataTemplate: TfrmChildDataTemplate;
 
 implementation
-
-uses
-  datos;
 
 {$R *.dfm}
 

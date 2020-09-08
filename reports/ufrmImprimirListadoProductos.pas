@@ -13,7 +13,7 @@ uses
   Vcl.Imaging.pngimage;
 
 type
-  TfrmImprimirProductos = class(TfrmMensaje)
+  TfrmImprimirProductos = class(TFormModalMessage)
     report1: TppReport;
     lbl1: TLabel;
     ppParameterList1: TppParameterList;
@@ -77,13 +77,13 @@ uses
 procedure TfrmImprimirProductos.actAceptarExecute(Sender: TObject);
 begin
   inherited;
-  onAccept;
+  doAccept;
 end;
 
 procedure TfrmImprimirProductos.actCancelarExecute(Sender: TObject);
 begin
   inherited;
-  onCancel;
+  doCancel
 end;
 
 procedure TfrmImprimirProductos.btnAceptarClick(Sender: TObject);

@@ -68,8 +68,6 @@ type
     JvAppStorage1: TJvAppStorage;
     pnlTask: TPanel;
     imgLogo: TImage;
-    XPManifest1: TXPManifest;
-    ShellResources1: TShellResources;
     actGenerarNotaCredito: TAction;
     actListadoNotasCreditos: TAction;
     actGestionClientes: TAction;

@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dr2gcomponentes,
-  Vcl.ImgList , uinterfaces, System.Actions, Vcl.ActnList, Vcl.ExtCtrls, iformmodal;
+  Vcl.ImgList, uinterfaces, System.Actions, Vcl.ActnList, Vcl.ExtCtrls,
+  iformmodal;
 
 type
   TFormModalMessage = class(TForm, IModalInterface)
@@ -37,19 +38,16 @@ type
 
   end;
 
-
 var
   frmMensaje: TFormModalMessage;
 
 implementation
 
-
-
 {$R *.dfm}
 
 procedure TFormModalMessage.btnAceptar1Click(Sender: TObject);
 begin
-  self.onAccept;
+  self.doAccept;
 end;
 
 procedure TFormModalMessage.btnAceptarClick(Sender: TObject);
@@ -60,7 +58,7 @@ end;
 
 procedure TFormModalMessage.btnCancelar1Click(Sender: TObject);
 begin
-  Self.onCancel;
+  self.doCancel;
 end;
 
 procedure TFormModalMessage.btnCancelarClick(Sender: TObject);
@@ -70,19 +68,19 @@ end;
 
 procedure TFormModalMessage.doAccept;
 begin
-  ModalResult := mrok;
+  modalresult := mrok;
 end;
 
 procedure TFormModalMessage.doCancel;
 begin
-  ModalResult := mrCancel;
+  modalresult := mrCancel;
 end;
 
-procedure TFormModalMessage.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormModalMessage.FormClose(Sender: TObject;
+  var Action: TCloseAction);
 begin
   Action := cafree;
 end;
-
 
 procedure TFormModalMessage.Setusuario(const Value: string);
 begin
@@ -93,7 +91,5 @@ procedure TFormModalMessage.update;
 begin
 
 end;
-
-
 
 end.

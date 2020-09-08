@@ -4821,12 +4821,4 @@ object frmMain: TfrmMain
     Left = 358
     Top = 126
   end
-  object XPManifest1: TXPManifest
-    Left = 390
-    Top = 158
-  end
-  object ShellResources1: TShellResources
-    Left = 358
-    Top = 158
-  end
 end

@@ -10,7 +10,7 @@ uses
   dr2gcomponentes, System.Actions, Vcl.ActnList, Vcl.ImgList, Vcl.ExtCtrls;
 
 type
-  TfrmVistaFacturas = class(TfrmMensaje)
+  TfrmVistaFacturas = class(TFormModalMessage)
     grid1: TDBGridEh;
     qryVenta: TIBQuery;
     dsVenta: TDataSource;

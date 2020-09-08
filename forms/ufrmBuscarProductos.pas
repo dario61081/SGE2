@@ -12,7 +12,7 @@ uses
   Vcl.ActnList, Vcl.ExtCtrls;
 
 type
-  TfrmBuscarProductos = class(TfrmMensaje)
+  TfrmBuscarProductos = class(tform)
     grid1: TDBGridEh;
     tblProductos: TIBTable;
     tblProductosID: TLargeintField;
@@ -62,8 +62,8 @@ uses
 
 procedure TfrmBuscarProductos.btnAceptar1Click(Sender: TObject);
 begin
-  inherited;
-  onAccept;
+
+
 end;
 
 procedure TfrmBuscarProductos.btnAceptarClick(Sender: TObject);
@@ -77,8 +77,6 @@ end;
 
 procedure TfrmBuscarProductos.btnCancelar1Click(Sender: TObject);
 begin
-  inherited;
-  onCancel;
 end;
 
 procedure TfrmBuscarProductos.FormClose(Sender: TObject;
