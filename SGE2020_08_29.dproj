@@ -84,7 +84,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="ufrmMain.pas">
+        <DCCReference Include="forms\ufrmMain.pas">
             <Form>frmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -101,7 +101,7 @@
             <Form>frmDatos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmVentas.pas">
+        <DCCReference Include="forms\ufrmVentas.pas">
             <Form>frmVentas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -119,11 +119,11 @@
         </DCCReference>
         <DCCReference Include="unidades\uEnlace.pas"/>
         <DCCReference Include="utils\Num2Let.pas"/>
-        <DCCReference Include="ufrmVentasLista.pas">
+        <DCCReference Include="forms\ufrmVentasLista.pas">
             <Form>frmVentasLista</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmProductos.pas">
+        <DCCReference Include="form_verificar\ufrmProductos.pas">
             <Form>frmProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -132,19 +132,19 @@
             <Form>frmabmVentas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmVistaRapidaFacturas.pas">
+        <DCCReference Include="form_verificar\ufrmVistaRapidaFacturas.pas">
             <Form>frmVistaFacturas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmRendicionVentas.pas">
+        <DCCReference Include="forms\ufrmRendicionVentas.pas">
             <Form>frmRendicionVentas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmVentasDia.pas">
+        <DCCReference Include="forms\ufrmVentasDia.pas">
             <Form>frmVentasDia</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit1.pas">
+        <DCCReference Include="form_verificar\Unit1.pas">
             <Form>frmGenerarRecibos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -152,7 +152,7 @@
             <Form>frmGenerarRecibo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="ufrmMantenerProductos.pas">
+        <DCCReference Include="forms\ufrmMantenerProductos.pas">
             <Form>frmMantenerProductos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
