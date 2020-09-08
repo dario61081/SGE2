@@ -37,7 +37,8 @@ uses
   ufrmDialogTemplate in 'templates\ufrmDialogTemplate.pas' {frmDialogTemplate},
   ufrmdialogoimprimirt in 'forms_removed\ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
   uinterfaceVentas in 'interfaces\uinterfaceVentas.pas',
-  udatosinterface in 'interfaces\udatosinterface.pas';
+  udatosinterface in 'interfaces\udatosinterface.pas',
+  iFormModal in 'interfaces\iFormModal.pas';
 
 {$R *.res}
 

@@ -6,10 +6,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dr2gcomponentes,
-  Vcl.ImgList , uinterfaces, System.Actions, Vcl.ActnList, Vcl.ExtCtrls;
+  Vcl.ImgList , uinterfaces, System.Actions, Vcl.ActnList, Vcl.ExtCtrls, iformmodal;
 
 type
-  TfrmMensaje = class(TForm, imodal)
+  TFormModalMessage = class(TForm, IModalInterface)
     headerCabecera: TDxHeader;
     ilButtons: TImageList;
     pnlBottom: TPanel;
@@ -30,8 +30,8 @@ type
     { Private declarations }
   public
     procedure update;
-    procedure onAccept;
-    procedure onCancel;
+    procedure doAccept;
+    procedure doCancel;
     { Public declarations }
     property usuario: string read Fusuario write Setusuario;
 
@@ -39,7 +39,7 @@ type
 
 
 var
-  frmMensaje: TfrmMensaje;
+  frmMensaje: TFormModalMessage;
 
 implementation
 
@@ -47,48 +47,49 @@ implementation
 
 {$R *.dfm}
 
-procedure TfrmMensaje.btnAceptar1Click(Sender: TObject);
+procedure TFormModalMessage.btnAceptar1Click(Sender: TObject);
 begin
   self.onAccept;
 end;
 
-procedure TfrmMensaje.btnAceptarClick(Sender: TObject);
+procedure TFormModalMessage.btnAceptarClick(Sender: TObject);
 begin
 
   modalresult := mrok;
 end;
 
-procedure TfrmMensaje.btnCancelar1Click(Sender: TObject);
+procedure TFormModalMessage.btnCancelar1Click(Sender: TObject);
 begin
   Self.onCancel;
 end;
 
-procedure TfrmMensaje.btnCancelarClick(Sender: TObject);
+procedure TFormModalMessage.btnCancelarClick(Sender: TObject);
 begin
   modalresult := mrCancel;
 end;
 
-procedure TfrmMensaje.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFormModalMessage.doAccept;
+begin
+  ModalResult := mrok;
+end;
+
+procedure TFormModalMessage.doCancel;
+begin
+  ModalResult := mrCancel;
+end;
+
+procedure TFormModalMessage.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := cafree;
 end;
 
-procedure TfrmMensaje.onAccept;
-begin
-  modalresult := mrOk;
-end;
 
-procedure TfrmMensaje.onCancel;
-begin
-    ModalResult := mrCancel;
-end;
-
-procedure TfrmMensaje.Setusuario(const Value: string);
+procedure TFormModalMessage.Setusuario(const Value: string);
 begin
   Fusuario := Value;
 end;
 
-procedure TfrmMensaje.update;
+procedure TFormModalMessage.update;
 begin
 
 end;
