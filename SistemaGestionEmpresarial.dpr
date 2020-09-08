@@ -29,16 +29,17 @@ uses
   uFrmLoteProductos in 'forms\uFrmLoteProductos.pas' {frmLoteProductos},
   Utilidades in 'utils\Utilidades.pas',
   ufrmLotesDisponibles in 'mejoras\ufrmLotesDisponibles.pas' {frmLotesDisponibles},
-  uinterfaces in 'interfaces\uinterfaces.pas',
+  uinterfaces in 'interfaces_verificar\uinterfaces.pas',
   ufrmNotaCredito in 'mejoras\ufrmNotaCredito.pas' {frmNotaCredito},
   ufrmNotaCreditoManual in 'mejoras\ufrmNotaCreditoManual.pas' {frmNotaCreditoManual},
   ufrmSplash in 'forms_removed\ufrmSplash.pas' {frmSplash},
   ufrmListadoNotaCredito in 'mejoras\ufrmListadoNotaCredito.pas' {frmListadoNotaCredito},
   ufrmDialogTemplate in 'templates\ufrmDialogTemplate.pas' {frmDialogTemplate},
   ufrmdialogoimprimirt in 'forms_removed\ufrmdialogoimprimirt.pas' {frmDlgImprimirReporte},
-  uinterfaceVentas in 'interfaces\uinterfaceVentas.pas',
+  uinterfaceVentas in 'interfaces_verificar\uinterfaceVentas.pas',
   udatosinterface in 'interfaces\udatosinterface.pas',
-  iFormModal in 'interfaces\iFormModal.pas';
+  iFormModal in 'interfaces\iFormModal.pas',
+  iFormDialogInterface in 'interfaces\iFormDialogInterface.pas';
 
 {$R *.res}
 

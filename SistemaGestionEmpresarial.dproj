@@ -181,7 +181,7 @@
             <Form>frmLotesDisponibles</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="interfaces\uinterfaces.pas"/>
+        <DCCReference Include="interfaces_verificar\uinterfaces.pas"/>
         <DCCReference Include="mejoras\ufrmNotaCredito.pas">
             <Form>frmNotaCredito</Form>
             <FormType>dfm</FormType>
@@ -206,9 +206,10 @@
             <Form>frmDlgImprimirReporte</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="interfaces\uinterfaceVentas.pas"/>
+        <DCCReference Include="interfaces_verificar\uinterfaceVentas.pas"/>
         <DCCReference Include="interfaces\udatosinterface.pas"/>
         <DCCReference Include="interfaces\iFormModal.pas"/>
+        <DCCReference Include="interfaces\iFormDialogInterface.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

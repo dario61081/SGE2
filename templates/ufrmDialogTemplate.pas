@@ -3,19 +3,15 @@ unit ufrmDialogTemplate;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, iFormDialogInterface,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.Imaging.pngimage;
 
 type
-  TfrmDialogInterface = Interface
-    procedure    showdialog (title: string);
-  End;
 
 
-
-
-  TfrmDialogTemplate = class(TForm,tfrmdialoginterface)
+  TfrmDialogTemplate = class(TForm, IFormDialogInteface)
     btnSi: TButton;
     btnCancelar: TButton;
     img1: TImage;
@@ -23,9 +19,9 @@ type
     { Private declarations }
   public
     procedure showdialog(title: string);
+    procedure closedialog;
+
     { Public declarations }
-
-
 
   end;
 
@@ -35,6 +31,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmDialogTemplate.closedialog;
+begin
+
+end;
 
 procedure TfrmDialogTemplate.showdialog(title: string);
 begin
