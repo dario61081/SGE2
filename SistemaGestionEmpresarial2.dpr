@@ -1,4 +1,4 @@
-program SistemaGestionEmpresarial;
+program SistemaGestionEmpresarial2;
 
 uses
   Vcl.Forms,

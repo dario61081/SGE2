@@ -3,7 +3,7 @@
         <ProjectGuid>{564CA369-3B0F-44FA-B546-7D8B0AAACF34}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="SistemaGestionEmpresarial.dproj">
+        <Projects Include="SistemaGestionEmpresarial2.dproj">
             <Dependencies>C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj</Dependencies>
         </Projects>
         <Projects Include="C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj">
@@ -13,7 +13,7 @@
             <Dependencies/>
         </Projects>
         <Projects Include="Testings\SistemaGestionEmpresarialTests.dproj">
-            <Dependencies>SistemaGestionEmpresarial.dproj</Dependencies>
+            <Dependencies>SistemaGestionEmpresarial2.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -23,14 +23,14 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="SistemaGestionEmpresarial" DependsOnTargets="Componentes">
-        <MSBuild Projects="SistemaGestionEmpresarial.dproj"/>
+    <Target Name="SistemaGestionEmpresarial2" DependsOnTargets="Componentes">
+        <MSBuild Projects="SistemaGestionEmpresarial2.dproj"/>
     </Target>
-    <Target Name="SistemaGestionEmpresarial:Clean" DependsOnTargets="Componentes:Clean">
-        <MSBuild Projects="SistemaGestionEmpresarial.dproj" Targets="Clean"/>
+    <Target Name="SistemaGestionEmpresarial2:Clean" DependsOnTargets="Componentes:Clean">
+        <MSBuild Projects="SistemaGestionEmpresarial2.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SistemaGestionEmpresarial:Make" DependsOnTargets="Componentes:Make">
-        <MSBuild Projects="SistemaGestionEmpresarial.dproj" Targets="Make"/>
+    <Target Name="SistemaGestionEmpresarial2:Make" DependsOnTargets="Componentes:Make">
+        <MSBuild Projects="SistemaGestionEmpresarial2.dproj" Targets="Make"/>
     </Target>
     <Target Name="Componentes">
         <MSBuild Projects="C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Componentes.dproj"/>
@@ -50,23 +50,23 @@
     <Target Name="ConectorBalanza:Make">
         <MSBuild Projects="C:\Users\servidor\Documents\RAD Studio\Projects\ConectorBalanza\ConectorBalanza.dproj" Targets="Make"/>
     </Target>
-    <Target Name="SistemaGestionEmpresarialTests" DependsOnTargets="SistemaGestionEmpresarial">
+    <Target Name="SistemaGestionEmpresarialTests" DependsOnTargets="SistemaGestionEmpresarial2">
         <MSBuild Projects="Testings\SistemaGestionEmpresarialTests.dproj"/>
     </Target>
-    <Target Name="SistemaGestionEmpresarialTests:Clean" DependsOnTargets="SistemaGestionEmpresarial:Clean">
+    <Target Name="SistemaGestionEmpresarialTests:Clean" DependsOnTargets="SistemaGestionEmpresarial2:Clean">
         <MSBuild Projects="Testings\SistemaGestionEmpresarialTests.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SistemaGestionEmpresarialTests:Make" DependsOnTargets="SistemaGestionEmpresarial:Make">
+    <Target Name="SistemaGestionEmpresarialTests:Make" DependsOnTargets="SistemaGestionEmpresarial2:Make">
         <MSBuild Projects="Testings\SistemaGestionEmpresarialTests.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="SistemaGestionEmpresarial;Componentes;ConectorBalanza;SistemaGestionEmpresarialTests"/>
+        <CallTarget Targets="SistemaGestionEmpresarial2;Componentes;ConectorBalanza;SistemaGestionEmpresarialTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="SistemaGestionEmpresarial:Clean;Componentes:Clean;ConectorBalanza:Clean;SistemaGestionEmpresarialTests:Clean"/>
+        <CallTarget Targets="SistemaGestionEmpresarial2:Clean;Componentes:Clean;ConectorBalanza:Clean;SistemaGestionEmpresarialTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="SistemaGestionEmpresarial:Make;Componentes:Make;ConectorBalanza:Make;SistemaGestionEmpresarialTests:Make"/>
+        <CallTarget Targets="SistemaGestionEmpresarial2:Make;Componentes:Make;ConectorBalanza:Make;SistemaGestionEmpresarialTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
