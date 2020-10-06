@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'SGE :: Sistema de Gesti'#243'n Empresarial :: DR2GSistemas.com'
-  ClientHeight = 455
+  ClientHeight = 479
   ClientWidth = 750
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -22,14 +22,14 @@ object frmMain: TfrmMain
   object spl1: TSplitter
     Left = 201
     Top = 30
-    Height = 403
+    Height = 427
     ExplicitLeft = 240
     ExplicitTop = 15
     ExplicitHeight = 346
   end
   object status1: TJvStatusBar
     Left = 0
-    Top = 433
+    Top = 457
     Width = 750
     Height = 22
     Panels = <
@@ -44,6 +44,7 @@ object frmMain: TfrmMain
       item
         Width = 50
       end>
+    ExplicitTop = 433
   end
   object JvCoolBar1: TJvCoolBar
     Left = 0
@@ -87,13 +88,14 @@ object frmMain: TfrmMain
     Left = 0
     Top = 30
     Width = 201
-    Height = 403
+    Height = 427
     Align = alLeft
     BevelOuter = bvNone
     Caption = 'pnlTask'
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
+    ExplicitHeight = 403
     object imgLogo: TImage
       AlignWithMargins = True
       Left = 3
@@ -1384,7 +1386,7 @@ object frmMain: TfrmMain
       Left = 0
       Top = 136
       Width = 201
-      Height = 267
+      Height = 291
       Align = alClient
       Pages = <
         item
@@ -1467,12 +1469,13 @@ object frmMain: TfrmMain
       BorderStyle = bsNone
       Color = 15066597
       TabOrder = 0
+      ExplicitHeight = 267
     end
   end
   object mm1: TMainMenu
     Images = ilsmall
-    Left = 326
-    Top = 158
+    Left = 291
+    Top = 363
     object Sistema1: TMenuItem
       Caption = 'Sistema'
       object Salir1: TMenuItem
@@ -4179,8 +4182,8 @@ object frmMain: TfrmMain
     Image.TileHeight = 130
     Clients.Clients = (
       'frmMain')
-    Left = 390
-    Top = 126
+    Left = 355
+    Top = 331
   end
   object actmgr1: TActionManager
     ActionBars = <
@@ -4221,8 +4224,8 @@ object frmMain: TfrmMain
         ActionBar = acttbMain
       end>
     Images = ilsmall
-    Left = 262
-    Top = 126
+    Left = 227
+    Top = 331
     StyleName = 'Platform Default'
     object actFacturacionVentas: TAction
       Category = 'modulos'
@@ -4362,8 +4365,8 @@ object frmMain: TfrmMain
   end
   object ilsmall: TImageList
     ColorDepth = cd32Bit
-    Left = 294
-    Top = 126
+    Left = 259
+    Top = 331
     Bitmap = {
       494C01010B000D00040010001000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
@@ -4772,13 +4775,13 @@ object frmMain: TfrmMain
     PluginFolder = 'etc'
     Extension = 'bpl'
     PluginKind = plgPackage
-    Left = 262
-    Top = 158
+    Left = 227
+    Top = 363
   end
   object JvAppInstances1: TJvAppInstances
     OnRejected = JvAppInstances1Rejected
-    Left = 326
-    Top = 126
+    Left = 291
+    Top = 331
   end
   object JvTipOfDay1: TJvTipOfDay
     AppStorage = JvAppStorage1
@@ -4811,14 +4814,14 @@ object frmMain: TfrmMain
       ''
       'Utiliizar el modulo lotes para administrarlos. ')
     Title = 'Tips, informaci'#243'n y otros'
-    Left = 294
-    Top = 158
+    Left = 259
+    Top = 363
   end
   object JvAppStorage1: TJvAppStorage
     StorageOptions.BooleanStringTrueValues = 'TRUE, YES, Y'
     StorageOptions.BooleanStringFalseValues = 'FALSE, NO, N'
     SubStorages = <>
-    Left = 358
-    Top = 126
+    Left = 323
+    Top = 331
   end
 end
