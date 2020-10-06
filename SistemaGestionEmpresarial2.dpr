@@ -39,7 +39,8 @@ uses
   uinterfaceVentas in 'interfaces_verificar\uinterfaceVentas.pas',
   udatosinterface in 'interfaces\udatosinterface.pas',
   iFormModal in 'interfaces\iFormModal.pas',
-  iFormDialogInterface in 'interfaces\iFormDialogInterface.pas';
+  iFormDialogInterface in 'interfaces\iFormDialogInterface.pas',
+  ufrmmodal in 'forms\modals\ufrmmodal.pas' {frmModal};
 
 {$R *.res}
 

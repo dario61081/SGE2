@@ -58,11 +58,7 @@ type
     btnImprimir: TButton;
     ppVentas: TppDBPipeline;
     ppDetalles: TppDBPipeline;
-    Label1: TLabel;
-    dbedtEstado: TDBEdit;
     appevents1: TApplicationEvents;
-    lbl11: TLabel;
-    dbedtID: TDBEdit;
     appevents2: TApplicationEvents;
     btnNuevaFactura: TBitBtn;
     actNuevaFactura: TAction;
@@ -200,7 +196,16 @@ type
     ppDesignLayer1: TppDesignLayer;
     ppParameterList1: TppParameterList;
     prletra: TppParameter;
-    bvl1: TBevel;
+    btnBuscarDireccion: TButton;
+    btnBuscarRazonSocial: TButton;
+    Button1: TButton;
+    btnBuscarObservacion: TButton;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    dbedtEstado: TDBEdit;
+    lbl11: TLabel;
+    dbedtID: TDBEdit;
+    GroupBox2: TGroupBox;
     procedure FormCreate(Sender: TObject);
     procedure nav1Click(Sender: TObject; Button: TNavigateBtn);
     procedure actBuscarRucExecute(Sender: TObject);
@@ -244,6 +249,7 @@ type
     procedure appevents2Idle(Sender: TObject; var Done: Boolean);
     procedure dsVentasDataChange(Sender: TObject; Field: TField);
     procedure tblDetallesAfterPost(DataSet: TDataSet);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     gbuffer: string;
@@ -591,6 +597,12 @@ begin
 
   end;
 
+end;
+
+procedure TfrmVentas.Button1Click(Sender: TObject);
+begin
+  inherited;
+actBuscarClientes.Execute;
 end;
 
 procedure TfrmVentas.comm1AfterReceive(Com: TObject; Buffer: Pointer;

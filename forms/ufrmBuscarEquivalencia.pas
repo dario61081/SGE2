@@ -12,13 +12,12 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TfrmBuscarEquivalencias = class(tform)
+  TfrmBuscarEquivalencias = class(tform, IModalInterface)
     grid1: TDBGridEh;
     dseq: TDataSource;
     qryEq: TIBQuery;
     qryEqRUC: TIBStringField;
     qryEqRAZON_SOCIAL: TIBStringField;
-    lbl1: TLabel;
     edtDato: TEdit;
     btnBuscar: TButton;
     lbl2: TLabel;
@@ -28,7 +27,10 @@ type
     procedure actCancelarExecute(Sender: TObject);
   private
     { Private declarations }
+
   public
+    procedure doAccept;
+    procedure doCancel;
 
     { Public declarations }
   end;
@@ -66,6 +68,16 @@ begin
     Prepare;
     open;
   end;
+
+end;
+
+procedure TfrmBuscarEquivalencias.doAccept;
+begin
+
+end;
+
+procedure TfrmBuscarEquivalencias.doCancel;
+begin
 
 end;
 
