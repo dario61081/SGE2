@@ -3,7 +3,7 @@
         <ProjectGuid>{93A888B8-AD96-46A0-A9E9-92730E26BBCA}</ProjectGuid>
         <ProjectVersion>15.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>SGE2019_12_06.dpr</MainSource>
+        <MainSource>SistemaGestionEmpresarial_2020.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -65,11 +65,11 @@
         <DCC_UnitSearchPath>C:\Users\servidor\Documents\RAD Studio\Projects\Componentes\Win32\Debug;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_DebugInformation>true</DCC_DebugInformation>
         <DCC_MapFile>3</DCC_MapFile>
-        <VerInfo_Build>57</VerInfo_Build>
+        <VerInfo_Build>58</VerInfo_Build>
         <Icon_MainIcon>SGE_Icon.ico</Icon_MainIcon>
         <DCC_ExeOutput>C:\sge\binarios\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.57;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=DR2GSistemas.com;FileDescription=Sistema de Gestión Empresarial;FileVersion=1.0.0.58;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -266,7 +266,7 @@
                     <VersionInfoKeys Name="theme"/>
                 </VersionInfoKeys>
                 <Source>
-                    <Source Name="MainSource">SGE2019_12_06.dpr</Source>
+                    <Source Name="MainSource">SistemaGestionEmpresarial_2020.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k190.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>

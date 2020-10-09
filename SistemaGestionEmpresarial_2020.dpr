@@ -1,4 +1,4 @@
-program SGE2019_12_06;
+program SistemaGestionEmpresarial_2020;
 
 uses
   Vcl.Forms,

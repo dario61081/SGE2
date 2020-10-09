@@ -16,11 +16,11 @@ uses
   ppStrtch, ppSubRpt, raCodMod, ppModule, Vcl.AppEvnts, IBStoredProc,
   Vcl.Buttons, nrsemaphore, nrclasses, nrdataproc, nrcomm, nrterminal,
   Vcl.Controls, ppVar, Vcl.ToolWin, JvToolBar, dr2gcomponentes, JvExControls,
-  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage, Vcl.Menus, uinterfaceVentas;
+  JvLED, JvLabel, JclSysInfo, Vcl.Imaging.pngimage, Vcl.Menus;
 
 type
 
-  TfrmVentas = class(TfrmDatos, IVentas)
+  TfrmVentas = class(TfrmDatos)
     grid1: TDBGridEh;
     tblVentas: TIBTable;
     tblDetalles: TIBTable;

@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DC96BC42-BE7D-4803-B2BB-06753A4BDA93}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SistemaGestionEmpresarial_2020.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SistemaGestionEmpresarial_2020">
+        <MSBuild Projects="SistemaGestionEmpresarial_2020.dproj"/>
+    </Target>
+    <Target Name="SistemaGestionEmpresarial_2020:Clean">
+        <MSBuild Projects="SistemaGestionEmpresarial_2020.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SistemaGestionEmpresarial_2020:Make">
+        <MSBuild Projects="SistemaGestionEmpresarial_2020.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SistemaGestionEmpresarial_2020"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SistemaGestionEmpresarial_2020:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SistemaGestionEmpresarial_2020:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
